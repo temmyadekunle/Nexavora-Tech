@@ -14,7 +14,7 @@ export default function SiteFooter() {
               </span>
               <span className="brand__text">
                 NEXAVORA
-                <span className="brand__sub">Technologies</span>
+                <span className="brand__sub">{site.brandSuffix}</span>
               </span>
             </Link>
             <p>{footer.blurb}</p>

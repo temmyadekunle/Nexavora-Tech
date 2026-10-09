@@ -54,6 +54,29 @@ export default function CompanyPage() {
       <Team />
       <SelectedWork />
 
+      <section className="section section--line" id="labs">
+        <div className="container prose">
+          <span className="eyebrow">Nexavora Labs</span>
+          <h2>Where we experiment, prototype and explore what&apos;s next</h2>
+          <p>
+            Labs is our early-stage space. Not everything here is a product yet — but it&apos;s
+            where tomorrow&apos;s products start. When Nexavora ships something new, it usually
+            begins as a question we wanted to answer.
+          </p>
+          <ul className="checklist">
+            <li>AI experiments</li>
+            <li>Experimental products and prototypes</li>
+            <li>New technology and internal tools</li>
+            <li>Early-stage ideas worth testing</li>
+          </ul>
+          <p className="section-lead" style={{ marginTop: 22 }}>
+            Nexavora Technologies is organised into three parts: <strong>Products</strong> —
+            what we build and launch; <strong>Solutions</strong> — what we build for clients;
+            and <strong>Labs</strong> — what we&apos;re experimenting with.
+          </p>
+        </div>
+      </section>
+
       <section className="section section--line" id="careers">
         <div className="container prose">
           <span className="eyebrow">Careers</span>

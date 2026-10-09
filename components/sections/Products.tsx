@@ -21,6 +21,7 @@ export function Products() {
           {products.map((product, index) => (
             <article
               className={`product-card${index % 2 === 1 ? " product-card--reverse" : ""}`}
+              id={product.slug}
               key={product.slug}
             >
               <div>
@@ -40,7 +41,7 @@ export function Products() {
                 <p className="product-card__desc">{product.description}</p>
 
                 <div className="product-card__actions btn-row">
-                  <Link className="btn btn-ghost btn-sm" href="/products/">
+                  <Link className="btn btn-ghost btn-sm" href={`/products/#${product.slug}`}>
                     Explore {product.name}
                   </Link>
                 </div>

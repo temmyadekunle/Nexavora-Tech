@@ -19,8 +19,8 @@ const sora = Sora({
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} Technologies — ${site.tagline}`,
-    template: `%s · ${site.name} Technologies`,
+    default: `${site.name} ${site.brandSuffix} — ${site.tagline}`,
+    template: `%s · ${site.name} ${site.brandSuffix}`,
   },
   description: site.positioning,
   icons: {
@@ -31,10 +31,10 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: `${site.name} Technologies`,
+    title: `${site.name} ${site.brandSuffix}`,
     description: site.positioning,
     type: "website",
-    siteName: `${site.name} Technologies`,
+    siteName: `${site.name} ${site.brandSuffix}`,
   },
 };
 

@@ -42,14 +42,25 @@ export default function SiteHeader() {
           </span>
           <span className="brand__text">
             NEXAVORA
-            <span className="brand__sub">Technologies</span>
+            <span className="brand__sub">{site.brandSuffix}</span>
           </span>
         </Link>
 
         <nav className="nav" aria-label="Primary">
-          <Link className="nav__link" href={nav.primary[0].href}>
-            {nav.primary[0].label}
-          </Link>
+          <div className="nav__drop">
+            <Link className="nav__drop-label" href={nav.products.href}>
+              {nav.products.label}
+              <Chevron />
+            </Link>
+            <div className="nav__menu">
+              {nav.products.items.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  <strong>{item.label}</strong>
+                  <small>{item.hint}</small>
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="nav__drop">
             <Link className="nav__drop-label" href={nav.solutions.href}>
@@ -81,7 +92,7 @@ export default function SiteHeader() {
             </div>
           </div>
 
-          {nav.primary.slice(1).map((item) => (
+          {nav.links.map((item) => (
             <Link key={item.href} className="nav__link" href={item.href}>
               {item.label}
             </Link>
@@ -107,7 +118,15 @@ export default function SiteHeader() {
 
       <div id="mobile-nav" className={open ? "mobile-nav is-open" : "mobile-nav"}>
         <div className="mobile-nav__group">
-          <Link href={nav.primary[0].href}>{nav.primary[0].label}</Link>
+          <Link href={nav.products.href}>{nav.products.label}</Link>
+          <div className="mobile-nav__sub">
+            {nav.products.items.map((item) => (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+                <small>{item.hint}</small>
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="mobile-nav__group">
@@ -134,7 +153,7 @@ export default function SiteHeader() {
           </div>
         </div>
 
-        {nav.primary.slice(1).map((item) => (
+        {nav.links.map((item) => (
           <div className="mobile-nav__group" key={item.href}>
             <Link href={item.href}>{item.label}</Link>
           </div>

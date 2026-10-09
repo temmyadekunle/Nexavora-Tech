@@ -26,6 +26,12 @@ export function WhatWeDo() {
             </article>
           ))}
         </div>
+
+        <div className="process__cta">
+          <Link className="link-arrow" href="/solutions/">
+            Explore our solutions <span>→</span>
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -4,6 +4,8 @@
 
 export const site = {
   name: "Nexavora",
+  // Visual brand lockup under the wordmark.
+  brandSuffix: "Technology Solutions",
   legalName: "Nexavora Technologies Ltd.",
   tagline: "We Build Technology That Moves Ideas Forward.",
   positioning:
@@ -14,11 +16,22 @@ export const site = {
 };
 
 export const nav = {
-  primary: [
-    { label: "Products", href: "/products/" },
-    { label: "Insights", href: "/insights/" },
-    { label: "Contact", href: "/contact/" },
-  ],
+  products: {
+    label: "Products",
+    href: "/products/",
+    items: [
+      {
+        label: "CareNBuddi",
+        hint: "Healthcare technology platform",
+        href: "/products/#carenbuddi",
+      },
+      {
+        label: "Livanta",
+        hint: "Life admin & productivity app",
+        href: "/products/#livanta",
+      },
+    ],
+  },
   solutions: {
     label: "Solutions",
     href: "/solutions/",
@@ -40,6 +53,10 @@ export const nav = {
       { label: "Careers", hint: "Build with us", href: "/company/#careers" },
     ],
   },
+  links: [
+    { label: "Insights", href: "/insights/" },
+    { label: "Contact", href: "/contact/" },
+  ],
 };
 
 export const hero = {

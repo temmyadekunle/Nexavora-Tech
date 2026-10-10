@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import ClientLogo from "@/components/ClientLogo";
 import { clientValue, clients, stats, team, work } from "@/lib/content";
@@ -70,7 +71,7 @@ export function Team() {
             <article className="team-card" key={member.name}>
               <div className="team-card__avatar" aria-hidden="true">
                 {member.photo ? (
-                  <img
+                  <Image
                     src={member.photo}
                     alt=""
                     width={120}

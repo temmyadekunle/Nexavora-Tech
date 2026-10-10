@@ -85,10 +85,10 @@ export default function PortfolioPage() {
                         <polyline points="12 5 19 12 12 19" />
                       </svg>
                     </Link>
-                    {project.links?.github && (
+                    {project.links && (project.links as { github?: string }).github && (
                       <a
                         className="portfolio-card__link portfolio-card__link--secondary"
-                        href={project.links.github}
+                        href={(project.links as { github?: string }).github}
                         target="_blank"
                         rel="noopener noreferrer"
                       >

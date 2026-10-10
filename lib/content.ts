@@ -287,52 +287,6 @@ export const products = [
       future: "v1.x — payment rails (Paystack ready, not enabled in beta), predictive anticipation of household costs, OS widgets for today's due items, document photos (dates only — never ID numbers), iOS build, richer provider ratings",
     },
   },
-  {
-    slug: "income-tracker",
-    name: "Income Tracker",
-    industry: "FinTech / Personal Finance",
-    problem:
-      "People need a private, simple way to track income and expenses without their financial data being sold or analysed by third parties. Existing apps are cluttered, require accounts, or compromise privacy.",
-    description:
-      "Income Tracker is a privacy-first, local-only application for recording and monitoring income and expenses. No accounts, no cloud sync, no tracking — your financial data never leaves your device.",
-    longDescription:
-      "Income Tracker is a privacy-focused project for recording and monitoring income and expenses. Built with a local-first architecture using IndexedDB, it works completely offline with zero network requests. No accounts, no cloud, no analytics — your financial data stays on your device.",
-    status: "Prototype",
-    accent: "amber" as const,
-    logo: "/logo/income-tracker.png",
-    coverImage: "/projects/income-tracker/cover.png",
-    screenshots: [
-      { src: "/projects/income-tracker/dashboard.png", alt: "Income Tracker dashboard", caption: "Financial dashboard with income/expense overview" },
-      { src: "/projects/income-tracker/income.png", alt: "Income records", caption: "Record and categorise income sources" },
-      { src: "/projects/income-tracker/expenses.png", alt: "Expense records", caption: "Track expenses by category" },
-      { src: "/projects/income-tracker/summary.png", alt: "Financial summary", caption: "Monthly and yearly financial summaries" },
-    ],
-    mockups: {
-      desktop: "/projects/income-tracker/desktop-mockup.png",
-      mobile: "/projects/income-tracker/mobile-mockup.png",
-    },
-    features: [
-      "Local-first — IndexedDB storage, zero network requests",
-      "Income recording — multiple sources, custom categories",
-      "Expense tracking — categorised spending with tags",
-      "Financial summaries — daily, weekly, monthly, yearly views",
-      "Data export — CSV/JSON export for backup or analysis",
-      "Zero tracking — no analytics, no accounts, no cloud",
-      "Offline-first — works completely offline",
-      "PWA support — installable on any device",
-    ],
-    techStack: [
-      "Next.js (App Router, static export)",
-      "IndexedDB for local storage",
-      "Service Worker — offline shell, PWA",
-      "Chart.js for financial visualisations",
-      "Cloudflare Workers deployment",
-    ],
-    links: {
-      prototype: "https://income-tracker.folababy02.workers.dev/",
-      github: "https://github.com/temmyadekunle/income-tracker",
-    },
-  },
 ];
 
 export const whyNexavora = [

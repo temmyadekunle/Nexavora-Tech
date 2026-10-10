@@ -41,9 +41,9 @@ export function SelectedWork() {
               </ul>
 
               <div className="work-card__cta">
-                <Link className="link-arrow" href={`/company/#${project.slug}`}>
+                <a className="link-arrow" href={`#${project.slug}`}>
                   View case study <span>→</span>
-                </Link>
+                </a>
               </div>
             </article>
           ))}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { products } from "@/lib/content";
 
 export function Products() {
@@ -41,7 +42,7 @@ export function Products() {
                 <p className="product-card__desc">{product.description}</p>
 
                 <div className="product-card__actions btn-row">
-                  <Link className="btn btn-ghost btn-sm" href={`/products/#${product.slug}`}>
+                  <Link className="btn btn-ghost btn-sm" href={`/company/#${product.slug}`}>
                     Explore {product.name}
                   </Link>
                 </div>
@@ -49,7 +50,17 @@ export function Products() {
 
               <div className="product-card__visual">
                 <span className="product-card__badge">{product.industry}</span>
-                <span className="product-card__visual-word">{product.name}</span>
+                {product.logo ? (
+                  <Image
+                    src={product.logo}
+                    alt={`${product.name} logo`}
+                    width={120}
+                    height={120}
+                    className="product-card__logo"
+                  />
+                ) : (
+                  <span className="product-card__visual-word">{product.name}</span>
+                )}
               </div>
             </article>
           ))}

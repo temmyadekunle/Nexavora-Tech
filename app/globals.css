@@ -991,7 +991,8 @@ ol {
   padding: 24px;
 }
 
-.product-card__visual img {
+.product-card__visual img,
+.product-card__logo {
   width: min(58%, 230px);
   filter: drop-shadow(0 16px 44px rgba(74, 116, 245, 0.35));
 }

@@ -143,6 +143,7 @@ export const products = [
       "CareNBuddi was created from a simple belief: getting healthcare should not be harder than it needs to be. Inspired by the story of Bethany Hamilton in Soul Surfer — in an emergency, care shouldn't always have to wait until a patient reaches the hospital. CareNBuddi uses technology to help people connect with healthcare, manage their care and find the right next step — whether at home, working remotely, travelling, or navigating the healthcare system.",
     status: "Live",
     accent: "cyan" as const,
+    logo: "/logo/carenbuddi.png",
     features: [
       "Find Healthcare — hospitals, clinics, PHCs, laboratories, pharmacies by name or area",
       "Book Appointments — schedule visits and track what's coming up",
@@ -210,6 +211,7 @@ export const products = [
       "Livanta — your life, organized. Your problems, anticipated. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. The app has 5 tabs (Home, Life, Alerts, Calendar, Profile), 4 languages (English, Hausa, Yoruba, Igbo), and a demo household seeded with 12 realistic Nigerian items (rent, electricity, internet, Netflix, vehicle insurance, school fees, driver's licence, passport, refrigerator warranty, generator service, car oil change, electrician). 9 alerts derived at seed time. 368 tests + smoke, CSP and responsive QA. 0 trackers — no cookies, no analytics, CSP-enforced.",
     status: "In development",
     accent: "violet" as const,
+    logo: "/logo/livanta.png",
     features: [
       "Home — status hero, urgent/important/on-track readings, needs attention, coming soon, quick add, life areas",
       "Life — five life areas (Home, Transport, Money, Documents, Family, Tasks, Services) with live counts, search, category/status filters, trusted providers with call/WhatsApp",

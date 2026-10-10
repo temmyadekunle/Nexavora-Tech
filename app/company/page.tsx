@@ -8,7 +8,7 @@ import { site } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Company",
   description:
-    "Nexavora Technologies is a technology company building digital products and providing technology, design, digital growth, customer experience and business solutions.",
+    "Nexavora Technology Solutions is a technology company building digital products and providing technology, design, digital growth, customer experience and business solutions.",
 };
 
 export default function CompanyPage() {
@@ -29,9 +29,9 @@ export default function CompanyPage() {
           <span className="eyebrow">About Nexavora</span>
           <h2>Who we are and what we believe</h2>
           <p>
-            Nexavora Technologies is a technology company building digital products and
-            providing technology, design, digital growth, customer experience and business
-            solutions.
+            Nexavora Technology Solutions is a technology company building digital products
+            and providing technology, design, digital growth, customer experience and
+            business solutions.
           </p>
           <p>
             We work with businesses, organisations and people building what&apos;s next — and
@@ -70,7 +70,8 @@ export default function CompanyPage() {
             <li>Early-stage ideas worth testing</li>
           </ul>
           <p className="section-lead" style={{ marginTop: 22 }}>
-            Nexavora Technologies is organised into three parts: <strong>Products</strong> —
+            Nexavora Technology Solutions is organised into three parts:{" "}
+            <strong>Products</strong> —
             what we build and launch; <strong>Solutions</strong> — what we build for clients;
             and <strong>Labs</strong> — what we&apos;re experimenting with.
           </p>

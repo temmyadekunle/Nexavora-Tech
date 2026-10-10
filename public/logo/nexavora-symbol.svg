@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="480" height="480"><defs><linearGradient id="grad" gradientUnits="userSpaceOnUse" x1="30" y1="150" x2="175" y2="50"><stop offset="0" stop-color="#19BFFF"/><stop offset=".5" stop-color="#4A74F5"/><stop offset="1" stop-color="#A34BFF"/></linearGradient></defs><g transform="translate(20 20)">
+<g transform="rotate(-25 100 100)" fill="none" stroke-linecap="round">
+<ellipse cx="100" cy="100" rx="92" ry="32" stroke="url(#grad)" stroke-width="5"/>
+<circle cx="24.6" cy="81.6" r="7" fill="#35D5FF" stroke="#050817" stroke-width="3"/>
+<circle cx="175.4" cy="118.4" r="6.5" fill="#FFAD32" stroke="#050817" stroke-width="3"/></g>
+<g fill="none" stroke-linecap="butt">
+<line x1="96" y1="148" x2="150" y2="52" stroke="#050817" stroke-width="29"/>
+<line x1="62" y1="52" x2="134" y2="148" stroke="#050817" stroke-width="29"/>
+<line x1="62" y1="52" x2="56" y2="148" stroke="#050817" stroke-width="29"/>
+<line x1="96" y1="148" x2="150" y2="52" stroke="url(#grad)" stroke-width="16"/>
+<line x1="62" y1="52" x2="134" y2="148" stroke="#050817" stroke-width="28"/>
+<line x1="62" y1="52" x2="134" y2="148" stroke="url(#grad)" stroke-width="16"/>
+<line x1="62" y1="52" x2="56" y2="148" stroke="url(#grad)" stroke-width="16"/></g></g></svg>

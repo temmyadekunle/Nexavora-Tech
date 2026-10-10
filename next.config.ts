@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
   images: {
     // No image optimiser exists in a static export.
     unoptimized: true,
+    // The brand mark, lockup and favicon are our own first-party SVGs from
+    // the official Nexavora logo package; nothing third-party is loaded.
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   trailingSlash: true,
 };

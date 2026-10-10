@@ -1,39 +1,60 @@
 "use client";
 
-import { useState } from "react";
-import { site } from "@/lib/content";
+import { useRef, useState } from "react";
+import { budgetOptions, contact, serviceOptions, site, timelineOptions } from "@/lib/content";
 
-const projectTypes = [
-  "Build — technology & product development",
-  "Design — UI/UX & product design",
-  "Grow — digital marketing & social media",
-  "Operate — customer experience & operations",
-  "Not sure yet",
-];
+type FormState = {
+  name: string;
+  email: string;
+  company: string;
+  service: string;
+  budget: string;
+  timeline: string;
+  message: string;
+};
+
+const initialState: FormState = {
+  name: "",
+  email: "",
+  company: "",
+  service: serviceOptions[0],
+  budget: budgetOptions[0],
+  timeline: timelineOptions[0],
+  message: "",
+};
 
 export default function ContactForm() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    company: "",
-    type: projectTypes[0],
-    message: "",
-  });
+  const [form, setForm] = useState<FormState>(initialState);
+  const guard = useRef(false);
 
-  const update = (key: keyof typeof form) =>
+  const update =
+    (key: keyof FormState) =>
     (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
       setForm((current) => ({ ...current, [key]: event.target.value }));
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const subject = `Project enquiry — ${form.type.split(" — ")[0]}${form.company ? ` — ${form.company}` : ""}`;
+    // Guard against a double click producing two email drafts.
+    if (guard.current) return;
+    guard.current = true;
+    window.setTimeout(() => {
+      guard.current = false;
+    }, 1500);
+
+    const subject = `Project enquiry — ${form.service}${
+      form.company ? ` — ${form.company}` : ""
+    }`;
+
     const body = [
       `Name: ${form.name}`,
       `Email: ${form.email}`,
-      form.company ? `Company: ${form.company}` : "",
-      `Interested in: ${form.type}`,
+      form.company ? `Company / project: ${form.company}` : "",
+      `What do you need: ${form.service}`,
+      `Estimated budget: ${form.budget}`,
+      `Preferred timeline: ${form.timeline}`,
       "",
+      "The problem:",
       form.message,
     ]
       .filter(Boolean)
@@ -48,7 +69,7 @@ export default function ContactForm() {
     <form className="contact-form" onSubmit={onSubmit}>
       <div className="contact-form__row">
         <label>
-          <span>Name</span>
+          <span>Full name</span>
           <input
             type="text"
             name="name"
@@ -61,7 +82,7 @@ export default function ContactForm() {
         </label>
 
         <label>
-          <span>Email</span>
+          <span>Email address</span>
           <input
             type="email"
             name="email"
@@ -76,12 +97,14 @@ export default function ContactForm() {
 
       <div className="contact-form__row">
         <label>
-          <span>Company</span>
+          <span>
+            Company or project <em>optional</em>
+          </span>
           <input
             type="text"
             name="company"
             autoComplete="organization"
-            placeholder="Company or project"
+            placeholder="Company or project name"
             value={form.company}
             onChange={update("company")}
           />
@@ -89,8 +112,32 @@ export default function ContactForm() {
 
         <label>
           <span>What do you need?</span>
-          <select name="type" value={form.type} onChange={update("type")}>
-            {projectTypes.map((option) => (
+          <select name="service" value={form.service} onChange={update("service")}>
+            {serviceOptions.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      <div className="contact-form__row">
+        <label>
+          <span>
+            Estimated budget <em>optional</em>
+          </span>
+          <select name="budget" value={form.budget} onChange={update("budget")}>
+            {budgetOptions.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          <span>
+            Preferred timeline <em>optional</em>
+          </span>
+          <select name="timeline" value={form.timeline} onChange={update("timeline")}>
+            {timelineOptions.map((option) => (
               <option key={option}>{option}</option>
             ))}
           </select>
@@ -109,14 +156,14 @@ export default function ContactForm() {
         />
       </label>
 
-      <button className="btn btn-primary" type="submit">
-        Send enquiry
-      </button>
-
-      <p className="contact-form__note">
-        This opens your email app with the details filled in — no data is stored on this
-        site.
-      </p>
+      <div className="contact-form__actions">
+        <button className="btn btn-primary" type="submit">
+          Send Inquiry
+        </button>
+        <p className="contact-form__note" id="contact-form-note">
+          {contact.note}
+        </p>
+      </div>
     </form>
   );
 }

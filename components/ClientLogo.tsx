@@ -18,7 +18,8 @@ export default function ClientLogo({
 }) {
   const [failed, setFailed] = useState(false);
 
-  if (failed) {
+  // No artwork supplied yet — render the name rather than a broken image.
+  if (!src || failed) {
     return <span className="logo-tile__name">{name}</span>;
   }
 

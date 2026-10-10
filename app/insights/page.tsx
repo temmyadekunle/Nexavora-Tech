@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { FinalCta } from "@/components/sections/Growth";
-import { insights } from "@/lib/content";
+import { insights, insightsStatus } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -24,7 +24,9 @@ export default function InsightsPage() {
 
       <section className="section">
         <div className="container">
-          <div className="grid-2">
+          <p className="insights-status">{insightsStatus}</p>
+
+          <div className="grid-2 insights-grid">
             {insights.map((article) => (
               <article className="insight-card" key={article.title}>
                 <span className="insight-card__topic">{article.topic}</span>

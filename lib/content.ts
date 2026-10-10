@@ -6,10 +6,10 @@ export const site = {
   name: "Nexavora",
   // Visual brand lockup under the wordmark.
   brandSuffix: "Technology Solutions",
-  legalName: "Nexavora Technologies Ltd.",
+  legalName: "Nexavora Technology Solutions",
   tagline: "We Build Technology That Moves Ideas Forward.",
   positioning:
-    "Nexavora Technologies is a technology company building digital products and providing technology, design, digital growth, customer experience, and business solutions.",
+    "Nexavora Technology Solutions is a technology company building digital products and providing technology, design, digital growth, customer experience, and business solutions.",
   // TODO: replace with the real mailbox before launch.
   email: "hello@nexavora.com",
   copyrightYear: 2026,
@@ -60,7 +60,7 @@ export const nav = {
 };
 
 export const hero = {
-  eyebrow: "Nexavora Technologies",
+  eyebrow: "Nexavora Technology Solutions",
   title: "We Build Technology That Moves Ideas Forward.",
   statement:
     "Strategy, design, engineering and digital growth under one roof — for the products we build for clients and the products we build for ourselves.",
@@ -273,7 +273,8 @@ export const clients = [
   {
     name: "Jimiking Art Fashion",
     sector: "Fashion & Art",
-    logo: "/clients/jimiking.png",
+    // Artwork not supplied yet — the site falls back to a text wordmark.
+    logo: "",
     url: "",
     width: 960,
     height: 464,
@@ -298,6 +299,9 @@ export const capabilities = [
   "Cloud platforms",
 ];
 
+// Topics we are writing about. No publication dates or authors are shown
+// because no articles have been published yet — add them here only once the
+// writing exists.
 export const insights = [
   {
     topic: "Product Development",
@@ -325,6 +329,9 @@ export const insights = [
   },
 ];
 
+export const insightsStatus =
+  "These are the topics we are writing about first. Full articles will appear here as they are published — until then, ask us about any of them and we will happily talk it through.";
+
 export const careers = {
   heading: "Want to build what's next with us?",
   body: "We're always interested in talented people who love solving problems — designers, developers, strategists and operators.",
@@ -339,7 +346,8 @@ export const finalCta = {
 };
 
 export const footer = {
-  blurb: "Technology · Products · Digital Solutions",
+  blurb:
+    "Nexavora Technology Solutions — we help businesses and founders turn ideas and business problems into practical digital solutions.",
   columns: [
     {
       title: "Explore",
@@ -360,21 +368,59 @@ export const footer = {
       ],
     },
     {
-      title: "Connect",
+      title: "Contact",
       links: [
-        // TODO: swap in the real profile URLs before launch.
-        { label: "LinkedIn", href: "#" },
-        { label: "Instagram", href: "#" },
-        { label: "X", href: "#" },
-        { label: "Email", href: "mailto:" + site.email },
+        { label: "Start a Project", href: "/contact/" },
+        { label: "Email us", href: "mailto:" + site.email },
       ],
     },
     {
       title: "Legal",
       links: [
-        { label: "Privacy Policy", href: "#" },
-        { label: "Terms of Service", href: "#" },
+        { label: "Privacy Policy", href: "/privacy/" },
+        { label: "Terms of Service", href: "/terms/" },
       ],
     },
   ],
+  // Verified profile URLs only. Leave empty until the real accounts exist —
+  // the footer hides the row when there is nothing to link to.
+  social: [] as { label: string; href: string }[],
 };
+
+export const contact = {
+  heading: "Talk to Nexavora",
+  message:
+    "A short note is enough: what you want to build, who it is for, and roughly when you need it. We'll come back with questions, a plan, or an honest assessment of the best way forward.",
+  location: "Based in Nigeria, working with clients globally.",
+  responseTime: "Within 1–2 working days",
+  bestFor: "Products, platforms, design and growth",
+  // Optional — hide the whole row if the form is ever moved to a backend.
+  note: "Send Inquiry opens your email app with these details filled in — nothing is stored on this site.",
+};
+
+export const serviceOptions = [
+  "Website & web application development",
+  "UI/UX & product design",
+  "Graphics design & branding",
+  "Digital marketing & social media management",
+  "Customer experience & business operations",
+  "Product strategy & development",
+  "Not sure yet",
+];
+
+export const budgetOptions = [
+  "Not sure yet",
+  "Under ₦100,000",
+  "₦100,000 – ₦300,000",
+  "₦300,000 – ₦500,000",
+  "₦500,000 – ₦1,000,000",
+  "Above ₦1,000,000",
+  "Prefer to discuss",
+];
+
+export const timelineOptions = [
+  "As soon as possible",
+  "Within 2–4 weeks",
+  "Within 1–3 months",
+  "Just exploring ideas",
+];

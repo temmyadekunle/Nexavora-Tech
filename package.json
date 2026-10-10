@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3200",
     "build": "next build",
+    "postbuild": "node scripts/normalize-rsc.mjs",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit"

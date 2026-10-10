@@ -40,10 +40,10 @@ export function Hero() {
 
           <Image
             className="hero__mark"
-            src="/mark.png"
+            src="/logo/nexavora-symbol.svg"
             alt=""
-            width={313}
-            height={214}
+            width={480}
+            height={480}
             priority
           />
 

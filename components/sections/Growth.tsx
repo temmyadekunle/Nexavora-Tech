@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { capabilities, careers, finalCta, insights } from "@/lib/content";
+import { capabilities, careers, finalCta, insights, insightsStatus } from "@/lib/content";
 
 export function Capabilities() {
   return (
@@ -35,10 +35,7 @@ export function Insights() {
           <h2 className="section-title">
             Ideas, perspectives &amp; <span className="grad-text">practical knowledge</span>
           </h2>
-          <p className="section-lead">
-            What we have learned building products, working with clients and keeping up with
-            the tools.
-          </p>
+          <p className="section-lead">{insightsStatus}</p>
         </div>
 
         <div className="grid-4">
@@ -47,11 +44,14 @@ export function Insights() {
               <span className="insight-card__topic">{article.topic}</span>
               <h3>{article.title}</h3>
               <p>{article.excerpt}</p>
-              <Link className="link-arrow" href="/insights/">
-                Read insight <span>→</span>
-              </Link>
             </article>
           ))}
+        </div>
+
+        <div className="process__cta">
+          <Link className="link-arrow" href="/insights/">
+            Explore Insights <span>→</span>
+          </Link>
         </div>
       </div>
     </section>

@@ -110,14 +110,6 @@ export function ClientValue() {
             </article>
           ))}
         </div>
-
-        <blockquote className="quote">
-          <p>
-            From emerging businesses to established organisations, we work with teams that
-            want to solve problems and build better digital experiences.
-          </p>
-          <footer>Nexavora Technologies</footer>
-        </blockquote>
       </div>
     </section>
   );

@@ -8,21 +8,24 @@ export default function SiteFooter() {
       <div className="container">
         <div className="site-footer__top">
           <div className="site-footer__brand">
-            <Link href="/" className="brand">
-              <span className="brand__mark">
-                <Image src="/mark.png" alt="" width={313} height={214} />
-              </span>
-              <span className="brand__text">
-                NEXAVORA
-                <span className="brand__sub">{site.brandSuffix}</span>
-              </span>
+            <Link href="/" className="brand brand--footer" aria-label={`${site.name} home`}>
+              <Image
+                className="brand__lockup"
+                src="/logo/nexavora-primary.svg"
+                alt=""
+                width={180}
+                height={143}
+              />
             </Link>
             <p>{footer.blurb}</p>
+            <a className="site-footer__email" href={`mailto:${site.email}`}>
+              {site.email}
+            </a>
           </div>
 
           {footer.columns.map((column) => (
             <div className="site-footer__col" key={column.title}>
-              <h4>{column.title}</h4>
+              <h2 className="site-footer__col-title">{column.title}</h2>
               <ul>
                 {column.links.map((link) => (
                   <li key={link.label}>
@@ -33,6 +36,18 @@ export default function SiteFooter() {
             </div>
           ))}
         </div>
+
+        {footer.social.length > 0 && (
+          <ul className="site-footer__social">
+            {footer.social.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} target="_blank" rel="noopener noreferrer">
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
 
         <div className="site-footer__bottom">
           <span>

@@ -11,7 +11,8 @@ export const site = {
   positioning:
     "Nexavora Technology Solutions is a technology company building digital products and providing technology, design, digital growth, customer experience, and business solutions.",
   // TODO: replace with the real mailbox before launch.
-  email: "hello@nexavora.com",
+  email: "nexavoratechnologies@gmail.com",
+  whatsapp: "+2349117511518",
   copyrightYear: 2026,
 };
 
@@ -217,24 +218,28 @@ export const team = [
     role: "Founder / CEO",
     focus: "Product Development & Product Design",
     specialty: "Product strategy, digital solutions & customer experience",
+    photo: "/team/temitope.jpg",
   },
   {
     name: "Tunmise D. Adekunle",
     role: "Graphics Designer",
     focus: "Brand & Visual Design",
     specialty: "Visual identity, marketing assets & brand systems",
+    photo: "/team/tunmise.jpg",
   },
   {
     name: "Omoloja Moses Opeoluwa",
     role: "UI/UX Designer",
     focus: "Interface & Experience Design",
     specialty: "Research-led interfaces, prototypes & design systems",
+    photo: "/team/omoloja.jpg",
   },
   {
     name: "Ajewole Samson",
     role: "Software Developer / WordPress Developer",
     focus: "Engineering",
     specialty: "Web & application development, CMS builds",
+    photo: "/team/ajewole.jpg",
   },
 ];
 
@@ -372,6 +377,7 @@ export const footer = {
       links: [
         { label: "Start a Project", href: "/contact/" },
         { label: "Email us", href: "mailto:" + site.email },
+        { label: "WhatsApp", href: "https://wa.me/2349117511518" },
       ],
     },
     {
@@ -396,6 +402,7 @@ export const contact = {
   bestFor: "Products, platforms, design and growth",
   // Optional — hide the whole row if the form is ever moved to a backend.
   note: "Send Inquiry opens your email app with these details filled in — nothing is stored on this site.",
+  whatsapp: "+2349117511518",
 };
 
 export const serviceOptions = [

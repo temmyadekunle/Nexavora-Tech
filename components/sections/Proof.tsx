@@ -69,11 +69,21 @@ export function Team() {
           {team.map((member) => (
             <article className="team-card" key={member.name}>
               <div className="team-card__avatar" aria-hidden="true">
-                {member.name
-                  .split(" ")
-                  .map((part) => part[0])
-                  .slice(0, 2)
-                  .join("")}
+                {member.photo ? (
+                  <img
+                    src={member.photo}
+                    alt=""
+                    width={120}
+                    height={120}
+                    loading="lazy"
+                  />
+                ) : (
+                  member.name
+                    .split(" ")
+                    .map((part) => part[0])
+                    .slice(0, 2)
+                    .join("")
+                )}
               </div>
               <h3>{member.name}</h3>
               <p className="team-card__role">{member.role}</p>

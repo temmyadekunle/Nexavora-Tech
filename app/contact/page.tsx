@@ -34,6 +34,10 @@ export default function ContactPage() {
                 <span>Email</span>
                 <strong>{site.email}</strong>
               </a>
+              <a href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}>
+                <span>WhatsApp</span>
+                <strong>{site.whatsapp}</strong>
+              </a>
               <div>
                 <span>Response time</span>
                 <strong>{contact.responseTime}</strong>

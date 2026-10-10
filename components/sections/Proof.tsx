@@ -3,6 +3,14 @@ import Link from "next/link";
 import ClientLogo from "@/components/ClientLogo";
 import { clientValue, clients, stats, team, work } from "@/lib/content";
 
+function getProjectLink(project: typeof work[0]): string | null {
+  if (project.details?.links?.prototype) return project.details.links.prototype;
+  if (project.details?.links?.website) return project.details.links.website;
+  if (project.details?.links?.apk) return project.details.links.apk;
+  if (project.details?.links?.landing) return project.details.links.landing;
+  return null;
+}
+
 export function SelectedWork() {
   return (
     <section className="section section--line" id="selected-work">
@@ -16,37 +24,51 @@ export function SelectedWork() {
         </div>
 
         <div className="grid-3">
-          {work.map((project) => (
-            <article className="work-card" id={project.slug} key={project.slug}>
-              <div
-                className={`work-card__band${
-                  project.accent === "violet"
-                    ? " work-card__band--violet"
-                    : project.accent === "orange"
+          {work.map((project) => {
+            const externalLink = getProjectLink(project);
+            return (
+              <article className="work-card" id={project.slug} key={project.slug}>
+                <div
+                  className={`work-card__band${
+                    project.accent === "violet"
+                      ? " work-card__band--violet"
+                      : project.accent === "orange"
                       ? " work-card__band--orange"
                       : ""
-                }`}
-              >
-                <span>{project.name}</span>
-              </div>
+                  }`}
+                >
+                  <span>{project.name}</span>
+                </div>
 
-              <span className="work-card__industry">{project.industry}</span>
-              <h3>{project.name}</h3>
-              <p className="work-card__outcome">{project.outcome}</p>
+                <span className="work-card__industry">{project.industry}</span>
+                <h3>{project.name}</h3>
+                <p className="work-card__outcome">{project.outcome}</p>
 
-              <ul className="work-card__services">
-                {project.services.map((service) => (
-                  <li key={service}>{service}</li>
-                ))}
-              </ul>
+                <ul className="work-card__services">
+                  {project.services.map((service) => (
+                    <li key={service}>{service}</li>
+                  ))}
+                </ul>
 
-              <div className="work-card__cta">
-                <a className="link-arrow" href={`#${project.slug}`}>
-                  View case study <span>→</span>
-                </a>
-              </div>
-            </article>
-          ))}
+                <div className="work-card__cta">
+                  {externalLink ? (
+                    <a
+                      className="link-arrow"
+                      href={externalLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View live project <span>→</span>
+                    </a>
+                  ) : (
+                    <a className="link-arrow" href={`#${project.slug}`}>
+                      View case study <span>→</span>
+                    </a>
+                  )}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

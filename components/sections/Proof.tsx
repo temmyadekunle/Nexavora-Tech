@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import ClientLogo from "@/components/ClientLogo";
 import { clientValue, clients, stats, team, work } from "@/lib/content";
 

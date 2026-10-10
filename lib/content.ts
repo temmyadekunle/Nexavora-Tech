@@ -55,6 +55,7 @@ export const nav = {
     ],
   },
   links: [
+    { label: "Portfolio", href: "/portfolio/" },
     { label: "Insights", href: "/insights/" },
     { label: "Contact", href: "/contact/" },
   ],
@@ -144,6 +145,18 @@ export const products = [
     status: "Live",
     accent: "cyan" as const,
     logo: "/logo/carenbuddi.png",
+    // Visual assets - use genuine screenshots where available, otherwise mark as placeholder needed
+    coverImage: "/projects/carenbuddi/cover.png",
+    screenshots: [
+      { src: "/projects/carenbuddi/home-dashboard.png", alt: "CareNBuddi home dashboard", caption: "Home dashboard with health overview" },
+      { src: "/projects/carenbuddi/find-care.png", alt: "Find Care screen", caption: "Find healthcare providers near you" },
+      { src: "/projects/carenbuddi/appointments.png", alt: "Appointments screen", caption: "Manage and book appointments" },
+      { src: "/projects/carenbuddi/health.png", alt: "Health features", caption: "Vitals, medications, and health tracking" },
+    ],
+    mockups: {
+      desktop: "/projects/carenbuddi/desktop-mockup.png",
+      mobile: "/projects/carenbuddi/mobile-mockup.png",
+    },
     features: [
       "Find Healthcare — hospitals, clinics, PHCs, laboratories, pharmacies by name or area",
       "Book Appointments — schedule visits and track what's coming up",
@@ -212,6 +225,17 @@ export const products = [
     status: "In development",
     accent: "violet" as const,
     logo: "/logo/livanta.png",
+    coverImage: "/projects/livanta/cover.png",
+    screenshots: [
+      { src: "/projects/livanta/home.png", alt: "Livanta home dashboard", caption: "Home dashboard with status overview" },
+      { src: "/projects/livanta/life.png", alt: "Life management hub", caption: "Life areas with live counts and filters" },
+      { src: "/projects/livanta/alerts.png", alt: "Alerts and reminders", caption: "Smart alerts and notifications" },
+      { src: "/projects/livanta/calendar.png", alt: "Calendar view", caption: "Calendar with due-day indicators" },
+    ],
+    mockups: {
+      desktop: "/projects/livanta/desktop-mockup.png",
+      mobile: "/projects/livanta/mobile-mockup.png",
+    },
     features: [
       "Home — status hero, urgent/important/on-track readings, needs attention, coming soon, quick add, life areas",
       "Life — five life areas (Home, Transport, Money, Documents, Family, Tasks, Services) with live counts, search, category/status filters, trusted providers with call/WhatsApp",
@@ -261,6 +285,52 @@ export const products = [
       mvp: "v0.1 shipped — local-first things, alerts, calendar, life hub, quick add, detail, edit, derived priorities, 5-tab shell, splash + 5-step onboarding, demo mode, 4 languages, providers with call/WhatsApp, JSON export, delete-all, PWA offline, signed APK, no tracking, CSP enforced",
       next: "v0.2–0.3 — optional accounts & sync (Supabase, fail-open cache built), recurring 'mark handled → next occurrence' end-to-end, household members shared (data model ready), push/email reminder channels, Play Store & App Store listings, alert snooze and custom rules",
       future: "v1.x — payment rails (Paystack ready, not enabled in beta), predictive anticipation of household costs, OS widgets for today's due items, document photos (dates only — never ID numbers), iOS build, richer provider ratings",
+    },
+  },
+  {
+    slug: "income-tracker",
+    name: "Income Tracker",
+    industry: "FinTech / Personal Finance",
+    problem:
+      "People need a private, simple way to track income and expenses without their financial data being sold or analysed by third parties. Existing apps are cluttered, require accounts, or compromise privacy.",
+    description:
+      "Income Tracker is a privacy-first, local-only application for recording and monitoring income and expenses. No accounts, no cloud sync, no tracking — your financial data never leaves your device.",
+    longDescription:
+      "Income Tracker is a privacy-focused project for recording and monitoring income and expenses. Built with a local-first architecture using IndexedDB, it works completely offline with zero network requests. No accounts, no cloud, no analytics — your financial data stays on your device.",
+    status: "Prototype",
+    accent: "amber" as const,
+    logo: "/logo/income-tracker.png",
+    coverImage: "/projects/income-tracker/cover.png",
+    screenshots: [
+      { src: "/projects/income-tracker/dashboard.png", alt: "Income Tracker dashboard", caption: "Financial dashboard with income/expense overview" },
+      { src: "/projects/income-tracker/income.png", alt: "Income records", caption: "Record and categorise income sources" },
+      { src: "/projects/income-tracker/expenses.png", alt: "Expense records", caption: "Track expenses by category" },
+      { src: "/projects/income-tracker/summary.png", alt: "Financial summary", caption: "Monthly and yearly financial summaries" },
+    ],
+    mockups: {
+      desktop: "/projects/income-tracker/desktop-mockup.png",
+      mobile: "/projects/income-tracker/mobile-mockup.png",
+    },
+    features: [
+      "Local-first — IndexedDB storage, zero network requests",
+      "Income recording — multiple sources, custom categories",
+      "Expense tracking — categorised spending with tags",
+      "Financial summaries — daily, weekly, monthly, yearly views",
+      "Data export — CSV/JSON export for backup or analysis",
+      "Zero tracking — no analytics, no accounts, no cloud",
+      "Offline-first — works completely offline",
+      "PWA support — installable on any device",
+    ],
+    techStack: [
+      "Next.js (App Router, static export)",
+      "IndexedDB for local storage",
+      "Service Worker — offline shell, PWA",
+      "Chart.js for financial visualisations",
+      "Cloudflare Workers deployment",
+    ],
+    links: {
+      prototype: "https://income-tracker.folababy02.workers.dev/",
+      github: "https://github.com/temmyadekunle/income-tracker",
     },
   },
 ];

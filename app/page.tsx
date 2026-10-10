@@ -3,6 +3,7 @@ import { Process, WhatWeDo, WhyNexavora } from "@/components/sections/Services";
 import { Products } from "@/components/sections/Products";
 import { ClientValue, Clients, SelectedWork, Stats, Team } from "@/components/sections/Proof";
 import { Careers, Capabilities, FinalCta, Insights } from "@/components/sections/Growth";
+import ProjectShowcase from "@/components/ProjectShowcase";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Products />
       <WhyNexavora />
       <Process />
+      <ProjectShowcase />
       <SelectedWork />
       <Team />
       <ClientValue />

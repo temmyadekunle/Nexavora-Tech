@@ -1813,6 +1813,9 @@ ol {
   font-size: 16px;
   font-weight: 600;
   margin-top: 4px;
+  /* Long email addresses and phone numbers must wrap rather than push the
+     page into a horizontal scroll on narrow phones. */
+  overflow-wrap: anywhere;
 }
 
 .contact-form {
@@ -1948,9 +1951,10 @@ ol {
   .site-footer__brand {
     grid-column: 1 / -1;
   }
-}
 
-@media (max-width: 1000px) {
+  /* The desktop nav plus the header CTA needs ~1055px of content width;
+     below that it does not fit and would push the page into a horizontal
+     scroll, so collapse to the mobile menu earlier. */
   .nav,
   .site-header__actions .btn {
     display: none;
@@ -1989,6 +1993,27 @@ ol {
 
   .tech {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-showcase-featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .project-showcase-featured__visual {
+    order: -1;
+    max-width: 600px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .nav,
+  .site-header__actions .btn {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: grid;
+    margin-left: auto;
   }
 }
 
@@ -2776,7 +2801,7 @@ ol {
 /* Screenshots section */
 .project-screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 22px;
 }
 
@@ -2793,6 +2818,10 @@ ol {
   border-color: var(--line-strong);
 }
 
+.project-screenshot-card__media {
+  position: relative;
+}
+
 .project-screenshot-card__image {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -2802,6 +2831,24 @@ ol {
 
 .project-screenshot-card:hover .project-screenshot-card__image {
   transform: scale(1.02);
+}
+
+/* Honest labelling: a placeholder must never read as a real capture. */
+.project-screenshot-card__pending {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(5, 8, 23, 0.88);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .project-screenshot-card__caption {
@@ -2815,7 +2862,7 @@ ol {
 /* Mockups section */
 .project-mockups-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
   gap: 28px;
 }
 
@@ -2878,12 +2925,18 @@ ol {
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+  border: 1px solid var(--line-strong);
+  background: var(--grad-soft);
+  position: relative;
 }
 
+/* Simple geometric tick — restrained rather than a heavy icon set. */
 .feature-card__icon i {
-  width: 24px;
-  height: 24px;
-  color: #05070f;
+  width: 20px;
+  height: 11px;
+  border-left: 2px solid var(--accent, var(--cyan));
+  border-bottom: 2px solid var(--accent, var(--cyan));
+  transform: rotate(-45deg) translate(1px, -2px);
 }
 
 .feature-card__title {

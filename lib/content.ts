@@ -142,20 +142,24 @@ export const products = [
       "CareNBuddi is a digital healthcare platform for Nigeria that brings finding care, booking appointments, keeping health information organised, and staying in touch with healthcare providers into one mobile app — available in English, Yoruba, Hausa and Igbo. It works offline after first load, installs as a PWA, and requires no payment to get started.",
     longDescription:
       "CareNBuddi was created from a simple belief: getting healthcare should not be harder than it needs to be. Inspired by the story of Bethany Hamilton in Soul Surfer — in an emergency, care shouldn't always have to wait until a patient reaches the hospital. CareNBuddi uses technology to help people connect with healthcare, manage their care and find the right next step — whether at home, working remotely, travelling, or navigating the healthcare system.",
-    status: "Live",
+status: "Live",
     accent: "cyan" as const,
-    logo: "/logo/carenbuddi.png",
-    // Visual assets - use genuine screenshots where available, otherwise mark as placeholder needed
+    logo: "/logo/carenbuddi.jpg",
+    logoWidth: 1024,
+    logoHeight: 1024,
+    // Real product screenshots live in public/projects/carenbuddi/.
+    // TODO: replace the neutral placeholders below with real captures.
     coverImage: "/projects/carenbuddi/cover.png",
+    assetStatus: "pending",
     screenshots: [
-      { src: "/projects/carenbuddi/home-dashboard.png", alt: "CareNBuddi home dashboard", caption: "Home dashboard with health overview" },
-      { src: "/projects/carenbuddi/find-care.png", alt: "Find Care screen", caption: "Find healthcare providers near you" },
-      { src: "/projects/carenbuddi/appointments.png", alt: "Appointments screen", caption: "Manage and book appointments" },
-      { src: "/projects/carenbuddi/health.png", alt: "Health features", caption: "Vitals, medications, and health tracking" },
+      { src: "/projects/carenbuddi/home-dashboard.png", alt: "CareNBuddi home dashboard — placeholder, real capture pending", caption: "Home dashboard with health overview", pending: true },
+      { src: "/projects/carenbuddi/find-care.png", alt: "CareNBuddi Find Care screen — placeholder, real capture pending", caption: "Find healthcare providers near you", pending: true },
+      { src: "/projects/carenbuddi/appointments.png", alt: "CareNBuddi Appointments screen — placeholder, real capture pending", caption: "Manage and book appointments", pending: true },
+      { src: "/projects/carenbuddi/health.png", alt: "CareNBuddi Health screen — placeholder, real capture pending", caption: "Vitals, medications, and health tracking", pending: true },
     ],
     mockups: {
-      desktop: "/projects/carenbuddi/desktop-mockup.png",
-      mobile: "/projects/carenbuddi/mobile-mockup.png",
+      desktop: "",
+      mobile: "",
     },
     features: [
       "Find Healthcare — hospitals, clinics, PHCs, laboratories, pharmacies by name or area",
@@ -224,17 +228,23 @@ export const products = [
       "Livanta — your life, organized. Your problems, anticipated. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. The app has 5 tabs (Home, Life, Alerts, Calendar, Profile), 4 languages (English, Hausa, Yoruba, Igbo), and a demo household seeded with 12 realistic Nigerian items (rent, electricity, internet, Netflix, vehicle insurance, school fees, driver's licence, passport, refrigerator warranty, generator service, car oil change, electrician). 9 alerts derived at seed time. 368 tests + smoke, CSP and responsive QA. 0 trackers — no cookies, no analytics, CSP-enforced.",
     status: "In development",
     accent: "violet" as const,
-    logo: "/logo/livanta.png",
-    coverImage: "/projects/livanta/cover.png",
+    logo: "/logo/livanta.jpg",
+    logoWidth: 1080,
+    logoHeight: 1080,
+    // Real captures from the v0.1.0 build (780x1688 @2x) in "Livanta Screens/".
+    coverImage: "/projects/livanta/home.png",
     screenshots: [
-      { src: "/projects/livanta/home.png", alt: "Livanta home dashboard", caption: "Home dashboard with status overview" },
-      { src: "/projects/livanta/life.png", alt: "Life management hub", caption: "Life areas with live counts and filters" },
-      { src: "/projects/livanta/alerts.png", alt: "Alerts and reminders", caption: "Smart alerts and notifications" },
-      { src: "/projects/livanta/calendar.png", alt: "Calendar view", caption: "Calendar with due-day indicators" },
+      { src: "/projects/livanta/home.png", alt: "Livanta home screen showing status overview, urgent items and coming soon", caption: "Home — status overview, needs attention, coming soon" },
+      { src: "/projects/livanta/life.png", alt: "Livanta Life hub listing life areas with counts and filters", caption: "Life — the hub with life areas, search and filters" },
+      { src: "/projects/livanta/calendar.png", alt: "Livanta calendar showing month grid with due-day markers", caption: "Calendar — month grid, day agenda and upcoming" },
+      { src: "/projects/livanta/quick-add.png", alt: "Livanta quick add sheet for capturing a new item", caption: "Quick add — name, category, amount, date, recurrence" },
+      { src: "/projects/livanta/detail.png", alt: "Livanta item detail showing amount, due date and notes", caption: "Thing detail — full record with mark handled and edit" },
+      { src: "/projects/livanta/profile.png", alt: "Livanta profile screen with language, notifications and export", caption: "Profile — language, reminders, export and delete all data" },
+      { src: "/projects/livanta/welcome.png", alt: "Livanta welcome screen with language picker and demo option", caption: "Onboarding — welcome, language picker and demo data" },
     ],
     mockups: {
-      desktop: "/projects/livanta/desktop-mockup.png",
-      mobile: "/projects/livanta/mobile-mockup.png",
+      desktop: "",
+      mobile: "",
     },
     features: [
       "Home — status hero, urgent/important/on-track readings, needs attention, coming soon, quick add, life areas",

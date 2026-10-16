@@ -134,15 +134,20 @@ export default async function ProjectDetailPage({ params }: Props) {
                 className="project-screenshot-card"
                 style={getAccentStyle(project.accent)}
               >
-                  <Image
-                    src={screenshot.src}
-                    alt={screenshot.alt}
-                    width={800}
-                    height={600}
-                    className="project-screenshot-card__image"
-                    loading="lazy"
-                    unoptimized
-                  />
+                  <div className="project-screenshot-card__media">
+                    <Image
+                      src={screenshot.src}
+                      alt={screenshot.alt}
+                      width={800}
+                      height={600}
+                      className="project-screenshot-card__image"
+                      loading="lazy"
+                      unoptimized
+                    />
+                    {"pending" in screenshot && screenshot.pending && (
+                      <span className="project-screenshot-card__pending">Asset pending</span>
+                    )}
+                  </div>
                   <figcaption className="project-screenshot-card__caption">{screenshot.caption}</figcaption>
                 </article>
               ))}
@@ -204,7 +209,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             <div className="grid-3">
               {project.features.map((feature, index) => (
                 <article key={index} className="feature-card">
-                  <div className="feature-card__icon" style={{ background: `var(--${project.accent})` }}>
+                  <div className="feature-card__icon">
                     <i />
                   </div>
                   <h3 className="feature-card__title">{feature.split(" — ")[0] || feature}</h3>

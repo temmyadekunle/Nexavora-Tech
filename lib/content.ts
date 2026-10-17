@@ -50,7 +50,7 @@ export const nav = {
       { label: "About Nexavora", hint: "Who we are and what we believe", href: "/company/#about" },
       { label: "Our Approach", hint: "How we turn problems into solutions", href: "/company/#approach" },
       { label: "Our Team", hint: "Meet the people behind Nexavora", href: "/company/#team" },
-      { label: "Our Work", hint: "Selected projects and case studies", href: "/company/#work" },
+      { label: "Our Work", hint: "Selected projects and case studies", href: "/company/#selected-work" },
       { label: "Careers", hint: "Build with us", href: "/company/#careers" },
     ],
   },
@@ -142,20 +142,23 @@ export const products = [
       "CareNBuddi is a digital healthcare platform for Nigeria that brings finding care, booking appointments, keeping health information organised, and staying in touch with healthcare providers into one mobile app — available in English, Yoruba, Hausa and Igbo. It works offline after first load, installs as a PWA, and requires no payment to get started.",
     longDescription:
       "CareNBuddi was created from a simple belief: getting healthcare should not be harder than it needs to be. Inspired by the story of Bethany Hamilton in Soul Surfer — in an emergency, care shouldn't always have to wait until a patient reaches the hospital. CareNBuddi uses technology to help people connect with healthcare, manage their care and find the right next step — whether at home, working remotely, travelling, or navigating the healthcare system.",
-status: "Live",
+    // The CareNBuddi web app is publicly usable, but the App Store / Play
+    // Store builds are still listed as "Coming soon" on its own site, so
+    // "Live" would overstate it. Beta is the accurate claim.
+    status: "Beta" as const,
     accent: "cyan" as const,
+    // Flagship product — featured prominently in the homepage showcase.
+    featured: true,
     logo: "/logo/carenbuddi.jpg",
     logoWidth: 1024,
     logoHeight: 1024,
-    // Real product screenshots live in public/projects/carenbuddi/.
-    // TODO: replace the neutral placeholders below with real captures.
-    coverImage: "/projects/carenbuddi/cover.png",
-    assetStatus: "pending",
+    // Real captures of the live CareNBuddi web app (780x1688 @2x) plus the
+    // product's own landing hero as the cover (1440x900).
+    coverImage: "/projects/carenbuddi/cover.jpg",
     screenshots: [
-      { src: "/projects/carenbuddi/home-dashboard.png", alt: "CareNBuddi home dashboard — placeholder, real capture pending", caption: "Home dashboard with health overview", pending: true },
-      { src: "/projects/carenbuddi/find-care.png", alt: "CareNBuddi Find Care screen — placeholder, real capture pending", caption: "Find healthcare providers near you", pending: true },
-      { src: "/projects/carenbuddi/appointments.png", alt: "CareNBuddi Appointments screen — placeholder, real capture pending", caption: "Manage and book appointments", pending: true },
-      { src: "/projects/carenbuddi/health.png", alt: "CareNBuddi Health screen — placeholder, real capture pending", caption: "Vitals, medications, and health tracking", pending: true },
+      { src: "/projects/carenbuddi/home.jpg", alt: "CareNBuddi home dashboard showing health guide, next appointment and quick actions", caption: "Home — health guide, next appointment, reminders and quick actions" },
+      { src: "/projects/carenbuddi/find-care.jpg", alt: "CareNBuddi Find Care screen with search and filters for hospitals, clinics and pharmacies", caption: "Find Care — search hospitals, PHCs, labs and pharmacies by area" },
+      { src: "/projects/carenbuddi/health.jpg", alt: "CareNBuddi Health screen showing vitals check-ins and reminders", caption: "Health — vitals check-ins, records and reminders" },
     ],
     mockups: {
       desktop: "",
@@ -191,23 +194,6 @@ status: "Live",
       app: "https://carenbuddi.folababy02.workers.dev/app",
       download: "https://carenbuddi.folababy02.workers.dev/CareNBuddi-1.0.0.zip",
     },
-    testimonials: [
-      {
-        quote:
-          "I wanted one place to see which clinic to go to and what my next appointment is. CareNBuddi keeps that in my pocket instead of scattered across paper and messages.",
-        author: "Patient, Lagos",
-      },
-      {
-        quote:
-          "My mother takes her medication in three languages depending on who is caring for her that day. Having CareNBuddi in Yoruba and English changed how we manage her care.",
-        author: "Caregiver, Ibadan",
-      },
-      {
-        quote:
-          "We can now show patients our details and receive appointment requests directly. The clinic stopped losing enquiries that used to arrive as missed calls.",
-        author: "Clinic administrator, Abuja",
-      },
-    ],
     providerFeatures: [
       "Build a digital presence patients can find",
       "Get discovered by people searching for care",
@@ -226,21 +212,24 @@ status: "Live",
       "Livanta is a local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. Built in Nigeria, it runs entirely offline, installs as a PWA, and ships as a signed Android APK.",
     longDescription:
       "Livanta — your life, organized. Your problems, anticipated. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. The app has 5 tabs (Home, Life, Alerts, Calendar, Profile), 4 languages (English, Hausa, Yoruba, Igbo), and a demo household seeded with 12 realistic Nigerian items (rent, electricity, internet, Netflix, vehicle insurance, school fees, driver's licence, passport, refrigerator warranty, generator service, car oil change, electrician). 9 alerts derived at seed time. 368 tests + smoke, CSP and responsive QA. 0 trackers — no cookies, no analytics, CSP-enforced.",
-    status: "In development",
+    // The prototype page states "v0.1.0 · beta, invite-only".
+    status: "Beta" as const,
     accent: "violet" as const,
+    featured: false,
     logo: "/logo/livanta.jpg",
     logoWidth: 1080,
     logoHeight: 1080,
-    // Real captures from the v0.1.0 build (780x1688 @2x) in "Livanta Screens/".
-    coverImage: "/projects/livanta/home.png",
+    // Real captures from the v0.1.0 build (780x1688 @2x) in "Livanta Screens/",
+    // plus the product's own landing hero as the cover (1440x900).
+    coverImage: "/projects/livanta/cover.jpg",
     screenshots: [
-      { src: "/projects/livanta/home.png", alt: "Livanta home screen showing status overview, urgent items and coming soon", caption: "Home — status overview, needs attention, coming soon" },
-      { src: "/projects/livanta/life.png", alt: "Livanta Life hub listing life areas with counts and filters", caption: "Life — the hub with life areas, search and filters" },
-      { src: "/projects/livanta/calendar.png", alt: "Livanta calendar showing month grid with due-day markers", caption: "Calendar — month grid, day agenda and upcoming" },
-      { src: "/projects/livanta/quick-add.png", alt: "Livanta quick add sheet for capturing a new item", caption: "Quick add — name, category, amount, date, recurrence" },
-      { src: "/projects/livanta/detail.png", alt: "Livanta item detail showing amount, due date and notes", caption: "Thing detail — full record with mark handled and edit" },
-      { src: "/projects/livanta/profile.png", alt: "Livanta profile screen with language, notifications and export", caption: "Profile — language, reminders, export and delete all data" },
-      { src: "/projects/livanta/welcome.png", alt: "Livanta welcome screen with language picker and demo option", caption: "Onboarding — welcome, language picker and demo data" },
+      { src: "/projects/livanta/home.jpg", alt: "Livanta home screen showing status overview, urgent items and coming soon", caption: "Home — status overview, needs attention, coming soon" },
+      { src: "/projects/livanta/life.jpg", alt: "Livanta Life hub listing life areas with counts and filters", caption: "Life — the hub with life areas, search and filters" },
+      { src: "/projects/livanta/calendar.jpg", alt: "Livanta calendar showing month grid with due-day markers", caption: "Calendar — month grid, day agenda and upcoming" },
+      { src: "/projects/livanta/quick-add.jpg", alt: "Livanta quick add sheet for capturing a new item", caption: "Quick add — name, category, amount, date, recurrence" },
+      { src: "/projects/livanta/detail.jpg", alt: "Livanta item detail showing amount, due date and notes", caption: "Thing detail — full record with mark handled and edit" },
+      { src: "/projects/livanta/profile.jpg", alt: "Livanta profile screen with language, notifications and export", caption: "Profile — language, reminders, export and delete all data" },
+      { src: "/projects/livanta/welcome.jpg", alt: "Livanta welcome screen with language picker and demo option", caption: "Onboarding — welcome, language picker and demo data" },
     ],
     mockups: {
       desktop: "",
@@ -295,6 +284,45 @@ status: "Live",
       mvp: "v0.1 shipped — local-first things, alerts, calendar, life hub, quick add, detail, edit, derived priorities, 5-tab shell, splash + 5-step onboarding, demo mode, 4 languages, providers with call/WhatsApp, JSON export, delete-all, PWA offline, signed APK, no tracking, CSP enforced",
       next: "v0.2–0.3 — optional accounts & sync (Supabase, fail-open cache built), recurring 'mark handled → next occurrence' end-to-end, household members shared (data model ready), push/email reminder channels, Play Store & App Store listings, alert snooze and custom rules",
       future: "v1.x — payment rails (Paystack ready, not enabled in beta), predictive anticipation of household costs, OS widgets for today's due items, document photos (dates only — never ID numbers), iOS build, richer provider ratings",
+    },
+  },
+  {
+    slug: "electrotrans",
+    name: "Electrotrans Engineering and Contractor",
+    industry: "Engineering and Construction",
+    problem:
+      "An engineering and contracting business needs a credible online presence — a place that explains what it does and gives prospective clients a way to get in touch.",
+    description:
+      "A corporate website for Electrotrans Engineering and Contractor, designed and built to present the company's services clearly and give customers a direct route to enquire.",
+    // The site is online on its preview deployment but is still being
+    // revised, so "In Development" is the accurate status (per the client).
+    status: "In Development" as const,
+    accent: "amber" as const,
+    featured: false,
+    // Genuine client logo supplied by the client (public/clients/electrotrans.png).
+    logo: "/clients/electrotrans.png",
+    logoWidth: 500,
+    logoHeight: 500,
+    // Real captures of the live site (1440x900).
+    coverImage: "/projects/electrotrans/cover.jpg",
+    screenshots: [
+      { src: "/projects/electrotrans/services.jpg", alt: "Electrotrans website services section listing mechanical, electrical, hydraulic and pneumatic services", caption: "Services — mechanical, electrical, hydraulic and pneumatic" },
+      { src: "/projects/electrotrans/fleet.jpg", alt: "Electrotrans website fleet section describing equipment for hire and sale", caption: "Fleet — equipment hire, sales and haulage" },
+      { src: "/projects/electrotrans/contact.jpg", alt: "Electrotrans website contact section with branches in Ifo, Ogun State and Ojota, Lagos", caption: "Contact — branches in Ifo, Ogun State and Ojota, Lagos" },
+    ],
+    mockups: { desktop: "", mobile: "" },
+    features: [
+      "Service overview — mechanical, electrical, hydraulic and pneumatic",
+      "Equipment hire, sales and haulage presented clearly",
+      "Branches and a direct route to request a quote",
+    ],
+    techStack: [
+      "Website design",
+      "Front-end build",
+      "Responsive layout",
+    ],
+    links: {
+      website: "https://electrotrans-drab.vercel.app/",
     },
   },
 ];
@@ -586,7 +614,7 @@ export const footer = {
       links: [
         { label: "Products", href: "/products/" },
         { label: "Solutions", href: "/solutions/" },
-        { label: "Portfolio", href: "/company/#work" },
+        { label: "Portfolio", href: "/portfolio/" },
         { label: "Insights", href: "/insights/" },
       ],
     },

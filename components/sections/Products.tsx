@@ -27,7 +27,7 @@ export function Products() {
             >
               <div>
                 <span
-                  className={`product-card__tag${product.status === "Live" ? " product-card__tag--live" : ""}`}
+                  className={`product-card__tag${(product.status as string) === "Live" ? " product-card__tag--live" : ""}`}
                 >
                   <i /> {product.status}
                 </span>

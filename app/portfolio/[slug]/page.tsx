@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/lib/content";
-import { getAccentStyle, getStatusStyle, getStatusDotStyle } from "@/lib/utils";
+import { getAccentStyle, getStatusStyle, getStatusDotStyle, getStatusNote, getExternalActions } from "@/lib/utils";
+import ProjectGallery from "@/components/ProjectGallery";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -34,6 +35,8 @@ export default async function ProjectDetailPage({ params }: Props) {
 
   if (!project) notFound();
 
+  const external = getExternalActions(project.links as Record<string, string | undefined>);
+
   return (
     <>
       <section className="project-detail-hero" style={getAccentStyle(project.accent)}>
@@ -50,53 +53,26 @@ export default async function ProjectDetailPage({ params }: Props) {
               <span className="eyebrow">{project.industry}</span>
               <h1 className="project-detail-hero__title">{project.name}</h1>
               <div className="project-detail-hero__meta">
-                <span
-                  className="project-detail-hero__status"
-                  style={getStatusStyle(project.status)}
-                >
+                <span className="project-detail-hero__status" style={getStatusStyle(project.status)}>
                   <i style={getStatusDotStyle(project.status)} /> {project.status}
                 </span>
               </div>
-              <p className="project-detail-hero__description">{project.longDescription || project.description}</p>
+              <p className="project-detail-hero__status-note">{getStatusNote(project.status)}</p>
+              <p className="project-detail-hero__description">
+                {project.longDescription || project.description}
+              </p>
               <div className="project-detail-hero__actions btn-row">
-                {project.links?.website && (
-                  <a className="btn btn-primary" href={project.links.website} target="_blank" rel="noopener noreferrer">
-                    Visit Application
+                {external.slice(0, 2).map((a) => (
+                  <a
+                    key={a.key}
+                    className="btn btn-primary"
+                    href={a.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {a.label}
                   </a>
-                )}
-                {project.links?.app && (
-                  <a className="btn btn-primary" href={project.links.app} target="_blank" rel="noopener noreferrer">
-                    Open App
-                  </a>
-                )}
-                {project.links?.prototype && (
-                  <a className="btn btn-primary" href={project.links.prototype} target="_blank" rel="noopener noreferrer">
-                    View Prototype
-                  </a>
-                )}
-                {project.links?.landing && (
-                  <a className="btn btn-ghost" href={project.links.landing} target="_blank" rel="noopener noreferrer">
-                    Landing Page
-                  </a>
-                )}
-                {(() => {
-                const githubUrl = (project.links as { github?: string }).github;
-                return githubUrl ? (
-                  <a className="btn btn-ghost" href={githubUrl} target="_blank" rel="noopener noreferrer">
-                    View on GitHub
-                  </a>
-                ) : null;
-              })()}
-                {project.links?.apk && (
-                  <a className="btn btn-ghost" href={project.links.apk} target="_blank" rel="noopener noreferrer">
-                    Download APK
-                  </a>
-                )}
-                {project.links?.download && (
-                  <a className="btn btn-ghost" href={project.links.download} target="_blank" rel="noopener noreferrer">
-                    Download
-                  </a>
-                )}
+                ))}
                 <Link className="link-arrow" href="/portfolio/">
                   Back to Portfolio <span>→</span>
                 </Link>
@@ -106,9 +82,9 @@ export default async function ProjectDetailPage({ params }: Props) {
               {project.coverImage && (
                 <Image
                   src={project.coverImage}
-                  alt={`${project.name} cover`}
-                  width={800}
-                  height={450}
+                  alt={`${project.name} — ${project.industry}`}
+                  width={1200}
+                  height={675}
                   className="project-detail-hero__image"
                   priority
                   unoptimized
@@ -125,33 +101,17 @@ export default async function ProjectDetailPage({ params }: Props) {
             <div className="section-head">
               <span className="eyebrow">Screenshots</span>
               <h2 className="section-title">Inside {project.name}</h2>
-              <p className="section-lead">A closer look at the interface and key features.</p>
+              <p className="section-lead">
+                {project.status === "In Development"
+                  ? "A look at how the site looks today."
+                  : "A closer look at the interface and key features."}
+              </p>
             </div>
-            <div className="project-screenshots-grid">
-              {project.screenshots.map((screenshot, index) => (
-                <article
-                key={index}
-                className="project-screenshot-card"
-                style={getAccentStyle(project.accent)}
-              >
-                  <div className="project-screenshot-card__media">
-                    <Image
-                      src={screenshot.src}
-                      alt={screenshot.alt}
-                      width={800}
-                      height={600}
-                      className="project-screenshot-card__image"
-                      loading="lazy"
-                      unoptimized
-                    />
-                    {"pending" in screenshot && screenshot.pending && (
-                      <span className="project-screenshot-card__pending">Asset pending</span>
-                    )}
-                  </div>
-                  <figcaption className="project-screenshot-card__caption">{screenshot.caption}</figcaption>
-                </article>
-              ))}
-            </div>
+            <ProjectGallery
+              projectName={project.name}
+              accent={project.accent}
+              screenshots={project.screenshots}
+            />
           </div>
         </section>
       )}
@@ -240,7 +200,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         </section>
       )}
 
-      {project.links && Object.keys(project.links).length > 0 && (
+      {external.length > 0 && (
         <section className="section section--line project-detail-links" style={getAccentStyle(project.accent)}>
           <div className="container">
             <div className="section-head">
@@ -248,76 +208,23 @@ export default async function ProjectDetailPage({ params }: Props) {
               <h2 className="section-title">Explore {project.name}</h2>
             </div>
             <div className="project-links-grid">
-              {project.links.website && (
-                <a className="project-link-card" href={project.links.website} target="_blank" rel="noopener noreferrer">
+              {external.map((a) => (
+                <a
+                  key={a.key}
+                  className="project-link-card"
+                  href={a.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <circle cx="12" cy="12" r="10" />
                     <line x1="2" y1="12" x2="22" y2="12" />
                     <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                   </svg>
-                  <span>Live Application</span>
-                  <span className="project-link-card__url">{project.links.website}</span>
+                  <span>{a.label}</span>
+                  <span className="project-link-card__url">{a.url.replace(/^https?:\/\//, "")}</span>
                 </a>
-              )}
-              {project.links.app && (
-                <a className="project-link-card" href={project.links.app} target="_blank" rel="noopener noreferrer">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                    <path d="M8 21h8M12 17v-5" />
-                  </svg>
-                  <span>Web App</span>
-                  <span className="project-link-card__url">{project.links.app}</span>
-                </a>
-              )}
-              {project.links.prototype && (
-                <a className="project-link-card" href={project.links.prototype} target="_blank" rel="noopener noreferrer">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                    <path d="M9 9h6M9 15h6" />
-                  </svg>
-                  <span>Prototype</span>
-                  <span className="project-link-card__url">{project.links.prototype}</span>
-                </a>
-              )}
-              {project.links.landing && (
-                <a className="project-link-card" href={project.links.landing} target="_blank" rel="noopener noreferrer">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M21 12V7H5V7M14 7v10M17 7v10" />
-                  </svg>
-                  <span>Landing Page</span>
-                  <span className="project-link-card__url">{project.links.landing}</span>
-                </a>
-              )}
-              {(() => {
-                const githubUrl = (project.links as { github?: string }).github;
-                return githubUrl ? (
-                  <a className="project-link-card" href={githubUrl} target="_blank" rel="noopener noreferrer">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18v3.87" />
-                    </svg>
-                    <span>GitHub Repository</span>
-                    <span className="project-link-card__url">{githubUrl}</span>
-                  </a>
-                ) : null;
-              })()}
-              {project.links.apk && (
-                <a className="project-link-card" href={project.links.apk} target="_blank" rel="noopener noreferrer">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                  </svg>
-                  <span>Android APK</span>
-                  <span className="project-link-card__url">GitHub Releases</span>
-                </a>
-              )}
-              {project.links.download && (
-                <a className="project-link-card" href={project.links.download} target="_blank" rel="noopener noreferrer">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                  </svg>
-                  <span>Download</span>
-                  <span className="project-link-card__url">Available</span>
-                </a>
-              )}
+              ))}
             </div>
           </div>
         </section>

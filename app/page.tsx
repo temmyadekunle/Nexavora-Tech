@@ -1,7 +1,6 @@
 import { Hero, TrustedBy } from "@/components/sections/Hero";
 import { Process, WhatWeDo, WhyNexavora } from "@/components/sections/Services";
-import { Products } from "@/components/sections/Products";
-import { ClientValue, Clients, SelectedWork, Stats, Team } from "@/components/sections/Proof";
+import { ClientValue, Clients, Stats, Team } from "@/components/sections/Proof";
 import { Careers, Capabilities, FinalCta, Insights } from "@/components/sections/Growth";
 import ProjectShowcase from "@/components/ProjectShowcase";
 
@@ -11,11 +10,9 @@ export default function HomePage() {
       <Hero />
       <TrustedBy />
       <WhatWeDo />
-      <Products />
       <WhyNexavora />
       <Process />
       <ProjectShowcase />
-      <SelectedWork />
       <Team />
       <ClientValue />
       <Clients />

@@ -35,6 +35,7 @@ export const accentMap: Record<string, string> = {
   amber: "var(--orange)",
   orange: "var(--orange)",
   green: "#38e08b",
+  rose: "var(--violet)",
 };
 
 function look(status: string): StatusLook {

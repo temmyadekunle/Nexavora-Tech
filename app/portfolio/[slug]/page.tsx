@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { products } from "@/lib/content";
+import { portfolio } from "@/lib/content";
 import { getAccentStyle, getStatusStyle, getStatusDotStyle, getStatusNote, getExternalActions } from "@/lib/utils";
 import ProjectGallery from "@/components/ProjectGallery";
 
@@ -11,12 +11,12 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
+  return portfolio.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const project = products.find((p) => p.slug === slug);
+  const project = portfolio.find((p) => p.slug === slug);
   if (!project) return { title: "Project Not Found" };
   return {
     title: `${project.name} | Portfolio`,
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectDetailPage({ params }: Props) {
   const { slug } = await params;
-  const project = products.find((p) => p.slug === slug);
+  const project = portfolio.find((p) => p.slug === slug);
 
   if (!project) notFound();
 

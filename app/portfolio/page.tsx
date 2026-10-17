@@ -3,33 +3,72 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import { FinalCta } from "@/components/sections/Growth";
-import { products } from "@/lib/content";
+import { portfolio } from "@/lib/content";
 import { getAccentStyle, getStatusStyle, getStatusDotStyle, getExternalActions } from "@/lib/utils";
+
+const CATEGORIES = [
+  { key: "all", label: "All Projects" },
+  { key: "ui-ux-product-design", label: "UI/UX & Product Design" },
+  { key: "web-development", label: "Web Development" },
+  { key: "mobile-apps", label: "Mobile Apps" },
+  { key: "branding-graphic-design", label: "Branding & Graphic Design" },
+  { key: "social-media-marketing-design", label: "Social Media & Marketing Design" },
+] as const;
+
+type CategoryKey = (typeof CATEGORIES)[number]["key"];
 
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Explore Nexavora's digital products, applications, prototypes, and technology projects. From healthcare platforms to life admin tools — see what we are building.",
+    "Explore Nexavora's UI/UX design, product development, websites, applications, and client projects.",
 };
 
-export default function PortfolioPage() {
+export default function PortfolioPage({ searchParams }: { searchParams: { category?: string } }) {
+  const selected = (searchParams.category as CategoryKey) || "all";
+
+  const filteredProjects =
+    selected === "all"
+      ? portfolio
+      : portfolio.filter((p) => p.category === selected);
+
   return (
     <>
       <PageHero
         eyebrow="Portfolio"
         title={
           <>
-            Products & Projects
-            <span className="grad-text"> We Build</span>
+            Our Work.
+            <span className="grad-text"> Our Craft. Our Impact.</span>
           </>
         }
-        lead="Every project starts with a problem. Here is a selection of the digital products, applications, and technology projects we have designed, engineered, and shipped — or are actively building."
+        lead="Explore our work across UI/UX design, digital product development, websites, applications, and technology solutions."
       />
+
+      <section className="section section--line" id="portfolio-filters">
+        <div className="container">
+          <div className="portfolio-filters">
+            {CATEGORIES.map((cat) => {
+              const isActive = selected === cat.key;
+              const params = new URLSearchParams();
+              if (cat.key !== "all") params.set("category", cat.key);
+              return (
+                <a
+                  key={cat.key}
+                  href={`/?${params.toString()}`}
+                  className={`portfolio-filter-btn ${isActive ? "portfolio-filter-btn--active" : ""}`}
+                >
+                  {cat.label}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <section className="section section--line" id="portfolio-grid">
         <div className="container">
           <div className="grid-3 portfolio-grid">
-            {products.map((project) => {
+            {filteredProjects.map((project) => {
               const actions = getExternalActions(project.links as Record<string, string | undefined>);
               const href = `/portfolio/${project.slug}/`;
               return (
@@ -81,7 +120,7 @@ export default function PortfolioPage() {
                     <p className="portfolio-card__description">{project.description}</p>
                     <div className="portfolio-card__meta">
                       <span className="portfolio-card__tech">
-                        {project.techStack?.slice(0, 3).join(" · ") || "Modern stack"}
+                        {project.category}
                       </span>
                     </div>
                     <div className="portfolio-card__actions">

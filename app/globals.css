@@ -2661,6 +2661,56 @@ ol {
 }
 
 /* ==========================================================================
+   Portfolio Category Filters
+   ========================================================================== */
+
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+  justify-content: center;
+}
+
+.portfolio-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.portfolio-filter-btn:hover {
+  border-color: var(--line-strong);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.portfolio-filter-btn--active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(25, 191, 255, 0.1);
+}
+
+@media (max-width: 680px) {
+  .portfolio-filters {
+    gap: 8px;
+  }
+  .portfolio-filter-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+}
+
+/* ==========================================================================
    Lightbox
    ========================================================================== */
 

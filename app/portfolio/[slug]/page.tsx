@@ -102,9 +102,9 @@ export default async function ProjectDetailPage({ params }: Props) {
               <span className="eyebrow">Screenshots</span>
               <h2 className="section-title">Inside {project.name}</h2>
               <p className="section-lead">
-                {project.status === "In Development"
-                  ? "A look at how the site looks today."
-                  : "A closer look at the interface and key features."}
+{(project.status as "In Development" | "Beta" | "Concept" | "Prototype") === "In Development"
+? "A look at how the site looks today."
+: "A closer look at the interface and key features."}
               </p>
             </div>
             <ProjectGallery

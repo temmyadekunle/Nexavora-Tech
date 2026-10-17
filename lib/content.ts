@@ -465,6 +465,38 @@ export const work = [
       "A corporate website that gives an engineering contractor a credible presence online.",
     accent: "orange" as const,
   },
+  {
+    slug: "euphoriabykylie",
+    name: "Euphoria by Kylie Lounge",
+    industry: "Hospitality & Dining",
+    services: ["Brand Strategy", "Web Design", "Development", "Digital Marketing"],
+    outcome:
+      "A premium web presence for a Lagos lounge — brand-aligned design, reservation-friendly layout, and digital marketing that drives footfall and bookings.",
+    accent: "rose" as const,
+    details: {
+      problem:
+        "Kylie Lounge needed a credible online venue to showcase its atmosphere, menu, events, and reservation options — without a clear way for prospective guests to explore or book ahead.",
+      solution:
+        "A sleek, mobile-first website that presents the lounge's brand, menu, upcoming events, and a reservation section. Integrated contact and social links make it easy for guests to connect and return.",
+      highlights: [
+        "Brand-aligned visual design",
+        "Mobile-first layout",
+        "Menu and events section",
+        "Reservation-friendly booking area",
+        "Integrated social media & contact",
+        "Fast loading, SEO-optimised",
+      ],
+      techStack: [
+        "Next.js (App Router, static export)",
+        "Tailwind CSS",
+        "Framer Motion for subtle interactions",
+        "Cloudflare Workers deployment",
+      ],
+      links: {
+        website: "https://euphoriabykylielounge.com/",
+      },
+    },
+  },
 ];
 
 export const team = [

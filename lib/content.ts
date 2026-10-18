@@ -1,5 +1,5 @@
 // Single source of truth for every piece of copy and data on the site.
-// Edit this file to change names, statuses, links and numbers â€” the pages
+// Edit this file to change names, statuses, links and numbers — the pages
 // read everything from here.
 
 export const site = {
@@ -91,24 +91,37 @@ export const whatWeDo = [
       "Product Improvement & Review",
     ],
     cta: { label: "Discuss Your Project", href: "/contact/" },
+    work: { label: "See Our Work", href: "/portfolio/" },
     body:
-      "Business websites, web platforms and custom applications — scoped, designed and engineered around what the business actually needs to run.",
+      "Turn ideas and business needs into functional digital products, websites and software solutions.",
     eyebrow: "01 — Technology & Product Development",
-    deliverables: [
-      "Professional, responsive websites tailored to your business, brand and audience — whether you need a company website, landing page or a more specialised web platform, we focus on usability, performance and clear communication.",
-      "Interactive web-based solutions designed around your business processes and users' needs — from customer-facing platforms to internal business tools.",
-      "Mobile application design and development for Android and iOS, based on your product requirements, target audience and technical needs.",
-      "Turn an early-stage idea into a working minimum viable product (MVP) — we help define essential features, shape the user experience and build an initial version that can be tested and improved using real user feedback.",
-      "Connect applications and services so information can move between systems more efficiently — integration options depend on the requirements and capabilities of the systems involved.",
-      "Improve an existing website or application through feature development, usability improvements, bug fixes and performance optimisation, based on an assessment of the current product.",
-      "Review an existing digital product or proposed solution to identify technical issues, assess its structure and recommend practical improvements.",
+    serviceGroups: [
+      {
+        label: "Development",
+        items: [
+          "Website Design and Development",
+          "Web Application Development",
+          "Mobile Application Development",
+          "Software and Product Development",
+        ],
+      },
+      {
+        label: "Technical Services",
+        items: [
+          "Product Management",
+          "API Development and Integration",
+          "Database Design and Integration",
+          "Technical Consulting and Audits",
+          "Website Maintenance and Improvements",
+        ],
+      },
     ],
   },
   {
     key: "design",
     index: "02",
     title: "Design",
-    subtitle: "UI/UX & Product Design",
+    subtitle: "UI/UX, Product & Visual Design",
     headline: "Design Experiences People Understand and Enjoy",
     summary:
       "We design intuitive digital experiences and visual assets that help businesses communicate clearly with their audiences.",
@@ -118,13 +131,31 @@ export const whatWeDo = [
       "Interface Design",
       "Branding & Visual Design",
     ],
-    cta: { label: "Explore Design Work", href: "/portfolio/?category=ui-ux-product-design" },
-    body: "Research-led interfaces, design systems and product flows built around the people who will actually use them.",
-    deliverables: [
-      "Product & UX strategy",
-      "Wireframes and interactive prototypes",
-      "UI design and design systems",
-      "Brand, identity & visual design",
+    cta: { label: "Discuss Your Project", href: "/contact/" },
+    work: { label: "See Design Work", href: "/portfolio/?category=ui-ux-product-design" },
+    body: "Create intuitive digital experiences, useful product interfaces and visual identities that communicate clearly.",
+    serviceGroups: [
+      {
+        label: "Product & Interface",
+        items: [
+          "UI/UX Design",
+          "Product Design",
+          "User Research",
+          "User Journey Mapping",
+          "Wireframing and Prototyping",
+          "Usability Testing",
+          "Website and App Interface Design",
+          "Design Systems",
+        ],
+      },
+      {
+        label: "Visual & Brand",
+        items: [
+          "Graphic Design",
+          "Branding and Visual Identity",
+          "Marketing and Promotional Designs",
+        ],
+      },
     ],
   },
   {
@@ -141,13 +172,29 @@ export const whatWeDo = [
       "Campaign Planning",
       "Digital Brand Communication",
     ],
-    cta: { label: "Request a Consultation", href: "/contact/" },
-    body: "Positioning, content and campaign planning that help businesses communicate clearly, strengthen their online presence and reach the right audience.",
-    deliverables: [
-      "Positioning & messaging",
-      "Content and social media systems",
-      "Launch and campaign planning",
-      "Analytics & iteration",
+    cta: { label: "Discuss Your Project", href: "/contact/" },
+    work: { label: "See Campaign Work", href: "/portfolio/?category=social-media-marketing-design" },
+    body: "Help businesses communicate their value, strengthen their online presence and reach their target audiences.",
+    serviceGroups: [
+      {
+        label: "Social & Content",
+        items: [
+          "Social Media Management",
+          "Social Media Strategy",
+          "Content Planning and Creation",
+          "Content Calendar Development",
+          "Digital Marketing Strategy",
+        ],
+      },
+      {
+        label: "Campaigns & Creative",
+        items: [
+          "Digital Campaign Management",
+          "Brand Messaging and Positioning",
+          "Marketing Graphics and Creatives",
+          "Campaign Performance Tracking",
+        ],
+      },
     ],
   },
   {
@@ -164,13 +211,30 @@ export const whatWeDo = [
       "Maintenance & Releases",
       "Operations Setup",
     ],
-    cta: { label: "Talk to Our Team", href: "/contact/" },
-    body: "Support workflows, feedback loops and operational upkeep that keep your customers informed and your digital product healthy after launch.",
-    deliverables: [
-      "Customer support workflows",
-      "Feedback & bug triage loops",
-      "Maintenance and releases",
-      "Process and operations setup",
+    cta: { label: "Discuss Your Project", href: "/contact/" },
+    body: "Help businesses manage customer interactions, administrative tasks and everyday operational processes.",
+    serviceGroups: [
+      {
+        label: "Customer-Facing Support",
+        items: [
+          "Customer Support",
+          "Customer Experience Management",
+          "Customer Service Process Setup",
+          "Customer Feedback Management",
+          "Website and Product Support",
+        ],
+      },
+      {
+        label: "Business Operations",
+        items: [
+          "Virtual Assistance",
+          "Administrative Support",
+          "Email and Communication Management",
+          "Data Entry and Record Management",
+          "Workflow and Process Coordination",
+          "Product Maintenance and Release Coordination",
+        ],
+      },
     ],
   },
 ];
@@ -181,7 +245,7 @@ export const products = [
     name: "CareNBuddi",
     industry: "Healthcare Technology",
     problem:
-      "Finding and booking the right healthcare service in Nigeria is fragmented â€” patients juggle phone numbers, paper notes, and memory. Language barriers, offline needs, and provider discovery make care hard to reach.",
+      "Finding and booking the right healthcare service in Nigeria is fragmented — patients juggle phone numbers, paper notes, and memory. Language barriers, offline needs, and provider discovery make care hard to reach.",
     description:
       "CareNBuddi is a digital healthcare platform for Nigeria that brings finding care, booking appointments, keeping health information organised, and staying in touch with healthcare providers into one mobile app — available in English, Yoruba, Hausa and Igbo. It works offline after first load, installs as a PWA, and requires no payment to get started.",
     longDescription:
@@ -191,7 +255,7 @@ export const products = [
     // "Live" would overstate it. Beta is the accurate claim.
     status: "Beta" as const,
     accent: "cyan" as const,
-    // Flagship product â€” featured prominently in the homepage showcase.
+    // Flagship product — featured prominently in the homepage showcase.
     featured: true,
     logo: "/logo/carenbuddi.jpg",
     logoWidth: 1024,
@@ -200,9 +264,9 @@ export const products = [
     // product's own landing hero as the cover (1440x900).
     coverImage: "/projects/carenbuddi/cover.jpg",
     screenshots: [
-      { src: "/projects/carenbuddi/home.jpg", alt: "CareNBuddi home dashboard showing health guide, next appointment and quick actions", caption: "Home â€” health guide, next appointment, reminders and quick actions" },
-      { src: "/projects/carenbuddi/find-care.jpg", alt: "CareNBuddi Find Care screen with search and filters for hospitals, clinics and pharmacies", caption: "Find Care â€” search hospitals, PHCs, labs and pharmacies by area" },
-      { src: "/projects/carenbuddi/health.jpg", alt: "CareNBuddi Health screen showing vitals check-ins and reminders", caption: "Health â€” vitals check-ins, records and reminders" },
+      { src: "/projects/carenbuddi/home.jpg", alt: "CareNBuddi home dashboard showing health guide, next appointment and quick actions", caption: "Home — health guide, next appointment, reminders and quick actions" },
+      { src: "/projects/carenbuddi/find-care.jpg", alt: "CareNBuddi Find Care screen with search and filters for hospitals, clinics and pharmacies", caption: "Find Care — search hospitals, PHCs, labs and pharmacies by area" },
+      { src: "/projects/carenbuddi/health.jpg", alt: "CareNBuddi Health screen showing vitals check-ins and reminders", caption: "Health — vitals check-ins, records and reminders" },
     ],
     mockups: {
       desktop: "",
@@ -218,25 +282,25 @@ export const products = [
       "Works offline and installs as a PWA, with English, Yoruba, Hausa and Igbo built in",
     ],
     features: [
-      "Find Healthcare â€” hospitals, clinics, PHCs, laboratories, pharmacies by name or area",
-      "Book Appointments â€” schedule visits and track what's coming up",
-      "Health Records â€” store records, results and details in one place",
-      "Health Reminders â€” stay on top of medicines, appointments and activities",
-      "Healthcare Connections â€” reach providers directly, keep activities organised",
-      "Personal Health Dashboard â€” overview of healthcare activities and journey",
-      "Vitals Tracking â€” blood pressure, weight, blood sugar with trend views",
-      "Vaccine & Dose Tracking â€” record what was given and when next dose is due",
-      "Prescriptions â€” hold on to prescriptions and medicines",
-      "Health Tips â€” curated articles (hypertension, malaria, mental health, first aid, diabetes, asthma, TB, immunisation)",
-      "Emergency Access â€” Call 112, find nearby emergency care",
-      "Health Passport â€” emergency card and health summary",
-      "Care Circle â€” family health at a glance",
-      "Exercise & Wellness â€” steps, weight and sleep",
-      "Preventive Services â€” check health and book preventive services",
+      "Find Healthcare — hospitals, clinics, PHCs, laboratories, pharmacies by name or area",
+      "Book Appointments — schedule visits and track what's coming up",
+      "Health Records — store records, results and details in one place",
+      "Health Reminders — stay on top of medicines, appointments and activities",
+      "Healthcare Connections — reach providers directly, keep activities organised",
+      "Personal Health Dashboard — overview of healthcare activities and journey",
+      "Vitals Tracking — blood pressure, weight, blood sugar with trend views",
+      "Vaccine & Dose Tracking — record what was given and when next dose is due",
+      "Prescriptions — hold on to prescriptions and medicines",
+      "Health Tips — curated articles (hypertension, malaria, mental health, first aid, diabetes, asthma, TB, immunisation)",
+      "Emergency Access — Call 112, find nearby emergency care",
+      "Health Passport — emergency card and health summary",
+      "Care Circle — family health at a glance",
+      "Exercise & Wellness — steps, weight and sleep",
+      "Preventive Services — check health and book preventive services",
     ],
     techStack: [
       "Next.js (App Router, static export)",
-      "PWA â€” installable, offline-capable after first load",
+      "PWA — installable, offline-capable after first load",
       "4 languages: English, Yoruba, Hausa, Igbo",
       "Care directory: Hospitals, clinics, PHCs, labs, pharmacies",
       "Works on any modern phone, online or offline",
@@ -260,12 +324,12 @@ export const products = [
     name: "Livanta",
     industry: "Life Admin & Productivity",
     problem:
-      "Deadlines, renewals and recurring obligations are scattered across paper, memory and inboxes. A household's rent, bills, documents, vehicles and schedules live in too many places â€” and the week where they all land together becomes an emergency.",
+      "Deadlines, renewals and recurring obligations are scattered across paper, memory and inboxes. A household's rent, bills, documents, vehicles and schedules live in too many places — and the week where they all land together becomes an emergency.",
     description:
       "Livanta is a local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. Built in Nigeria, it runs entirely offline, installs as a PWA, and ships as a signed Android APK.",
     longDescription:
-      "Livanta â€” your life, organized. Your problems, anticipated. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place â€” and warns you before each one becomes an emergency. The app has 5 tabs (Home, Life, Alerts, Calendar, Profile), 4 languages (English, Hausa, Yoruba, Igbo), and a demo household seeded with 12 realistic Nigerian items (rent, electricity, internet, Netflix, vehicle insurance, school fees, driver's licence, passport, refrigerator warranty, generator service, car oil change, electrician). 9 alerts derived at seed time. 368 tests + smoke, CSP and responsive QA. 0 trackers â€” no cookies, no analytics, CSP-enforced.",
-    // The prototype page states "v0.1.0 Â· beta, invite-only".
+      "Livanta — your life, organized. Your problems, anticipated. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. The app has 5 tabs (Home, Life, Alerts, Calendar, Profile), 4 languages (English, Hausa, Yoruba, Igbo), and a demo household seeded with 12 realistic Nigerian items (rent, electricity, internet, Netflix, vehicle insurance, school fees, driver's licence, passport, refrigerator warranty, generator service, car oil change, electrician). 9 alerts derived at seed time. 368 tests + smoke, CSP and responsive QA. 0 trackers — no cookies, no analytics, CSP-enforced.",
+    // The prototype page states "v0.1.0 · beta, invite-only".
     status: "Beta" as const,
     accent: "violet" as const,
     featured: false,
@@ -276,13 +340,13 @@ export const products = [
     // plus the product's own landing hero as the cover (1440x900).
     coverImage: "/projects/livanta/cover.jpg",
     screenshots: [
-      { src: "/projects/livanta/home.jpg", alt: "Livanta home screen showing status overview, urgent items and coming soon", caption: "Home â€” status overview, needs attention, coming soon" },
-      { src: "/projects/livanta/life.jpg", alt: "Livanta Life hub listing life areas with counts and filters", caption: "Life â€” the hub with life areas, search and filters" },
-      { src: "/projects/livanta/calendar.jpg", alt: "Livanta calendar showing month grid with due-day markers", caption: "Calendar â€” month grid, day agenda and upcoming" },
-      { src: "/projects/livanta/quick-add.jpg", alt: "Livanta quick add sheet for capturing a new item", caption: "Quick add â€” name, category, amount, date, recurrence" },
-      { src: "/projects/livanta/detail.jpg", alt: "Livanta item detail showing amount, due date and notes", caption: "Thing detail â€” full record with mark handled and edit" },
-      { src: "/projects/livanta/profile.jpg", alt: "Livanta profile screen with language, notifications and export", caption: "Profile â€” language, reminders, export and delete all data" },
-      { src: "/projects/livanta/welcome.jpg", alt: "Livanta welcome screen with language picker and demo option", caption: "Onboarding â€” welcome, language picker and demo data" },
+      { src: "/projects/livanta/home.jpg", alt: "Livanta home screen showing status overview, urgent items and coming soon", caption: "Home — status overview, needs attention, coming soon" },
+      { src: "/projects/livanta/life.jpg", alt: "Livanta Life hub listing life areas with counts and filters", caption: "Life — the hub with life areas, search and filters" },
+      { src: "/projects/livanta/calendar.jpg", alt: "Livanta calendar showing month grid with due-day markers", caption: "Calendar — month grid, day agenda and upcoming" },
+      { src: "/projects/livanta/quick-add.jpg", alt: "Livanta quick add sheet for capturing a new item", caption: "Quick add — name, category, amount, date, recurrence" },
+      { src: "/projects/livanta/detail.jpg", alt: "Livanta item detail showing amount, due date and notes", caption: "Thing detail — full record with mark handled and edit" },
+      { src: "/projects/livanta/profile.jpg", alt: "Livanta profile screen with language, notifications and export", caption: "Profile — language, reminders, export and delete all data" },
+      { src: "/projects/livanta/welcome.jpg", alt: "Livanta welcome screen with language picker and demo option", caption: "Onboarding — welcome, language picker and demo data" },
     ],
     mockups: {
       desktop: "",
@@ -298,29 +362,29 @@ export const products = [
       "Local-first — every feature works offline, with no trackers, in 4 languages",
     ],
     features: [
-      "Home â€” status hero, urgent/important/on-track readings, needs attention, coming soon, quick add, life areas",
-      "Life â€” five life areas (Home, Transport, Money, Documents, Family, Tasks, Services) with live counts, search, category/status filters, trusted providers with call/WhatsApp",
-      "Alerts â€” filter chips, needs attention / coming up / completed, dismiss or review each alert",
-      "Calendar â€” month grid with due-day dots, day agenda, upcoming list",
-      "Profile â€” account, security, language, notifications, reminder schedule, export (JSON), delete all data, help, legal",
-      "Quick Add â€” capture in seconds: name, category, kind, amount, date, recurrence in one sheet",
-      "Thing Detail â€” full record: amount, due date, notes, details, with mark handled, edit, delete",
-      "Documents Module â€” drill into a single life area with its own header, list and actions",
-      "Onboarding â€” 5 steps: welcome (language picker), value props, choose what to manage, first thing example, notifications permission â€” all skippable, all translated",
-      "Demo Mode â€” one-tap 'Open with demo data' for a fully populated household",
-      "Providers â€” saved providers with ratings, call/WhatsApp from the card",
-      "Offline-first â€” IndexedDB (lifedesk), service worker caches shell, every feature works offline",
-      "Code-split â€” home/shell eager; other tabs fetch on navigation then cache",
+      "Home — status hero, urgent/important/on-track readings, needs attention, coming soon, quick add, life areas",
+      "Life — five life areas (Home, Transport, Money, Documents, Family, Tasks, Services) with live counts, search, category/status filters, trusted providers with call/WhatsApp",
+      "Alerts — filter chips, needs attention / coming up / completed, dismiss or review each alert",
+      "Calendar — month grid with due-day dots, day agenda, upcoming list",
+      "Profile — account, security, language, notifications, reminder schedule, export (JSON), delete all data, help, legal",
+      "Quick Add — capture in seconds: name, category, kind, amount, date, recurrence in one sheet",
+      "Thing Detail — full record: amount, due date, notes, details, with mark handled, edit, delete",
+      "Documents Module — drill into a single life area with its own header, list and actions",
+      "Onboarding — 5 steps: welcome (language picker), value props, choose what to manage, first thing example, notifications permission — all skippable, all translated",
+      "Demo Mode — one-tap 'Open with demo data' for a fully populated household",
+      "Providers — saved providers with ratings, call/WhatsApp from the card",
+      "Offline-first — IndexedDB (lifedesk), service worker caches shell, every feature works offline",
+      "Code-split — home/shell eager; other tabs fetch on navigation then cache",
       "Signed Android APK (versionCode 3) on GitHub Releases",
       "No tracking, CSP enforced, JSON export, delete-all",
     ],
     techStack: [
       "Next.js (App Router, output: 'export')",
-      "IndexedDB (lifedesk) â€” things, alerts, members, settings",
-      "Service Worker â€” offline shell, PWA",
+      "IndexedDB (lifedesk) — things, alerts, members, settings",
+      "Service Worker — offline shell, PWA",
       "4 languages: English, Hausa, Yoruba, Igbo",
       "Cloudflare Workers deployment (wrangler deploy)",
-      "Android WebView wrapper â†’ signed APK",
+      "Android WebView wrapper → signed APK",
       "368 tests + smoke, CSP check, 5-viewport responsive QA",
     ],
     links: {
@@ -329,23 +393,23 @@ export const products = [
       apk: "https://github.com/temmyadekunle/Livanta/releases",
     },
     demoData: [
-      { name: "Rent", category: "home Â· rent", amount: "â‚¦1,200,000", timing: "due in 18 days", story: "Pay before the 25th (Mr. Okonkwo)" },
-      { name: "Electricity", category: "money Â· utility", amount: "â‚¦45,200", timing: "due in 1 day", story: "Ikeja Electric â€” the urgent alert" },
-      { name: "Internet subscription", category: "money Â· subscription", amount: "â‚¦20,000", timing: "due in 3 days", story: "Spectranet 10GB + 4G router" },
-      { name: "Netflix", category: "money Â· subscription", amount: "â‚¦8,500", timing: "due in 6 days", story: "Subscription creep" },
-      { name: "Vehicle insurance", category: "transport Â· insurance", amount: "â‚¦85,000", timing: "due in 12 days", story: "Toyota Camry, ABC-123-Lagos" },
-      { name: "School fees", category: "family Â· school fee", amount: "â‚¦150,000", timing: "due in 14 days", story: "Command Primary, assigned to Partner" },
-      { name: "Driver's licence", category: "documents Â· document", amount: "â€”", timing: "expires in 45 days", story: "FRSC renewal" },
-      { name: "Passport", category: "documents Â· document", amount: "â€”", timing: "expires in 240 days", story: "Long-horizon item" },
-      { name: "LG Refrigerator", category: "home Â· asset", amount: "â‚¦465,000", timing: "warranty ends in 21 days", story: "12-month warranty lapsing" },
-      { name: "Generator service", category: "home Â· maintenance", amount: "â‚¦45,000", timing: "every 90 days, last 120 days ago", story: "Interval-based, overdue" },
-      { name: "Toyota Camry oil change", category: "transport Â· maintenance", amount: "â‚¦30,000", timing: "every 120 days, last 200 days ago", story: "Interval-based, overdue" },
-      { name: "John the electrician", category: "services Â· provider", amount: "â€”", timing: "called 45 days ago", story: "Saved provider with rating" },
+      { name: "Rent", category: "home · rent", amount: "₦1,200,000", timing: "due in 18 days", story: "Pay before the 25th (Mr. Okonkwo)" },
+      { name: "Electricity", category: "money · utility", amount: "₦45,200", timing: "due in 1 day", story: "Ikeja Electric — the urgent alert" },
+      { name: "Internet subscription", category: "money · subscription", amount: "₦20,000", timing: "due in 3 days", story: "Spectranet 10GB + 4G router" },
+      { name: "Netflix", category: "money · subscription", amount: "₦8,500", timing: "due in 6 days", story: "Subscription creep" },
+      { name: "Vehicle insurance", category: "transport · insurance", amount: "₦85,000", timing: "due in 12 days", story: "Toyota Camry, ABC-123-Lagos" },
+      { name: "School fees", category: "family · school fee", amount: "₦150,000", timing: "due in 14 days", story: "Command Primary, assigned to Partner" },
+      { name: "Driver's licence", category: "documents · document", amount: "—", timing: "expires in 45 days", story: "FRSC renewal" },
+      { name: "Passport", category: "documents · document", amount: "—", timing: "expires in 240 days", story: "Long-horizon item" },
+      { name: "LG Refrigerator", category: "home · asset", amount: "₦465,000", timing: "warranty ends in 21 days", story: "12-month warranty lapsing" },
+      { name: "Generator service", category: "home · maintenance", amount: "₦45,000", timing: "every 90 days, last 120 days ago", story: "Interval-based, overdue" },
+      { name: "Toyota Camry oil change", category: "transport · maintenance", amount: "₦30,000", timing: "every 120 days, last 200 days ago", story: "Interval-based, overdue" },
+      { name: "John the electrician", category: "services · provider", amount: "—", timing: "called 45 days ago", story: "Saved provider with rating" },
     ],
     roadmap: {
-      mvp: "v0.1 shipped â€” local-first things, alerts, calendar, life hub, quick add, detail, edit, derived priorities, 5-tab shell, splash + 5-step onboarding, demo mode, 4 languages, providers with call/WhatsApp, JSON export, delete-all, PWA offline, signed APK, no tracking, CSP enforced",
-      next: "v0.2â€“0.3 â€” optional accounts & sync (Supabase, fail-open cache built), recurring 'mark handled â†’ next occurrence' end-to-end, household members shared (data model ready), push/email reminder channels, Play Store & App Store listings, alert snooze and custom rules",
-      future: "v1.x â€” payment rails (Paystack ready, not enabled in beta), predictive anticipation of household costs, OS widgets for today's due items, document photos (dates only â€” never ID numbers), iOS build, richer provider ratings",
+      mvp: "v0.1 shipped — local-first things, alerts, calendar, life hub, quick add, detail, edit, derived priorities, 5-tab shell, splash + 5-step onboarding, demo mode, 4 languages, providers with call/WhatsApp, JSON export, delete-all, PWA offline, signed APK, no tracking, CSP enforced",
+      next: "v0.2–0.3 — optional accounts & sync (Supabase, fail-open cache built), recurring 'mark handled → next occurrence' end-to-end, household members shared (data model ready), push/email reminder channels, Play Store & App Store listings, alert snooze and custom rules",
+      future: "v1.x — payment rails (Paystack ready, not enabled in beta), predictive anticipation of household costs, OS widgets for today's due items, document photos (dates only — never ID numbers), iOS build, richer provider ratings",
     },
   },
 ];
@@ -384,13 +448,13 @@ export const work = [
     industry: "Healthcare Technology",
     services: ["Product Strategy", "UI/UX", "Development", "PWA", "Multi-language", "Offline-first"],
     outcome:
-      "A digital healthcare platform for Nigeria â€” live, installable, offline-capable, 4 languages. Patients find care, book appointments, track health, and connect with providers. Providers get discovered and manage requests.",
+      "A digital healthcare platform for Nigeria — live, installable, offline-capable, 4 languages. Patients find care, book appointments, track health, and connect with providers. Providers get discovered and manage requests.",
     accent: "cyan" as const,
     details: {
       problem:
-        "Finding and booking healthcare in Nigeria is fragmented â€” patients juggle phone numbers, paper notes, and memory. Language barriers, offline needs, and provider discovery make care hard to reach.",
+        "Finding and booking healthcare in Nigeria is fragmented — patients juggle phone numbers, paper notes, and memory. Language barriers, offline needs, and provider discovery make care hard to reach.",
       solution:
-        "CareNBuddi brings finding care, booking appointments, keeping health information organised, and staying in touch with healthcare providers into one mobile app â€” available in English, Yoruba, Hausa and Igbo. Works offline after first load, installs as a PWA, requires no payment to get started.",
+        "CareNBuddi brings finding care, booking appointments, keeping health information organised, and staying in touch with healthcare providers into one mobile app — available in English, Yoruba, Hausa and Igbo. Works offline after first load, installs as a PWA, requires no payment to get started.",
       highlights: [
         "4 languages: English, Yoruba, Hausa, Igbo",
         "Care directory: Hospitals, clinics, PHCs, labs, pharmacies",
@@ -405,7 +469,7 @@ export const work = [
       ],
       techStack: [
         "Next.js (App Router, static export)",
-        "PWA â€” installable, offline-capable",
+        "PWA — installable, offline-capable",
         "Cloudflare Workers deployment",
         "4 languages from day one",
       ],
@@ -422,23 +486,23 @@ export const work = [
     industry: "Life Admin & Productivity",
     services: ["Product Design", "UI/UX", "Mobile Development", "Local-first Architecture", "PWA", "Android APK"],
     outcome:
-      "A local-first life admin app that keeps a household's rent, bills, documents, vehicles and schedules in one place â€” and warns you before each becomes an emergency. Ships as PWA + signed Android APK.",
+      "A local-first life admin app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each becomes an emergency. Ships as PWA + signed Android APK.",
     accent: "violet" as const,
     details: {
       problem:
-        "Deadlines, renewals and recurring obligations are scattered across paper, memory and inboxes. A household's rent, bills, documents, vehicles and schedules live in too many places â€” and the week where they all land together becomes an emergency.",
+        "Deadlines, renewals and recurring obligations are scattered across paper, memory and inboxes. A household's rent, bills, documents, vehicles and schedules live in too many places — and the week where they all land together becomes an emergency.",
       solution:
-        "Livanta is a local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place â€” and warns you before each one becomes an emergency. 5 tabs (Home, Life, Alerts, Calendar, Profile), 4 languages, demo household with 12 seeded items, 9 derived alerts, 368 tests, 0 trackers, CSP-enforced.",
+        "Livanta is a local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. 5 tabs (Home, Life, Alerts, Calendar, Profile), 4 languages, demo household with 12 seeded items, 9 derived alerts, 368 tests, 0 trackers, CSP-enforced.",
       highlights: [
         "5 tabs: Home, Life, Alerts, Calendar, Profile",
         "4 languages: English, Hausa, Yoruba, Igbo",
-        "Demo mode: one-tap 'Open with demo data' â€” 12 things, 9 alerts, Nigerian household",
+        "Demo mode: one-tap 'Open with demo data' — 12 things, 9 alerts, Nigerian household",
         "Quick Add: name, category, kind, amount, date, recurrence in one sheet",
         "Life hub: 5 areas with live counts, search, filters, trusted providers with call/WhatsApp",
         "Alerts: filter chips, needs attention / coming up / completed, dismiss or review",
         "Calendar: month grid with due-day dots, day agenda, upcoming list",
         "Profile: account, security, language, notifications, reminder schedule, export JSON, delete all, help, legal",
-        "Onboarding: 5 steps (welcome, value props, choose what to manage, first thing, notifications) â€” all skippable, all translated",
+        "Onboarding: 5 steps (welcome, value props, choose what to manage, first thing, notifications) — all skippable, all translated",
         "Providers: saved with ratings, call/WhatsApp from card",
         "Local-first: IndexedDB (lifedesk), service worker, every feature works offline",
         "Signed Android APK (versionCode 3) on GitHub Releases",
@@ -446,10 +510,10 @@ export const work = [
       ],
       techStack: [
         "Next.js (App Router, output: 'export')",
-        "IndexedDB (lifedesk) â€” things, alerts, members, settings",
-        "Service Worker â€” offline shell, PWA",
+        "IndexedDB (lifedesk) — things, alerts, members, settings",
+        "Service Worker — offline shell, PWA",
         "Cloudflare Workers (wrangler deploy)",
-        "Android WebView wrapper â†’ signed APK",
+        "Android WebView wrapper → signed APK",
         "368 tests + smoke, CSP check, 5-viewport responsive QA",
       ],
       links: {
@@ -458,23 +522,23 @@ export const work = [
         apk: "https://github.com/temmyadekunle/Livanta/releases",
       },
       demoData: [
-        { name: "Rent", category: "home Â· rent", amount: "â‚¦1,200,000", timing: "due in 18 days" },
-        { name: "Electricity", category: "money Â· utility", amount: "â‚¦45,200", timing: "due in 1 day" },
-        { name: "Internet subscription", category: "money Â· subscription", amount: "â‚¦20,000", timing: "due in 3 days" },
-        { name: "Netflix", category: "money Â· subscription", amount: "â‚¦8,500", timing: "due in 6 days" },
-        { name: "Vehicle insurance", category: "transport Â· insurance", amount: "â‚¦85,000", timing: "due in 12 days" },
-        { name: "School fees", category: "family Â· school fee", amount: "â‚¦150,000", timing: "due in 14 days" },
-        { name: "Driver's licence", category: "documents Â· document", amount: "â€”", timing: "expires in 45 days" },
-        { name: "Passport", category: "documents Â· document", amount: "â€”", timing: "expires in 240 days" },
-        { name: "LG Refrigerator", category: "home Â· asset", amount: "â‚¦465,000", timing: "warranty ends in 21 days" },
-        { name: "Generator service", category: "home Â· maintenance", amount: "â‚¦45,000", timing: "every 90 days, last 120 days ago" },
-        { name: "Toyota Camry oil change", category: "transport Â· maintenance", amount: "â‚¦30,000", timing: "every 120 days, last 200 days ago" },
-        { name: "John the electrician", category: "services Â· provider", amount: "â€”", timing: "called 45 days ago" },
+        { name: "Rent", category: "home · rent", amount: "₦1,200,000", timing: "due in 18 days" },
+        { name: "Electricity", category: "money · utility", amount: "₦45,200", timing: "due in 1 day" },
+        { name: "Internet subscription", category: "money · subscription", amount: "₦20,000", timing: "due in 3 days" },
+        { name: "Netflix", category: "money · subscription", amount: "₦8,500", timing: "due in 6 days" },
+        { name: "Vehicle insurance", category: "transport · insurance", amount: "₦85,000", timing: "due in 12 days" },
+        { name: "School fees", category: "family · school fee", amount: "₦150,000", timing: "due in 14 days" },
+        { name: "Driver's licence", category: "documents · document", amount: "—", timing: "expires in 45 days" },
+        { name: "Passport", category: "documents · document", amount: "—", timing: "expires in 240 days" },
+        { name: "LG Refrigerator", category: "home · asset", amount: "₦465,000", timing: "warranty ends in 21 days" },
+        { name: "Generator service", category: "home · maintenance", amount: "₦45,000", timing: "every 90 days, last 120 days ago" },
+        { name: "Toyota Camry oil change", category: "transport · maintenance", amount: "₦30,000", timing: "every 120 days, last 200 days ago" },
+        { name: "John the electrician", category: "services · provider", amount: "—", timing: "called 45 days ago" },
       ],
       roadmap: {
-        mvp: "v0.1 shipped â€” local-first things, alerts, calendar, life hub, quick add, detail, edit, derived priorities, 5-tab shell, splash + 5-step onboarding, demo mode, 4 languages, providers with call/WhatsApp, JSON export, delete-all, PWA offline, signed APK, no tracking, CSP enforced",
-        next: "v0.2â€“0.3 â€” optional accounts & sync (Supabase, fail-open cache built), recurring 'mark handled â†’ next occurrence' end-to-end, household members shared (data model ready), push/email reminder channels, Play Store & App Store listings, alert snooze and custom rules",
-        future: "v1.x â€” payment rails (Paystack ready, not enabled in beta), predictive anticipation of household costs, OS widgets for today's due items, document photos (dates only â€” never ID numbers), iOS build, richer provider ratings",
+        mvp: "v0.1 shipped — local-first things, alerts, calendar, life hub, quick add, detail, edit, derived priorities, 5-tab shell, splash + 5-step onboarding, demo mode, 4 languages, providers with call/WhatsApp, JSON export, delete-all, PWA offline, signed APK, no tracking, CSP enforced",
+        next: "v0.2–0.3 — optional accounts & sync (Supabase, fail-open cache built), recurring 'mark handled → next occurrence' end-to-end, household members shared (data model ready), push/email reminder channels, Play Store & App Store listings, alert snooze and custom rules",
+        future: "v1.x — payment rails (Paystack ready, not enabled in beta), predictive anticipation of household costs, OS widgets for today's due items, document photos (dates only — never ID numbers), iOS build, richer provider ratings",
       },
     },
   },
@@ -493,11 +557,11 @@ export const work = [
     industry: "Hospitality & Dining",
     services: ["Brand Strategy", "Web Design", "Development", "Digital Marketing"],
     outcome:
-      "A premium web presence for a Lagos lounge â€” brand-aligned design, reservation-friendly layout, and digital marketing that drives footfall and bookings.",
+      "A premium web presence for a Lagos lounge — brand-aligned design, reservation-friendly layout, and digital marketing that drives footfall and bookings.",
     accent: "rose" as const,
     details: {
       problem:
-        "Kylie Lounge needed a credible online venue to showcase its atmosphere, menu, events, and reservation options â€” without a clear way for prospective guests to explore or book ahead.",
+        "Kylie Lounge needed a credible online venue to showcase its atmosphere, menu, events, and reservation options — without a clear way for prospective guests to explore or book ahead.",
       solution:
         "A sleek, mobile-first website that presents the lounge's brand, menu, upcoming events, and a reservation section. Integrated contact and social links make it easy for guests to connect and return.",
       highlights: [
@@ -854,7 +918,7 @@ export const clientValue = [
   },
   {
     title: "We ship our own products too",
-    body: "CareNBuddi and Livanta are ours â€” we hold client work to the same standard we hold ourselves.",
+    body: "CareNBuddi and Livanta are ours — we hold client work to the same standard we hold ourselves.",
   },
 ];
 
@@ -878,7 +942,7 @@ export const clients = [
   {
     name: "Jimiking Art Fashion",
     sector: "Fashion & Art",
-    // Artwork not supplied yet â€” the site falls back to a text wordmark.
+    // Artwork not supplied yet — the site falls back to a text wordmark.
     logo: "",
     url: "",
     width: 960,
@@ -932,7 +996,7 @@ export const capabilities = [
 ];
 
 // Topics we are writing about. No publication dates or authors are shown
-// because no articles have been published yet â€” add them here only once the
+// because no articles have been published yet — add them here only once the
 // writing exists.
 export const buildApproach = [
   { step: "Understand", body: "We begin by understanding your goals and requirements." },
@@ -980,7 +1044,7 @@ export const insightsStatus =
 
 export const careers = {
   heading: "Want to build what's next with us?",
-  body: "We're always interested in talented people who love solving problems â€” designers, developers, strategists and operators.",
+  body: "We're always interested in talented people who love solving problems — designers, developers, strategists and operators.",
   cta: { label: "View opportunities", href: "/company/#careers" },
 };
 
@@ -1028,7 +1092,7 @@ export const footer = {
       ],
     },
   ],
-  // Verified profile URLs only. Leave empty until the real accounts exist â€”
+  // Verified profile URLs only. Leave empty until the real accounts exist —
   // the footer hides the row when there is nothing to link to.
   social: [] as { label: string; href: string }[],
 };
@@ -1038,10 +1102,10 @@ export const contact = {
   message:
     "A short note is enough: what you want to build, who it is for, and roughly when you need it. We'll come back with questions, a plan, or an honest assessment of the best way forward.",
   location: "Based in Nigeria, working with clients globally.",
-  responseTime: "Within 1â€“2 working days",
+  responseTime: "Within 1–2 working days",
   bestFor: "Products, platforms, design and growth",
-  // Optional â€” hide the whole row if the form is ever moved to a backend.
-  note: "Send Inquiry opens your email app with these details filled in â€” nothing is stored on this site.",
+  // Optional — hide the whole row if the form is ever moved to a backend.
+  note: "Send Inquiry opens your email app with these details filled in — nothing is stored on this site.",
   whatsapp: "+2349117511518",
 };
 
@@ -1057,17 +1121,17 @@ export const serviceOptions = [
 
 export const budgetOptions = [
   "Not sure yet",
-  "Under â‚¦100,000",
-  "â‚¦100,000 â€“ â‚¦300,000",
-  "â‚¦300,000 â€“ â‚¦500,000",
-  "â‚¦500,000 â€“ â‚¦1,000,000",
-  "Above â‚¦1,000,000",
+  "Under ₦100,000",
+  "₦100,000 – ₦300,000",
+  "₦300,000 – ₦500,000",
+  "₦500,000 – ₦1,000,000",
+  "Above ₦1,000,000",
   "Prefer to discuss",
 ];
 
 export const timelineOptions = [
   "As soon as possible",
-  "Within 2â€“4 weeks",
-  "Within 1â€“3 months",
+  "Within 2–4 weeks",
+  "Within 1–3 months",
   "Just exploring ideas",
 ];

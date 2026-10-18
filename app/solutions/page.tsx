@@ -14,13 +14,13 @@ export default function SolutionsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Solutions"
+        eyebrow="Our Solutions"
         title={
           <>
-            Four solutions, <span className="grad-text">one team</span>
+            Four Solutions. <span className="grad-text">One Team.</span>
           </>
         }
-        lead="Technology, design, digital growth, customer experience and business solutions — combined around the problem you are actually trying to solve."
+        lead="Nexavora Technology Solutions helps businesses and founders build digital products, design better experiences, grow their online presence and manage customer interactions through practical technology and business support."
       />
 
       {whatWeDo.map((solution) => (
@@ -35,22 +35,31 @@ export default function SolutionsPage() {
                 <span className="eyebrow">
                   {solution.index} — {solution.subtitle}
                 </span>
-                <h2>{solution.headline}</h2>
+                <h2>{solution.title}</h2>
                 <p>{solution.body}</p>
                 <p className="prose__cta-row">
                   <Link className="link-arrow" href={solution.cta.href}>
                     {solution.cta.label} <span aria-hidden="true">→</span>
                   </Link>
+                  {solution.work ? (
+                    <Link className="link-arrow link-arrow--muted" href={solution.work.href}>
+                      {solution.work.label} <span aria-hidden="true">→</span>
+                    </Link>
+                  ) : null}
                 </p>
               </div>
 
-              <div>
-                <h3 className="card__subtitle">What that includes</h3>
-                <ul className="checklist">
-                  {solution.deliverables.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+              <div className="service-groups">
+                {solution.serviceGroups.map((group) => (
+                  <div className="service-groups__group" key={group.label}>
+                    <h3 className="card__subtitle">{group.label}</h3>
+                    <ul className="checklist">
+                      {group.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

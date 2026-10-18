@@ -825,7 +825,7 @@ export const team = [
     role: "Graphics Designer",
     focus: "Brand & Visual Design",
     specialty: "Visual identity, marketing assets & brand systems",
-    photo: "/team/tunmise.jpg",
+    photo: "/team/tunmise-clean.jpg",
   },
   {
     name: "Omoloja Moses Opeoluwa",

@@ -1361,29 +1361,32 @@ ol {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.03);
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .team-card__avatar {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: clamp(220px, 24vw, 280px);
   margin: 0 auto 18px;
   border-radius: var(--radius-sm);
-  display: grid;
-  place-items: center;
-  background: var(--grad);
-  color: #05070f;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--text);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 24px;
+  font-size: 34px;
   letter-spacing: 0.02em;
-  box-shadow: 0 16px 36px -18px rgba(74, 116, 245, 0.9);
-  overflow: hidden;
+  display: grid;
+  place-items: center;
 }
 
-.team-card__avatar img {
+.team-card__photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 18%;
 }
 
 .team-card h3 {

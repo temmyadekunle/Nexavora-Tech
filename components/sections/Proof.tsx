@@ -81,30 +81,43 @@ export function SelectedWork() {
   );
 }
 
-export function Team() {
+export function Team({ home }: { home?: boolean }) {
   return (
     <section className="section section--line" id="team">
       <div className="container">
-        <div className="section-head section-head--center">
-          <span className="eyebrow">Meet the People</span>
-          <h2 className="section-title">The people behind Nexavora</h2>
-          <p className="section-lead">
-            Designers, technologists, strategists and problem-solvers committed to building
-            useful digital solutions.
-          </p>
-        </div>
+        {home ? (
+          <div className="section-head section-head--center">
+            <span className="eyebrow">Meet the Team</span>
+            <h2 className="section-title">The People Behind Nexavora</h2>
+            <p className="section-lead">
+              Meet the people bringing our ideas to life through product development, design,
+              engineering, and creative problem-solving.
+            </p>
+          </div>
+        ) : (
+          <div className="section-head section-head--center">
+            <span className="eyebrow">Meet the People</span>
+            <h2 className="section-title">The people behind Nexavora</h2>
+            <p className="section-lead">
+              Designers, technologists, strategists and problem-solvers committed to building
+              useful digital solutions.
+            </p>
+          </div>
+        )}
 
         <div className="team-grid">
           {team.map((member) => (
             <article className="team-card" key={member.name}>
-              <div className="team-card__avatar" aria-hidden="true">
+              <div className="team-card__avatar" aria-hidden={member.photo ? undefined : true}>
                 {member.photo ? (
                   <Image
                     src={member.photo}
-                    alt=""
-                    width={120}
-                    height={120}
+                    alt={`Portrait of ${member.name}`}
+                    width={420}
+                    height={520}
+                    className="team-card__photo"
                     loading="lazy"
+                    unoptimized
                   />
                 ) : (
                   member.name
@@ -117,12 +130,20 @@ export function Team() {
               <h3>{member.name}</h3>
               <p className="team-card__role">{member.role}</p>
               <p className="team-card__focus">{member.focus}</p>
-              <p className="team-card__specialty">{member.specialty}</p>
+              {!home && <p className="team-card__specialty">{member.specialty}</p>}
             </article>
           ))}
         </div>
 
-        <p className="team-note">A small team building big ideas.</p>
+        {home ? (
+          <div className="section-actions">
+            <Link className="btn btn--outline" href="/company/#team">
+              Meet the Full Team
+            </Link>
+          </div>
+        ) : (
+          <p className="team-note">A small team building big ideas.</p>
+        )}
       </div>
     </section>
   );

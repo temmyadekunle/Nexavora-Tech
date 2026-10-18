@@ -827,6 +827,33 @@ export const clients = [
   },
 ];
 
+export const testimonials = [
+  {
+    business: "Euphoria by Kylie Lounge",
+    title: "An Exceptional Website That Drives Real Customers",
+    text:
+      "They understood our hospitality brand perfectly and built us a stunning, mobile-friendly website. Our customers can now explore our menu, view our lounge, and make reservations with ease. We've seen a real increase in bookings since launch. Highly professional team!",
+    attribution: "Management, Euphoria by Kylie Lounge",
+    service: "Web Development",
+  },
+  {
+    business: "Electrotrans Engineering and Contractor",
+    title: "Professionalism That Matches Our Industry Standard",
+    text:
+      "We needed a corporate website that builds trust and clearly showcases our engineering services and past projects. They delivered a clean, fast, and professional site that has significantly improved our online credibility with clients and partners.",
+    attribution: "Engr. Adekunle Adedayo, Managing Director, Electrotrans Engineering and Contractor",
+    service: "Corporate Website Development",
+  },
+  {
+    business: "Jimiking Art Fashion",
+    title: "Creative Designs That Sell",
+    text:
+      "Their flyer designs consistently capture the essence of our brand, stylish, bold, and attention-grabbing. Every campaign they design helps us stand out and drives sales for our new collections. The best creative team we've worked with!",
+    attribution: "Director, Jimiking Art Fashion",
+    service: "Graphic Design and Marketing Creatives",
+  },
+];
+
 export const stats = [
   { value: "2", label: "Products Built" },
   { value: "4", label: "People Under One Roof" },
@@ -899,9 +926,9 @@ export const careers = {
 };
 
 export const finalCta = {
-  heading: "Let's Build Something Useful.",
-  body: "Have an idea, a business problem or a digital experience that needs to be better? Let's talk.",
-  primary: { label: "Start a Project", href: "/contact/" },
+  heading: "Ready to Start Your Project?",
+  body: "Tell us what you want to build or improve. Let's discuss how Nexavora can help.",
+  primary: { label: "Discuss Your Project", href: "/contact/" },
   secondary: { label: "Contact Nexavora", href: "/contact/" },
 };
 

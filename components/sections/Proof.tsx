@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import ClientLogo from "@/components/ClientLogo";
-import { clientValue, clients, stats, team, work } from "@/lib/content";
+import { clientValue, clients, team, work, testimonials } from "@/lib/content";
 
 function getProjectLink(project: typeof work[0]): string | null {
   if (project.details?.links?.prototype) return project.details.links.prototype;
@@ -60,7 +61,7 @@ export function SelectedWork() {
                       View live project <span>→</span>
                     </a>
                   ) : (
-                    <a className="link-arrow" href={`#${project.slug}`}>
+                    <a className="link-arrow" href={`/portfolio/${project.slug}/`}>
                       View case study <span>→</span>
                     </a>
                   )}
@@ -68,6 +69,12 @@ export function SelectedWork() {
               </article>
             );
           })}
+        </div>
+
+        <div className="section-actions">
+          <Link className="btn btn--outline" href="/portfolio/">
+            View Full Portfolio
+          </Link>
         </div>
       </div>
     </section>
@@ -153,10 +160,10 @@ export function Clients() {
       <div className="container">
         <div className="section-head">
           <span className="eyebrow">Businesses We&apos;ve Worked With</span>
-          <h2 className="section-title">Real organisations, real work</h2>
+          <h2 className="section-title">Real organisations. Real work.</h2>
           <p className="section-lead">
-            From emerging businesses to established organisations, we work with teams that
-            want to solve problems and build better digital experiences.
+            We collaborate with businesses and organisations to turn ideas into practical digital
+            solutions and create better digital experiences.
           </p>
         </div>
 
@@ -201,16 +208,30 @@ export function Clients() {
   );
 }
 
-export function Stats() {
+export function Testimonials() {
   return (
-    <section className="section section--tight section--line">
+    <section className="section section--line" id="testimonials">
       <div className="container">
-        <div className="stats">
-          {stats.map((stat) => (
-            <div className="stat" key={stat.label}>
-              <div className="stat__value">{stat.value}</div>
-              <div className="stat__label">{stat.label}</div>
-            </div>
+        <div className="section-head section-head--center">
+          <span className="eyebrow">What Our Clients Say</span>
+          <h2 className="section-title">Building lasting relationships</h2>
+          <p className="section-lead">
+            Building lasting relationships through thoughtful design, reliable development, and
+            creative solutions.
+          </p>
+        </div>
+
+        <div className="testimonial-grid">
+          {testimonials.map((t) => (
+            <article key={t.business} className="testimonial-card">
+              <h3 className="testimonial-card__title">{t.title}</h3>
+              <p className="testimonial-card__text">{t.text}</p>
+              <div className="testimonial-card__meta">
+                <span className="testimonial-card__business">{t.business}</span>
+                <span className="testimonial-card__attribution">{t.attribution}</span>
+                <span className="testimonial-card__service">{t.service}</span>
+              </div>
+            </article>
           ))}
         </div>
       </div>

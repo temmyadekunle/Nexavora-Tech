@@ -2,13 +2,18 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { products } from "@/lib/content";
+import { products, portfolio } from "@/lib/content";
 import { getAccentStyle, getStatusStyle, getStatusDotStyle, getExternalActions } from "@/lib/utils";
 
 export default function ProjectShowcase() {
   // The strongest project is flagged in content; fall back to the first record.
   const featured = products.find((p) => (p as { featured?: boolean }).featured) ?? products[0];
-  const others = products.filter((p) => p.slug !== featured?.slug).slice(0, 3);
+  // More Projects: Livanta (product), Electrotrans + Farm-Pal (portfolio client work)
+  const others = [
+    products.find((p) => p.slug === "livanta")!,
+    portfolio.find((p) => p.slug === "electrotrans")!,
+    portfolio.find((p) => p.slug === "farm-pal")!,
+  ];
 
   const featuredActions = getExternalActions(
     featured ? (featured.links as Record<string, string | undefined>) : undefined,

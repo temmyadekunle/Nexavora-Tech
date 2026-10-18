@@ -896,30 +896,89 @@ ol {
    Products
    ========================================================================== */
 
-.product-card {
+/* ==========================================================================
+   Product showcases
+   Screenshots are the primary visual; the logo stays a small identity mark.
+   ========================================================================== */
+
+.product-showcase-list {
+  margin-top: clamp(36px, 5vw, 56px);
+}
+
+.product-showcase {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
-  gap: clamp(20px, 3vw, 40px);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(36px, 4.5vw, 56px);
   align-items: center;
-  padding: clamp(22px, 3vw, 34px);
+  padding: clamp(28px, 4vw, 48px);
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
   background: linear-gradient(140deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
 }
 
-.product-card + .product-card {
-  margin-top: 22px;
+.product-showcase + .product-showcase {
+  margin-top: clamp(56px, 8vw, 96px);
 }
 
-.product-card--reverse {
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+.product-showcase--reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
 }
 
-.product-card--reverse .product-card__visual {
+/* Source order is [visual, info]; the reverse layout moves info first so the
+   screenshot stays on the right. */
+.product-showcase--reverse .product-showcase__info {
   order: -1;
 }
 
-.product-card__tag {
+.product-showcase__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.product-showcase__frame {
+  margin: 0;
+  padding: 12px;
+  border-radius: 32px;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.42);
+}
+
+/* Portrait app screen (780x1688): width drives the size so the intrinsic
+   aspect ratio is preserved — never stretched or cropped. */
+.product-showcase__screenshot {
+  display: block;
+  width: clamp(260px, 30vw, 340px);
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 22px;
+}
+
+.product-showcase__logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  border: 1px solid var(--line-strong);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.product-showcase__name {
+  margin-top: 18px;
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 700;
+}
+
+.product-showcase__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.product-showcase__status {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -933,109 +992,62 @@ ol {
   color: var(--muted);
 }
 
-.product-card__tag i {
+.product-showcase__status i {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--grad);
 }
 
-.product-card__tag--live i {
-  background: #38e08b;
-  box-shadow: 0 0 10px rgba(56, 224, 139, 0.85);
-}
-
-.product-card__name {
-  margin-top: 16px;
-  font-size: clamp(26px, 3.2vw, 36px);
-  font-weight: 700;
-}
-
-.product-card__problem {
-  margin-top: 14px;
-  color: var(--text);
-  font-size: 15.5px;
-}
-
-.product-card__problem span {
-  color: var(--muted-2);
+.product-showcase__category {
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  display: block;
-  margin-bottom: 4px;
+  color: var(--muted-2);
 }
 
-.product-card__desc {
-  margin-top: 14px;
+.product-showcase__desc {
+  margin-top: 16px;
   color: var(--muted);
   font-size: 15px;
+  line-height: 1.7;
 }
 
-.product-card__actions {
-  margin-top: 22px;
-}
-
-.product-card__visual {
-  position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  aspect-ratio: 16 / 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  gap: 12px;
-}
-
-.product-card__logo {
-  width: min(65%, 220px);
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 12px 36px rgba(0, 0, 0, 0.35));
-}
-
-.product-card__screenshots {
-  position: static;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
+.product-showcase__features {
+  margin-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 4px;
+  gap: 10px;
 }
 
-.product-card__screenshots img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--line);
+.product-showcase__features li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.6;
 }
 
-.product-card__visual-word {
-  font-family: var(--font-display);
-  font-size: clamp(24px, 3vw, 40px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  text-align: center;
+.product-showcase__features li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 5px;
+  border-radius: 50%;
   background: var(--grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E")
+    center / 11px no-repeat, linear-gradient(#000 0 0);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E")
+    center / 11px no-repeat;
 }
 
-.product-card__badge {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted-2);
+.product-showcase__actions {
+  margin-top: 24px;
+}
+
+.product-showcase__actions .btn {
+  min-height: 46px;
 }
 
 /* ==========================================================================
@@ -2101,12 +2113,12 @@ ol {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .product-card,
-  .product-card--reverse {
+  .product-showcase,
+  .product-showcase--reverse {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .product-card--reverse .product-card__visual {
+  .product-showcase--reverse .product-showcase__info {
     order: 0;
   }
 

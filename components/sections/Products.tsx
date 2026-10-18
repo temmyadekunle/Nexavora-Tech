@@ -1,6 +1,14 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { products } from "@/lib/content";
+
+// Explore buttons send visitors to each product's own destination:
+// CareNBuddi -> live web app; Livanta -> prototype. Prefer website,
+// then prototype, then landing.
+function getExploreHref(product: (typeof products)[0]): string | undefined {
+  const links = product.links as { website?: string; prototype?: string; landing?: string };
+  return links.website || links.prototype || links.landing;
+}
 
 export function Products() {
   return (
@@ -18,68 +26,75 @@ export function Products() {
           </p>
         </div>
 
-        <div>
-          {products.map((product, index) => (
-            <article
-              className={`product-card${index % 2 === 1 ? " product-card--reverse" : ""}`}
-              id={product.slug}
-              key={product.slug}
-            >
-              <div>
-                <span
-                  className={`product-card__tag${(product.status as string) === "Live" ? " product-card__tag--live" : ""}`}
-                >
-                  <i /> {product.status}
-                </span>
-
-                <h3 className="product-card__name">{product.name}</h3>
-
-                <p className="product-card__problem">
-                  <span>The problem</span>
-                  {product.problem}
-                </p>
-
-                <p className="product-card__desc">{product.description}</p>
-
-                <div className="product-card__actions btn-row">
-                  <Link className="btn btn-ghost btn-sm" href={`/company/#${product.slug}`}>
-                    Explore {product.name}
-                  </Link>
+        <div className="product-showcase-list">
+          {products.map((product, index) => {
+            const explore = getExploreHref(product);
+            return (
+              <article
+                className={`product-showcase${index % 2 === 1 ? " product-showcase--reverse" : ""}`}
+                id={product.slug}
+                key={product.slug}
+              >
+                <div className="product-showcase__visual">
+                  <figure className="product-showcase__frame">
+                    <Image
+                      src={product.showcaseScreenshot}
+                      alt={`${product.name} application home screen`}
+                      width={780}
+                      height={1688}
+                      className="product-showcase__screenshot"
+                      priority={index === 0}
+                      unoptimized
+                    />
+                  </figure>
                 </div>
-              </div>
 
-              <div className="product-card__visual">
-                <span className="product-card__badge">{product.industry}</span>
-                {product.logo ? (
+                <div className="product-showcase__info">
                   <Image
                     src={product.logo}
                     alt={`${product.name} logo`}
-                    width={160}
-                    height={160}
-                    className="product-card__logo"
+                    width={56}
+                    height={56}
+                    className="product-showcase__logo"
                   />
-                ) : (
-                  <span className="product-card__visual-word">{product.name}</span>
-                )}
-                {product.screenshots && product.screenshots.length > 0 && (
-                  <div className="product-card__screenshots">
-                    {product.screenshots.slice(0, 2).map((shot) => (
-                      <Image
-                        key={shot.src}
-                        src={shot.src}
-                        alt={shot.caption || shot.alt}
-                        width={390}
-                        height={780}
-                        className="product-card__screenshot"
-                        loading="lazy"
-                        unoptimized
-                      />
-                    ))}
+
+                  <h3 className="product-showcase__name">{product.name}</h3>
+
+                  <div className="product-showcase__meta">
+                    <span className="product-showcase__status">
+                      <i /> {product.status}
+                    </span>
+                    <span className="product-showcase__category">{product.industry}</span>
                   </div>
-                )}
-              </div>
-            </article>
-          ))}
+
+                  <p className="product-showcase__desc">{product.description}</p>
+
+                  <ul className="product-showcase__features">
+                    {product.showcaseHighlights.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+
+                  <div className="product-showcase__actions">
+                    {explore ? (
+                      <a
+                        className="btn btn-primary"
+                        href={explore}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Explore {product.name}
+                      </a>
+                    ) : (
+                      <Link className="btn btn-primary" href="/contact/">
+                        Explore {product.name}
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

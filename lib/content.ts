@@ -142,7 +142,7 @@ export const products = [
     problem:
       "Finding and booking the right healthcare service in Nigeria is fragmented â€” patients juggle phone numbers, paper notes, and memory. Language barriers, offline needs, and provider discovery make care hard to reach.",
     description:
-      "CareNBuddi is a digital healthcare platform for Nigeria that brings finding care, booking appointments, keeping health information organised, and staying in touch with healthcare providers into one mobile app â€” available in English, Yoruba, Hausa and Igbo. It works offline after first load, installs as a PWA, and requires no payment to get started.",
+      "CareNBuddi is a digital healthcare platform for Nigeria that brings finding care, booking appointments, keeping health information organised, and staying in touch with healthcare providers into one mobile app — available in English, Yoruba, Hausa and Igbo. It works offline after first load, installs as a PWA, and requires no payment to get started.",
     longDescription:
       "CareNBuddi was created from a simple belief: getting healthcare should not be harder than it needs to be. Inspired by the story of Bethany Hamilton in Soul Surfer â€” in an emergency, care shouldn't always have to wait until a patient reaches the hospital. CareNBuddi uses technology to help people connect with healthcare, manage their care and find the right next step â€” whether at home, working remotely, travelling, or navigating the healthcare system.",
     // The CareNBuddi web app is publicly usable, but the App Store / Play
@@ -167,6 +167,15 @@ export const products = [
       desktop: "",
       mobile: "",
     },
+    // Screen selected for the products-page showcase: the home dashboard,
+    // a meaningful view of the live app (not a splash screen).
+    showcaseScreenshot: "/projects/carenbuddi/home.jpg",
+    showcaseHighlights: [
+      "Find Healthcare — search hospitals, clinics, PHCs, labs and pharmacies by name or area",
+      "Book Appointments — schedule visits and track what's coming up",
+      "Health Records & Vitals — keep records, results and readings in one place",
+      "Works offline and installs as a PWA, with English, Yoruba, Hausa and Igbo built in",
+    ],
     features: [
       "Find Healthcare â€” hospitals, clinics, PHCs, laboratories, pharmacies by name or area",
       "Book Appointments â€” schedule visits and track what's coming up",
@@ -212,7 +221,7 @@ export const products = [
     problem:
       "Deadlines, renewals and recurring obligations are scattered across paper, memory and inboxes. A household's rent, bills, documents, vehicles and schedules live in too many places â€” and the week where they all land together becomes an emergency.",
     description:
-      "Livanta is a local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place â€” and warns you before each one becomes an emergency. Built in Nigeria, it runs entirely offline, installs as a PWA, and ships as a signed Android APK.",
+      "Livanta is a local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. Built in Nigeria, it runs entirely offline, installs as a PWA, and ships as a signed Android APK.",
     longDescription:
       "Livanta â€” your life, organized. Your problems, anticipated. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place â€” and warns you before each one becomes an emergency. The app has 5 tabs (Home, Life, Alerts, Calendar, Profile), 4 languages (English, Hausa, Yoruba, Igbo), and a demo household seeded with 12 realistic Nigerian items (rent, electricity, internet, Netflix, vehicle insurance, school fees, driver's licence, passport, refrigerator warranty, generator service, car oil change, electrician). 9 alerts derived at seed time. 368 tests + smoke, CSP and responsive QA. 0 trackers â€” no cookies, no analytics, CSP-enforced.",
     // The prototype page states "v0.1.0 Â· beta, invite-only".
@@ -238,6 +247,15 @@ export const products = [
       desktop: "",
       mobile: "",
     },
+    // Screen selected for the products-page showcase: the home status view,
+    // which shows the core "what needs attention" idea of the app.
+    showcaseScreenshot: "/projects/livanta/home.jpg",
+    showcaseHighlights: [
+      "Alerts — warns you before a deadline becomes an emergency",
+      "Calendar — month grid with due-day marks, day agenda and upcoming",
+      "Quick Add — capture an item in seconds: name, category, amount, date",
+      "Local-first — every feature works offline, with no trackers, in 4 languages",
+    ],
     features: [
       "Home â€” status hero, urgent/important/on-track readings, needs attention, coming soon, quick add, life areas",
       "Life â€” five life areas (Home, Transport, Money, Documents, Family, Tasks, Services) with live counts, search, category/status filters, trusted providers with call/WhatsApp",

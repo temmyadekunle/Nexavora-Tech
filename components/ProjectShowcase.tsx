@@ -8,7 +8,7 @@ import { getAccentStyle, getStatusStyle, getStatusDotStyle, getExternalActions }
 export default function ProjectShowcase() {
   // The strongest project is flagged in content; fall back to the first record.
   const featured = products.find((p) => (p as { featured?: boolean }).featured) ?? products[0];
-  const others = products.filter((p) => p.slug !== featured?.slug);
+  const others = products.filter((p) => p.slug !== featured?.slug).slice(0, 3);
 
   const featuredActions = getExternalActions(
     featured ? (featured.links as Record<string, string | undefined>) : undefined,

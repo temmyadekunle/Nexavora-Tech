@@ -81,6 +81,16 @@ export const whatWeDo = [
     index: "01",
     title: "Build",
     subtitle: "Technology & Product Development",
+    headline: "Turn Your Ideas into Digital Products",
+    summary:
+      "We help businesses turn ideas and requirements into practical digital solutions, from websites and applications to software products.",
+    highlights: [
+      "Website Development",
+      "Web Application Development",
+      "Mobile Application Development",
+      "Product Improvement & Review",
+    ],
+    cta: { label: "Discuss Your Project", href: "/contact/" },
     body:
       "Business websites, web platforms and custom applications — scoped, designed and engineered around what the business actually needs to run.",
     eyebrow: "01 — Technology & Product Development",
@@ -99,6 +109,16 @@ export const whatWeDo = [
     index: "02",
     title: "Design",
     subtitle: "UI/UX & Product Design",
+    headline: "Design Experiences People Understand and Enjoy",
+    summary:
+      "We design intuitive digital experiences and visual assets that help businesses communicate clearly with their audiences.",
+    highlights: [
+      "UI/UX Design",
+      "Wireframes & Prototypes",
+      "Interface Design",
+      "Branding & Visual Design",
+    ],
+    cta: { label: "Explore Design Work", href: "/portfolio/?category=ui-ux-product-design" },
     body: "Research-led interfaces, design systems and product flows built around the people who will actually use them.",
     deliverables: [
       "Product & UX strategy",
@@ -112,7 +132,17 @@ export const whatWeDo = [
     index: "03",
     title: "Grow",
     subtitle: "Digital Marketing & Social Media",
-    body: "Positioning, content and campaigns that put the product in front of the right people and keep them coming back.",
+    headline: "Build Your Digital Presence and Reach the Right Audience",
+    summary:
+      "We help businesses communicate with their audiences, strengthen their online presence, and create relevant digital marketing content.",
+    highlights: [
+      "Social Media Content",
+      "Marketing Graphics",
+      "Campaign Planning",
+      "Digital Brand Communication",
+    ],
+    cta: { label: "Request a Consultation", href: "/contact/" },
+    body: "Positioning, content and campaign planning that help businesses communicate clearly, strengthen their online presence and reach the right audience.",
     deliverables: [
       "Positioning & messaging",
       "Content and social media systems",
@@ -125,7 +155,17 @@ export const whatWeDo = [
     index: "04",
     title: "Operate",
     subtitle: "Customer Experience & Business Operations",
-    body: "The support, feedback loops and operational glue that keep a digital product healthy after launch.",
+    headline: "Keep Your Business Running Smoothly",
+    summary:
+      "We support businesses with customer communication, operational upkeep and everyday coordination so their teams can focus on their priorities.",
+    highlights: [
+      "Customer Support Workflows",
+      "Feedback & Bug Triage",
+      "Maintenance & Releases",
+      "Operations Setup",
+    ],
+    cta: { label: "Talk to Our Team", href: "/contact/" },
+    body: "Support workflows, feedback loops and operational upkeep that keep your customers informed and your digital product healthy after launch.",
     deliverables: [
       "Customer support workflows",
       "Feedback & bug triage loops",

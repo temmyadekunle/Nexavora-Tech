@@ -35,8 +35,13 @@ export default function SolutionsPage() {
                 <span className="eyebrow">
                   {solution.index} — {solution.subtitle}
                 </span>
-                <h2>{solution.title}</h2>
+                <h2>{solution.headline}</h2>
                 <p>{solution.body}</p>
+                <p className="prose__cta-row">
+                  <Link className="link-arrow" href={solution.cta.href}>
+                    {solution.cta.label} <span aria-hidden="true">→</span>
+                  </Link>
+                </p>
               </div>
 
               <div>

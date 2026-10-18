@@ -18,11 +18,19 @@ export function WhatWeDo() {
 
         <div className="grid-4">
           {whatWeDo.map((item) => (
-            <article className="card" key={item.key}>
+            <article className="card card--service" key={item.key}>
               <span className="card__index">{item.index}</span>
               <h3 className="card__title">{item.title}</h3>
-              <p className="card__subtitle">{item.subtitle}</p>
-              <p className="card__body">{item.body}</p>
+              <p className="card__headline">{item.headline}</p>
+              <p className="card__body">{item.summary}</p>
+              <ul className="card__chips">
+                {item.highlights.map((service) => (
+                  <li key={service}>{service}</li>
+                ))}
+              </ul>
+              <Link className="card__link" href={item.cta.href}>
+                {item.cta.label} <span aria-hidden="true">→</span>
+              </Link>
             </article>
           ))}
         </div>

@@ -1095,6 +1095,15 @@ export const footer = {
   // Verified profile URLs only. Leave empty until the real accounts exist —
   // the footer hides the row when there is nothing to link to.
   social: [] as { label: string; href: string }[],
+  // Footer social icon row. WhatsApp reuses the verified business number from
+  // the contact page. Facebook, Instagram and LinkedIn stay null until the
+  // owner supplies the real profile URLs — their icons render unlinked.
+  socialLinks: [
+    { key: "whatsapp", label: "WhatsApp", href: "https://wa.me/2349117511518" },
+    { key: "facebook", label: "Facebook", href: null },
+    { key: "instagram", label: "Instagram", href: null },
+    { key: "linkedin", label: "LinkedIn", href: null },
+  ] as { key: string; label: string; href: string | null }[],
 };
 
 export const contact = {

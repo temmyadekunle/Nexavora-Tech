@@ -1837,6 +1837,18 @@ ol {
   font-size: clamp(15.5px, 1.8vw, 18px);
 }
 
+.page-hero__actions {
+  margin-top: 24px;
+}
+
+.portfolio-count {
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--muted-2);
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+}
+
 .breadcrumbs {
   font-size: 13px;
   color: var(--muted-2);

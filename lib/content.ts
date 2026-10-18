@@ -592,7 +592,7 @@ export const portfolio = [
     accent: "rose" as const,
     featured: false,
     logo: "/clients/euphoria.png",
-    coverImage: "/clients/euphoria.png",
+    coverImage: "/projects/euphoriabykylie/cover.jpg",
     screenshots: [],
     mockups: { desktop: "", mobile: "" },
     features: [],

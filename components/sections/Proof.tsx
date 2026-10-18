@@ -159,11 +159,12 @@ export function Clients() {
     <section className="section section--line" id="our-clients">
       <div className="container">
         <div className="section-head">
-          <span className="eyebrow">Businesses We&apos;ve Worked With</span>
-          <h2 className="section-title">Real organisations. Real work.</h2>
-          <p className="section-lead">
-            We collaborate with businesses and organisations to turn ideas into practical digital
-            solutions and create better digital experiences.
+          <span className="eyebrow">Our Clients &amp; Collaborations</span>
+          <h2 className="section-title">Businesses We&apos;ve Worked With</h2>
+          <p className="section-lead">Real organisations. Meaningful collaborations.</p>
+          <p className="section-desc">
+            We work with businesses and organisations to deliver digital solutions, create better
+            customer experiences, and bring ideas to life.
           </p>
         </div>
 
@@ -213,11 +214,10 @@ export function Testimonials() {
     <section className="section section--line" id="testimonials">
       <div className="container">
         <div className="section-head section-head--center">
-          <span className="eyebrow">What Our Clients Say</span>
-          <h2 className="section-title">Building lasting relationships</h2>
+          <span className="eyebrow">Client Feedback</span>
+          <h2 className="section-title">What Our Clients Say</h2>
           <p className="section-lead">
-            Building lasting relationships through thoughtful design, reliable development, and
-            creative solutions.
+            Feedback from the businesses we&apos;ve had the opportunity to work with.
           </p>
         </div>
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { capabilities, careers, finalCta, insights, insightsStatus } from "@/lib/content";
+import { capabilities, careers, finalCta } from "@/lib/content";
 
 export function Capabilities() {
   return (
@@ -20,38 +20,6 @@ export function Capabilities() {
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function Insights() {
-  return (
-    <section className="section section--line" id="insights">
-      <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">Insights</span>
-          <h2 className="section-title">
-            Ideas, perspectives &amp; <span className="grad-text">practical knowledge</span>
-          </h2>
-          <p className="section-lead">{insightsStatus}</p>
-        </div>
-
-        <div className="grid-4">
-          {insights.map((article) => (
-            <article className="insight-card" key={article.title}>
-              <span className="insight-card__topic">{article.topic}</span>
-              <h3>{article.title}</h3>
-              <p>{article.excerpt}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="process__cta">
-          <Link className="link-arrow" href="/insights/">
-            Explore Insights <span>→</span>
-          </Link>
         </div>
       </div>
     </section>
@@ -87,9 +55,6 @@ export function FinalCta() {
         <div className="btn-row">
           <Link className="btn btn-primary" href={finalCta.primary.href}>
             {finalCta.primary.label}
-          </Link>
-          <Link className="btn btn-ghost" href={finalCta.secondary.href}>
-            {finalCta.secondary.label}
           </Link>
         </div>
       </div>

@@ -90,12 +90,6 @@ export function Process() {
             </li>
           ))}
         </ol>
-
-        <div className="process__cta">
-          <Link className="link-arrow" href="/company/#approach">
-            See how we work <span>→</span>
-          </Link>
-        </div>
       </div>
     </section>
   );

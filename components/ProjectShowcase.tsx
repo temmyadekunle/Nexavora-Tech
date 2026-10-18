@@ -5,6 +5,15 @@ import Image from "next/image";
 import { products, portfolio } from "@/lib/content";
 import { getAccentStyle, getStatusStyle, getStatusDotStyle, getExternalActions } from "@/lib/utils";
 
+// Verifiable ownership labels: products[] entries are Nexavora's own; entries
+// under businesses worked with are client work; Farm Pal is a design concept.
+const showcaseKinds: Record<string, string> = {
+  livanta: "Nexavora Product",
+  electrotrans: "Client Project",
+  euphoriabykylie: "Client Project",
+  "farm-pal": "Design Concept",
+};
+
 export default function ProjectShowcase() {
   // The strongest project is flagged in content; fall back to the first record.
   const featured = products.find((p) => (p as { featured?: boolean }).featured) ?? products[0];
@@ -155,6 +164,11 @@ export default function ProjectShowcase() {
                           <Link href={`/portfolio/${project.slug}/`}>{project.name}</Link>
                         </h4>
                       </div>
+                      {showcaseKinds[project.slug] && (
+                        <span className="project-showcase-card__kind">
+                          {showcaseKinds[project.slug]}
+                        </span>
+                      )}
                       <p className="project-showcase-card__description">{project.description}</p>
                       <div className="project-showcase-card__actions">
                         <Link className="project-showcase-card__link" href={`/portfolio/${project.slug}/`}>

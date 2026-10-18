@@ -1,4 +1,4 @@
-﻿// Single source of truth for every piece of copy and data on the site.
+// Single source of truth for every piece of copy and data on the site.
 // Edit this file to change names, statuses, links and numbers â€” the pages
 // read everything from here.
 
@@ -64,7 +64,7 @@ export const hero = {
   eyebrow: "Nexavora Technology Solutions",
   title: "We Build Technology That Moves Ideas Forward.",
   statement:
-    "Strategy, design, engineering and digital growth under one roof â€” for the products we build for clients and the products we build for ourselves.",
+    "Strategy, design, engineering and digital growth under one roof — for the products we build for clients and the products we build for ourselves.",
   primaryCta: { label: "Start a Project", href: "/contact/" },
   secondaryCta: { label: "Explore Our Products", href: "/products/" },
 };
@@ -79,9 +79,10 @@ export const whatWeDo = [
   {
     key: "build",
     index: "01",
-    title: "Build Digital Solutions That Work for Your Business",
+    title: "Build",
     subtitle: "Technology & Product Development",
-    body: "From professional business websites to custom applications, we help businesses and founders turn ideas into practical digital solutions. We work across planning, design, development, testing and deployment to create digital experiences that address real needs and support business growth.",
+    body:
+      "Business websites, web platforms and custom applications — scoped, designed and engineered around what the business actually needs to run.",
     eyebrow: "01 — Technology & Product Development",
     deliverables: [
       "Professional, responsive websites tailored to your business, brand and audience — whether you need a company website, landing page or a more specialised web platform, we focus on usability, performance and clear communication.",
@@ -315,7 +316,7 @@ export const whyNexavora = [
   },
   {
     title: "People-Centered",
-    body: "We design experiences around the people who will actually use them â€” not around a feature list.",
+    body: "We design experiences around the people who will actually use them — not around a feature list.",
   },
   {
     title: "From Idea to Execution",
@@ -912,7 +913,7 @@ export const insights = [
     topic: "Product Development",
     title: "From a rough idea to a product people can actually use",
     excerpt:
-      "How we narrow a vague ambition into the smallest version worth building â€” and what we deliberately leave out first.",
+      "How we narrow a vague ambition into the smallest version worth building — and what we deliberately leave out first.",
   },
   {
     topic: "Digital Transformation",
@@ -928,14 +929,14 @@ export const insights = [
   },
   {
     topic: "AI & Customer Experience",
-    title: "Where AI genuinely helps a product â€” and where it doesn't",
+    title: "Where AI genuinely helps a product — and where it doesn't",
     excerpt:
       "A sober look at automation in customer-facing products: high-value uses, quiet failures and the cost of guessing.",
   },
 ];
 
 export const insightsStatus =
-  "These are the topics we are writing about first. Full articles will appear here as they are published â€” until then, ask us about any of them and we will happily talk it through.";
+  "These are the topics we are writing about first. Full articles will appear here as they are published — until then, ask us about any of them and we will happily talk it through.";
 
 export const careers = {
   heading: "Want to build what's next with us?",
@@ -947,12 +948,11 @@ export const finalCta = {
   heading: "Ready to Start Your Project?",
   body: "Tell us what you want to build or improve. Let's discuss how Nexavora can help.",
   primary: { label: "Discuss Your Project", href: "/contact/" },
-  secondary: { label: "Contact Nexavora", href: "/contact/" },
 };
 
 export const footer = {
   blurb:
-    "Nexavora Technology Solutions â€” we help businesses and founders turn ideas and business problems into practical digital solutions.",
+    "Nexavora Technology Solutions — we help businesses and founders turn ideas and business problems into practical digital solutions.",
   columns: [
     {
       title: "Explore",

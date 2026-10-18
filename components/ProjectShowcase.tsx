@@ -8,10 +8,12 @@ import { getAccentStyle, getStatusStyle, getStatusDotStyle, getExternalActions }
 export default function ProjectShowcase() {
   // The strongest project is flagged in content; fall back to the first record.
   const featured = products.find((p) => (p as { featured?: boolean }).featured) ?? products[0];
-  // More Projects: Livanta (product), Electrotrans + Farm-Pal (portfolio client work)
+  // More Projects: Livanta (product), Electrotrans + Euphoria + Farm-Pal
+  // (client and portfolio work — the full set shown by the old Selected Work).
   const others = [
     products.find((p) => p.slug === "livanta")!,
     portfolio.find((p) => p.slug === "electrotrans")!,
+    portfolio.find((p) => p.slug === "euphoriabykylie")!,
     portfolio.find((p) => p.slug === "farm-pal")!,
   ];
 
@@ -23,13 +25,13 @@ export default function ProjectShowcase() {
     <section className="section section--line" id="showcase">
       <div className="container">
         <div className="section-head section-head--center">
-          <span className="eyebrow">Our Work — Built with Purpose</span>
+          <span className="eyebrow">Our Work</span>
           <h2 className="section-title">
             Ideas into <span className="grad-text">Digital Experiences.</span>
           </h2>
           <p className="section-lead">
-            Real products and websites we have designed, built and shipped — plus
-            the one we are building right now.
+            Explore the digital products, websites and designs we&apos;ve created, along
+            with the products we&apos;re developing.
           </p>
         </div>
 
@@ -139,7 +141,7 @@ export default function ProjectShowcase() {
                     </div>
                     <div className="project-showcase-card__content">
                       <div className="project-showcase-card__header">
-                        {project.logo && (
+                        {project.logo && project.logo !== project.coverImage && (
                           <Image
                             src={project.logo}
                             alt={`${project.name} logo`}
@@ -184,7 +186,7 @@ export default function ProjectShowcase() {
 
         <div className="project-showcase-cta">
           <Link className="btn btn-primary" href="/portfolio/">
-            Explore All Products &amp; Projects
+            Explore Our Portfolio
           </Link>
         </div>
       </div>

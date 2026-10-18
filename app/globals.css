@@ -1133,6 +1133,30 @@ ol {
   margin-top: 28px;
 }
 
+.process__step__mark {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(25, 191, 255, 0.15);
+  color: var(--cyan);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 8px;
+}
+
+.cta-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cta-actions .btn-primary {
+  min-width: 180px;
+}
+
 /* ==========================================================================
    Selected work
    ========================================================================== */

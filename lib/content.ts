@@ -79,14 +79,18 @@ export const whatWeDo = [
   {
     key: "build",
     index: "01",
-    title: "Build",
+    title: "Build Digital Solutions That Work for Your Business",
     subtitle: "Technology & Product Development",
-    body: "Web platforms, mobile apps and the systems behind them â€” architected, built and shipped by one team.",
+    body: "From professional business websites to custom applications, we help businesses and founders turn ideas into practical digital solutions. We work across planning, design, development, testing and deployment to create digital experiences that address real needs and support business growth.",
+    eyebrow: "01 — Technology & Product Development",
     deliverables: [
-      "Web applications & marketing sites",
-      "Mobile apps (iOS & Android)",
-      "APIs, integrations & databases",
-      "Technical architecture & audits",
+      "Professional, responsive websites tailored to your business, brand and audience — whether you need a company website, landing page or a more specialised web platform, we focus on usability, performance and clear communication.",
+      "Interactive web-based solutions designed around your business processes and users' needs — from customer-facing platforms to internal business tools.",
+      "Mobile application design and development for Android and iOS, based on your product requirements, target audience and technical needs.",
+      "Turn an early-stage idea into a working minimum viable product (MVP) — we help define essential features, shape the user experience and build an initial version that can be tested and improved using real user feedback.",
+      "Connect applications and services so information can move between systems more efficiently — integration options depend on the requirements and capabilities of the systems involved.",
+      "Improve an existing website or application through feature development, usability improvements, bug fixes and performance optimisation, based on an assessment of the current product.",
+      "Review an existing digital product or proposed solution to identify technical issues, assess its structure and recommend practical improvements.",
     ],
   },
   {
@@ -844,6 +848,20 @@ export const capabilities = [
 // Topics we are writing about. No publication dates or authors are shown
 // because no articles have been published yet â€” add them here only once the
 // writing exists.
+export const buildApproach = [
+  { step: "Understand", body: "We begin by understanding your goals and requirements." },
+  { step: "Plan", body: "We define the scope and plan the solution." },
+  { step: "Build", body: "We develop and test the product." },
+  { step: "Launch", body: "We prepare the product for launch." },
+  { step: "Improve", body: "Where agreed, we continue supporting improvements after release." },
+];
+
+export const buildCta = {
+  heading: "Ready to Build?",
+  body: "Have a business idea, an existing product to improve, or a digital problem to solve? Let's discuss your requirements and identify a practical way forward.",
+  primary: { label: "Start a Project", href: "/contact/" },
+};
+
 export const insights = [
   {
     topic: "Product Development",

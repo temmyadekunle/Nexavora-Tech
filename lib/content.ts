@@ -942,11 +942,10 @@ export const clients = [
   {
     name: "Jimiking Art Fashion",
     sector: "Fashion & Art",
-    // Artwork not supplied yet — the site falls back to a text wordmark.
-    logo: "",
+    logo: "/clients/jimiking.jpg",
     url: "",
-    width: 960,
-    height: 464,
+    width: 600,
+    height: 600,
   },
 ];
 

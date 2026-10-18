@@ -68,7 +68,7 @@ export function Products() {
                         key={shot.src}
                         src={shot.src}
                         alt={shot.caption || shot.alt}
-                        width={780}
+                        width={390}
                         height={780}
                         className="product-card__screenshot"
                         loading="lazy"

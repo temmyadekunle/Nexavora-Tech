@@ -54,12 +54,28 @@ export function Products() {
                   <Image
                     src={product.logo}
                     alt={`${product.name} logo`}
-                    width={120}
-                    height={120}
+                    width={160}
+                    height={160}
                     className="product-card__logo"
                   />
                 ) : (
                   <span className="product-card__visual-word">{product.name}</span>
+                )}
+                {product.screenshots && product.screenshots.length > 0 && (
+                  <div className="product-card__screenshots">
+                    {product.screenshots.slice(0, 2).map((shot) => (
+                      <Image
+                        key={shot.src}
+                        src={shot.src}
+                        alt={shot.caption || shot.alt}
+                        width={780}
+                        height={780}
+                        className="product-card__screenshot"
+                        loading="lazy"
+                        unoptimized
+                      />
+                    ))}
+                  </div>
                 )}
               </div>
             </article>

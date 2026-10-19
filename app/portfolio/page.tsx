@@ -14,13 +14,13 @@ export default function PortfolioPage() {
   return (
     <>
       <PageHero
-        eyebrow="Our Portfolio"
+        eyebrow="Portfolio"
         title={
           <>
-            Ideas Into <span className="grad-text">Digital Experiences</span>
+            Our <span className="grad-text">Work</span>
           </>
         }
-        lead="Explore selected digital products, websites, applications and designs created by Nexavora Technology Solutions."
+        lead="Explore the digital products, websites, applications and designs we've created, along with projects still in development."
         actions={
           <Link className="btn btn-primary" href="/contact/">
             Start a Project

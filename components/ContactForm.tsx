@@ -158,7 +158,7 @@ export default function ContactForm() {
 
       <div className="contact-form__actions">
         <button className="btn btn-primary" type="submit">
-          Send Inquiry
+          Send Enquiry
         </button>
         <p className="contact-form__note" id="contact-form-note">
           {contact.note}

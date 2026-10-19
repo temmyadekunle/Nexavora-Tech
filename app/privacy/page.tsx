@@ -32,7 +32,7 @@ export default function PrivacyPage() {
           <h2>When you contact us</h2>
           <p>
             Our contact form does not store or transmit anything through this website.
-            Pressing <strong>Send Inquiry</strong> opens the email application already
+            Pressing <strong>Send Enquiry</strong> opens the email application already
             installed on your device, with your message pre-filled, and sends it from your
             own email account to{" "}
             <a href={`mailto:${site.email}`}>{site.email}</a>.

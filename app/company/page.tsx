@@ -21,7 +21,7 @@ export default function CompanyPage() {
             A technology company with <span className="grad-text">real people</span>
           </>
         }
-        lead="We build products, we solve business problems, and we do it with real capabilities, real work and real clients."
+        lead="We build digital products, we solve business problems, and we do it with a small team you can actually reach."
       />
 
       <section className="section" id="about">

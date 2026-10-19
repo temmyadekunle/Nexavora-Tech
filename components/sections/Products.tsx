@@ -15,14 +15,13 @@ export function Products() {
     <section className="section section--line" id="products">
       <div className="container">
         <div className="section-head">
-          <span className="eyebrow">Products We&apos;re Building</span>
+          <span className="eyebrow">Our Products</span>
           <h2 className="section-title">
-            We don&apos;t just build for clients.{" "}
-            <span className="grad-text">We build our own too.</span>
+            Two products, <span className="grad-text">designed and built in-house.</span>
           </h2>
           <p className="section-lead">
-            Nexavora is a product-building company. Every product below was designed,
-            engineered and shipped by the same team available to you.
+            CareNBuddi and Livanta were designed, engineered and are maintained by the same
+            team available for client work.
           </p>
         </div>
 

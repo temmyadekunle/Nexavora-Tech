@@ -249,7 +249,7 @@ export const products = [
     description:
       "CareNBuddi is a digital healthcare platform for Nigeria that brings finding care, booking appointments, keeping health information organised, and staying in touch with healthcare providers into one mobile app — available in English, Yoruba, Hausa and Igbo. It works offline after first load, installs as a PWA, and requires no payment to get started.",
     longDescription:
-      "CareNBuddi was created from a simple belief: getting healthcare should not be harder than it needs to be. Inspired by the story of Bethany Hamilton in Soul Surfer — in an emergency, care shouldn't always have to wait until a patient reaches the hospital. CareNBuddi uses technology to help people connect with healthcare, manage their care and find the right next step — whether at home, working remotely, travelling, or navigating the healthcare system.",
+      "CareNBuddi was created from a simple belief: getting healthcare should not be harder than it needs to be, and in an emergency care shouldn't always have to wait until a patient reaches a hospital — a belief inspired by Bethany Hamilton's story in Soul Surfer. CareNBuddi uses technology to help people connect with healthcare, manage their care and find the right next step — whether at home, working remotely, travelling, or navigating the healthcare system.",
     // The CareNBuddi web app is publicly usable, but the App Store / Play
     // Store builds are still listed as "Coming soon" on its own site, so
     // "Live" would overstate it. Beta is the accurate claim.
@@ -328,7 +328,7 @@ export const products = [
     description:
       "Livanta is a local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. Built in Nigeria, it runs entirely offline, installs as a PWA, and ships as a signed Android APK.",
     longDescription:
-      "Livanta — your life, organized. Your problems, anticipated. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. The app has 5 tabs (Home, Life, Alerts, Calendar, Profile), 4 languages (English, Hausa, Yoruba, Igbo), and a demo household seeded with 12 realistic Nigerian items (rent, electricity, internet, Netflix, vehicle insurance, school fees, driver's licence, passport, refrigerator warranty, generator service, car oil change, electrician). 9 alerts derived at seed time. 368 tests + smoke, CSP and responsive QA. 0 trackers — no cookies, no analytics, CSP-enforced.",
+      "Livanta — your life, organised. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. The app has 5 tabs (Home, Life, Alerts, Calendar, Profile) and 4 languages (English, Hausa, Yoruba, Igbo). A demo household comes seeded with 12 realistic Nigerian items and 9 derived alerts. It has 368 tests plus smoke, CSP and responsive QA, and no trackers — no cookies, no analytics, CSP-enforced.",
     // The prototype page states "v0.1.0 · beta, invite-only".
     status: "Beta" as const,
     accent: "violet" as const,
@@ -658,7 +658,7 @@ export const portfolio = [
       apk: "https://github.com/temmyadekunle/Livanta/releases",
     },
     longDescription:
-      "Livanta — your life, organized. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. Runs entirely offline, installs as a PWA.",
+      "Livanta — your life, organised. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. Runs entirely offline, installs as a PWA.",
     description:
       "A local-first life admin app that keeps rent, bills, documents, vehicles and schedules in one place — and warns you before each becomes an emergency. Runs entirely offline, installs as a PWA.",
   },
@@ -766,8 +766,8 @@ export const portfolio = [
       { src: "/projects/farm-pal/1.jpg", alt: "Farm Pal — dashboard screen", caption: "Dashboard — farm management overview" },
       { src: "/projects/farm-pal/2.jpg", alt: "Farm Pal — product screen", caption: "Products — browse farm items" },
       { src: "/projects/farm-pal/3.jpg", alt: "Farm Pal — profile screen", caption: "Profile — account settings" },
-      { src: "/projects/farm-pal/4.jpg", alt: "Farm Pal — additional screen", caption: "Farm app — additional UI screen" },
-      { src: "/projects/farm-pal/5.jpg", alt: "Farm Pal — additional screen", caption: "Farm app — additional UI screen" },
+      { src: "/projects/farm-pal/4.jpg", alt: "Farm Pal — marketplace promo screen", caption: "Marketplace — flexible subscriptions, discounts and ordering" },
+      { src: "/projects/farm-pal/5.jpg", alt: "Farm Pal — contact page with enquiry form and footer", caption: "Contact — enquiry form, phone and email" },
     ],
     mockups: { desktop: "", mobile: "" },
     features: [],
@@ -832,16 +832,16 @@ export const portfolio = [
     featured: false,
     coverImage: "/projects/social-media-designs/cover.jpg",
     screenshots: [
-      { src: "/projects/social-media-designs/1.jpg", alt: "Flyer 1", caption: "Flyer 1" },
-      { src: "/projects/social-media-designs/2.png", alt: "Flyer 2", caption: "Flyer 2" },
-      { src: "/projects/social-media-designs/3.png", alt: "Flyer 3", caption: "Flyer 3" },
-      { src: "/projects/social-media-designs/4.png", alt: "Flyer 4", caption: "Flyer 4" },
-      { src: "/projects/social-media-designs/5.png", alt: "Flyer 5", caption: "Flyer 5" },
-      { src: "/projects/social-media-designs/6.png", alt: "Flyer 6", caption: "Flyer 6" },
-      { src: "/projects/social-media-designs/7.png", alt: "Flyer 7", caption: "Flyer 7" },
-      { src: "/projects/social-media-designs/8.png", alt: "Flyer 8", caption: "Flyer 8" },
-      { src: "/projects/social-media-designs/9.png", alt: "Flyer 9", caption: "Flyer 9" },
-      { src: "/projects/social-media-designs/10.png", alt: "Flyer 10", caption: "Flyer 10" },
+      { src: "/projects/social-media-designs/1.jpg", alt: "Social media flyer design 1", caption: "Campaign flyer — design 1" },
+      { src: "/projects/social-media-designs/2.png", alt: "Social media flyer design 2", caption: "Campaign flyer — design 2" },
+      { src: "/projects/social-media-designs/3.png", alt: "Social media flyer design 3", caption: "Campaign flyer — design 3" },
+      { src: "/projects/social-media-designs/4.png", alt: "Social media flyer design 4", caption: "Campaign flyer — design 4" },
+      { src: "/projects/social-media-designs/5.png", alt: "Social media flyer design 5", caption: "Campaign flyer — design 5" },
+      { src: "/projects/social-media-designs/6.png", alt: "Social media flyer design 6", caption: "Campaign flyer — design 6" },
+      { src: "/projects/social-media-designs/7.png", alt: "Social media flyer design 7", caption: "Campaign flyer — design 7" },
+      { src: "/projects/social-media-designs/8.png", alt: "Social media flyer design 8", caption: "Campaign flyer — design 8" },
+      { src: "/projects/social-media-designs/9.png", alt: "Social media flyer design 9", caption: "Campaign flyer — design 9" },
+      { src: "/projects/social-media-designs/10.png", alt: "Social media flyer design 10", caption: "Campaign flyer — design 10" },
     ],
     mockups: { desktop: "", mobile: "" },
     features: [],
@@ -1106,14 +1106,14 @@ export const footer = {
 };
 
 export const contact = {
-  heading: "Talk to Nexavora",
+  heading: "Have a Project in Mind?",
   message:
-    "A short note is enough: what you want to build, who it is for, and roughly when you need it. We'll come back with questions, a plan, or an honest assessment of the best way forward.",
+    "Tell us what you're working on, what you need help with, and what you'd like to achieve. We'll come back with questions, a plan, or an honest assessment of the best way forward.",
   location: "Based in Nigeria, working with clients globally.",
   responseTime: "Within 1–2 working days",
   bestFor: "Products, platforms, design and growth",
   // Optional — hide the whole row if the form is ever moved to a backend.
-  note: "Send Inquiry opens your email app with these details filled in — nothing is stored on this site.",
+  note: "Send Enquiry opens your email app with these details filled in — nothing is stored on this site.",
   whatsapp: "+2349117511518",
 };
 

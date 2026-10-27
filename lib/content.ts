@@ -7,7 +7,8 @@ export const site = {
   // Visual brand lockup under the wordmark.
   brandSuffix: "Technology Solutions",
   legalName: "Nexavora Technology Solutions",
-  tagline: "We Build Technology That Moves Ideas Forward.",
+  url: "https://nexavora-tech.vercel.app",
+  tagline: "We Build Technology That Moves Your Ideas Forward.",
   positioning:
     "Nexavora Technology Solutions is a technology company building digital products and providing technology, design, digital growth, customer experience, and business solutions.",
   // TODO: replace with the real mailbox before launch.
@@ -16,7 +17,21 @@ export const site = {
   copyrightYear: 2026,
 };
 
+// Primary navigation order: Home, Solutions, Products, Portfolio, Company,
+// Insights, Contact, then the Start a Project call to action. Every entry
+// points at an existing route — no duplicate portfolio destinations.
 export const nav = {
+  home: { label: "Home", href: "/" },
+  solutions: {
+    label: "Solutions",
+    href: "/solutions/",
+    items: [
+      { label: "Build", hint: "Technology & product development", href: "/solutions/#build" },
+      { label: "Design", hint: "UI/UX & product design", href: "/solutions/#design" },
+      { label: "Grow", hint: "Digital marketing & social media", href: "/solutions/#grow" },
+      { label: "Operate", hint: "Customer experience & operations", href: "/solutions/#operate" },
+    ],
+  },
   products: {
     label: "Products",
     href: "/products/",
@@ -33,16 +48,7 @@ export const nav = {
       },
     ],
   },
-  solutions: {
-    label: "Solutions",
-    href: "/solutions/",
-    items: [
-      { label: "Build", hint: "Technology & product development", href: "/solutions/#build" },
-      { label: "Design", hint: "UI/UX & product design", href: "/solutions/#design" },
-      { label: "Grow", hint: "Digital marketing & social media", href: "/solutions/#grow" },
-      { label: "Operate", hint: "Customer experience & operations", href: "/solutions/#operate" },
-    ],
-  },
+  portfolio: { label: "Portfolio", href: "/portfolio/" },
   company: {
     label: "Company",
     href: "/company/",
@@ -53,21 +59,32 @@ export const nav = {
       { label: "Careers", hint: "Build with us", href: "/company/#careers" },
     ],
   },
-  links: [
-    { label: "Portfolio", href: "/portfolio/" },
-    { label: "Insights", href: "/insights/" },
-    { label: "Contact", href: "/contact/" },
-  ],
+  insights: { label: "Insights", href: "/insights/" },
+  contact: { label: "Contact", href: "/contact/" },
+  cta: { label: "Start a Project", href: "/contact/" },
 };
 
 export const hero = {
   eyebrow: "Nexavora Technology Solutions",
-  title: "We Build Technology That Moves Ideas Forward.",
+  title: "We Build Technology That Moves Your Ideas Forward.",
   statement:
-    "Strategy, design, engineering and digital growth under one roof — for the products we build for clients and the products we build for ourselves.",
+    "We help businesses build digital products, design better experiences, grow their online presence and manage customer interactions — under one roof, from first idea to launch.",
   primaryCta: { label: "Start a Project", href: "/contact/" },
-  secondaryCta: { label: "Explore Our Products", href: "/products/" },
+  secondaryCta: { label: "View Our Portfolio", href: "/portfolio/" },
 };
+
+// Homepage Featured Work, in display order. Only projects with genuine
+// captures in /public are included; the first entry is shown as the feature.
+export const homeFeaturedWork = [
+  "carenbuddi",
+  "livanta",
+  "euphoriabykylie",
+  "electrotrans",
+] as const;
+
+// Compact Selected Work preview on the Company page. The full collection
+// lives on /portfolio/; this is a pointer, not a second portfolio.
+export const companyWorkPreview = ["carenbuddi", "farm-pal", "onala-farms"] as const;
 
 export const trustedBy = {
   headline: "Trusted by businesses, organisations and people building what's next.",
@@ -441,161 +458,19 @@ export const process = [
   { step: "Improve", body: "Measured against reality, then iterated." },
 ];
 
-export const work = [
-  {
-    slug: "carenbuddi",
-    name: "CareNBuddi",
-    industry: "Healthcare Technology",
-    services: ["Product Strategy", "UI/UX", "Development", "PWA", "Multi-language", "Offline-first"],
-    outcome:
-      "A digital healthcare platform for Nigeria — live, installable, offline-capable, 4 languages. Patients find care, book appointments, track health, and connect with providers. Providers get discovered and manage requests.",
-    accent: "cyan" as const,
-    details: {
-      problem:
-        "Finding and booking healthcare in Nigeria is fragmented — patients juggle phone numbers, paper notes, and memory. Language barriers, offline needs, and provider discovery make care hard to reach.",
-      solution:
-        "CareNBuddi brings finding care, booking appointments, keeping health information organised, and staying in touch with healthcare providers into one mobile app — available in English, Yoruba, Hausa and Igbo. Works offline after first load, installs as a PWA, requires no payment to get started.",
-      highlights: [
-        "4 languages: English, Yoruba, Hausa, Igbo",
-        "Care directory: Hospitals, clinics, PHCs, labs, pharmacies",
-        "Appointment booking & tracking",
-        "Health records, vitals (BP, weight, blood sugar), vaccine & dose tracking, prescriptions",
-        "Health reminders for medicines & appointments",
-        "Health tips library (hypertension, malaria, mental health, first aid, diabetes, asthma, TB, immunisation)",
-        "Emergency access: Call 112, find nearby emergency care",
-        "Health Passport (emergency card), Care Circle (family health), Exercise & Wellness",
-        "Offline-capable PWA, installs on Android/iOS",
-        "Provider portal: digital presence, appointment requests, patient communication",
-      ],
-      techStack: [
-        "Next.js (App Router, static export)",
-        "PWA — installable, offline-capable",
-        "Cloudflare Workers deployment",
-        "4 languages from day one",
-      ],
-      links: {
-        website: "https://carenbuddi.folababy02.workers.dev/",
-        app: "https://carenbuddi.folababy02.workers.dev/app",
-        download: "https://carenbuddi.folababy02.workers.dev/CareNBuddi-1.0.0.zip",
-      },
-    },
-  },
-  {
-    slug: "livanta",
-    name: "Livanta",
-    industry: "Life Admin & Productivity",
-    services: ["Product Design", "UI/UX", "Mobile Development", "Local-first Architecture", "PWA", "Android APK"],
-    outcome:
-      "A local-first life admin app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each becomes an emergency. Ships as PWA + signed Android APK.",
-    accent: "violet" as const,
-    details: {
-      problem:
-        "Deadlines, renewals and recurring obligations are scattered across paper, memory and inboxes. A household's rent, bills, documents, vehicles and schedules live in too many places — and the week where they all land together becomes an emergency.",
-      solution:
-        "Livanta is a local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. 5 tabs (Home, Life, Alerts, Calendar, Profile), 4 languages, demo household with 12 seeded items, 9 derived alerts, 368 tests, 0 trackers, CSP-enforced.",
-      highlights: [
-        "5 tabs: Home, Life, Alerts, Calendar, Profile",
-        "4 languages: English, Hausa, Yoruba, Igbo",
-        "Demo mode: one-tap 'Open with demo data' — 12 things, 9 alerts, Nigerian household",
-        "Quick Add: name, category, kind, amount, date, recurrence in one sheet",
-        "Life hub: 5 areas with live counts, search, filters, trusted providers with call/WhatsApp",
-        "Alerts: filter chips, needs attention / coming up / completed, dismiss or review",
-        "Calendar: month grid with due-day dots, day agenda, upcoming list",
-        "Profile: account, security, language, notifications, reminder schedule, export JSON, delete all, help, legal",
-        "Onboarding: 5 steps (welcome, value props, choose what to manage, first thing, notifications) — all skippable, all translated",
-        "Providers: saved with ratings, call/WhatsApp from card",
-        "Local-first: IndexedDB (lifedesk), service worker, every feature works offline",
-        "Signed Android APK (versionCode 3) on GitHub Releases",
-        "No trackers, no cookies, CSP-enforced, JSON export, delete-all",
-      ],
-      techStack: [
-        "Next.js (App Router, output: 'export')",
-        "IndexedDB (lifedesk) — things, alerts, members, settings",
-        "Service Worker — offline shell, PWA",
-        "Cloudflare Workers (wrangler deploy)",
-        "Android WebView wrapper → signed APK",
-        "368 tests + smoke, CSP check, 5-viewport responsive QA",
-      ],
-      links: {
-        prototype: "https://livanta.folababy02.workers.dev/prototype/",
-        landing: "https://livanta.folababy02.workers.dev/landing/",
-        apk: "https://github.com/temmyadekunle/Livanta/releases",
-      },
-      demoData: [
-        { name: "Rent", category: "home · rent", amount: "₦1,200,000", timing: "due in 18 days" },
-        { name: "Electricity", category: "money · utility", amount: "₦45,200", timing: "due in 1 day" },
-        { name: "Internet subscription", category: "money · subscription", amount: "₦20,000", timing: "due in 3 days" },
-        { name: "Netflix", category: "money · subscription", amount: "₦8,500", timing: "due in 6 days" },
-        { name: "Vehicle insurance", category: "transport · insurance", amount: "₦85,000", timing: "due in 12 days" },
-        { name: "School fees", category: "family · school fee", amount: "₦150,000", timing: "due in 14 days" },
-        { name: "Driver's licence", category: "documents · document", amount: "—", timing: "expires in 45 days" },
-        { name: "Passport", category: "documents · document", amount: "—", timing: "expires in 240 days" },
-        { name: "LG Refrigerator", category: "home · asset", amount: "₦465,000", timing: "warranty ends in 21 days" },
-        { name: "Generator service", category: "home · maintenance", amount: "₦45,000", timing: "every 90 days, last 120 days ago" },
-        { name: "Toyota Camry oil change", category: "transport · maintenance", amount: "₦30,000", timing: "every 120 days, last 200 days ago" },
-        { name: "John the electrician", category: "services · provider", amount: "—", timing: "called 45 days ago" },
-      ],
-      roadmap: {
-        mvp: "v0.1 shipped — local-first things, alerts, calendar, life hub, quick add, detail, edit, derived priorities, 5-tab shell, splash + 5-step onboarding, demo mode, 4 languages, providers with call/WhatsApp, JSON export, delete-all, PWA offline, signed APK, no tracking, CSP enforced",
-        next: "v0.2–0.3 — optional accounts & sync (Supabase, fail-open cache built), recurring 'mark handled → next occurrence' end-to-end, household members shared (data model ready), push/email reminder channels, Play Store & App Store listings, alert snooze and custom rules",
-        future: "v1.x — payment rails (Paystack ready, not enabled in beta), predictive anticipation of household costs, OS widgets for today's due items, document photos (dates only — never ID numbers), iOS build, richer provider ratings",
-      },
-    },
-  },
-  {
-    slug: "electrotrans",
-    name: "Electrotrans Engineering and Contractor",
-    industry: "Engineering & Construction",
-    services: ["Website Design", "Development"],
-    outcome:
-      "A corporate website that gives an engineering contractor a credible presence online.",
-    accent: "orange" as const,
-  },
-  {
-    slug: "euphoriabykylie",
-    name: "Euphoria by Kylie Lounge",
-    industry: "Hospitality & Dining",
-    services: ["Brand Strategy", "Web Design", "Development", "Digital Marketing"],
-    outcome:
-      "A premium web presence for a Lagos lounge — brand-aligned design, reservation-friendly layout, and digital marketing that drives footfall and bookings.",
-    accent: "rose" as const,
-    details: {
-      problem:
-        "Kylie Lounge needed a credible online venue to showcase its atmosphere, menu, events, and reservation options — without a clear way for prospective guests to explore or book ahead.",
-      solution:
-        "A sleek, mobile-first website that presents the lounge's brand, menu, upcoming events, and a reservation section. Integrated contact and social links make it easy for guests to connect and return.",
-      highlights: [
-        "Brand-aligned visual design",
-        "Mobile-first layout",
-        "Menu and events section",
-        "Reservation-friendly booking area",
-        "Integrated social media & contact",
-        "Fast loading, SEO-optimised",
-      ],
-      techStack: [
-        "Next.js (App Router, static export)",
-        "Tailwind CSS",
-        "Framer Motion for subtle interactions",
-        "Cloudflare Workers deployment",
-      ],
-      links: {
-        website: "https://euphoriabykylielounge.com/",
-      },
-    },
-  },
-];
-
 export const portfolio = [
   {
     slug: "carenbuddi",
     name: "CareNBuddi",
-    category: "Mobile Apps",
+    category: "Mobile Apps & Digital Products",
     industry: "Healthcare Technology",
     status: "Beta" as const,
     accent: "cyan" as const,
     featured: true,
     logo: "/logo/carenbuddi.jpg",
     coverImage: "/projects/carenbuddi/cover.jpg",
+    coverAlt:
+      "CareNBuddi landing page with a preview of the mobile app home screen",
     screenshots: [
       { src: "/projects/carenbuddi/home.jpg", alt: "CareNBuddi home dashboard", caption: "Home — health guide, next appointment, reminders" },
       { src: "/projects/carenbuddi/find-care.jpg", alt: "CareNBuddi Find Care screen", caption: "Find Care — search hospitals, PHCs, labs and pharmacies" },
@@ -625,13 +500,15 @@ export const portfolio = [
   {
     slug: "livanta",
     name: "Livanta",
-    category: "Mobile Apps",
+    category: "Mobile Apps & Digital Products",
     industry: "Life Admin & Productivity",
     status: "Beta" as const,
     accent: "violet" as const,
     featured: false,
     logo: "/logo/livanta.jpg",
     coverImage: "/projects/livanta/cover.jpg",
+    coverAlt:
+      "Livanta landing page with the mobile app home screen alongside the product copy",
     screenshots: [
       { src: "/projects/livanta/home.jpg", alt: "Livanta home screen", caption: "Home — status overview, urgent items" },
       { src: "/projects/livanta/life.jpg", alt: "Livanta Life hub", caption: "Life — life areas with counts and filters" },
@@ -671,6 +548,8 @@ export const portfolio = [
     accent: "amber" as const,
     featured: false,
     coverImage: "/projects/electrotrans/cover.jpg",
+    coverAlt:
+      "Electrotrans website hero with navigation, service copy and construction equipment imagery",
     screenshots: [
       { src: "/projects/electrotrans/services.jpg", alt: "Electrotrans services section", caption: "Services — mechanical, electrical, hydraulic and pneumatic" },
       { src: "/projects/electrotrans/fleet.jpg", alt: "Electrotrans fleet section", caption: "Fleet — equipment hire, sales and haulage" },
@@ -697,6 +576,8 @@ export const portfolio = [
     featured: false,
     logo: "/clients/euphoria.png",
     coverImage: "/projects/euphoriabykylie/cover.jpg",
+    coverAlt:
+      "Euphoria by Kylie Lounge website hero showing the lounge interior and navigation",
     screenshots: [],
     mockups: { desktop: "", mobile: "" },
     features: [],
@@ -718,6 +599,7 @@ export const portfolio = [
     accent: "violet" as const,
     featured: false,
     coverImage: "/projects/ridesharing/cover.jpg",
+    coverAlt: "Ride Sharing App UI/UX concept — welcome screen with a Get Started action",
     screenshots: [
       { src: "/projects/ridesharing/1.jpg", alt: "Ride Sharing App — available cars screen", caption: "Available cars — browse and select vehicles nearby" },
       { src: "/projects/ridesharing/2.jpg", alt: "Ride Sharing App — create profile screen", caption: "Create profile — set up rider account" },
@@ -740,6 +622,8 @@ export const portfolio = [
     accent: "cyan" as const,
     featured: false,
     coverImage: "/projects/school-lms/cover.jpg",
+    coverAlt:
+      "School LMS UI/UX concept — ROHI International Schools website homepage",
     screenshots: [
       { src: "/projects/school-lms/1.jpg", alt: "School LMS — my classes screen", caption: "My classes — view enrolled courses and schedule" },
       { src: "/projects/school-lms/2.jpg", alt: "School LMS — my courses screen", caption: "My courses — browse course catalog" },
@@ -762,6 +646,7 @@ export const portfolio = [
     accent: "green" as const,
     featured: false,
     coverImage: "/projects/farm-pal/cover.jpg",
+    coverAlt: "Farm Pal UI/UX concept — laptop mockup of the urban farming page",
     screenshots: [
       { src: "/projects/farm-pal/1.jpg", alt: "Farm Pal — dashboard screen", caption: "Dashboard — farm management overview" },
       { src: "/projects/farm-pal/2.jpg", alt: "Farm Pal — product screen", caption: "Products — browse farm items" },
@@ -787,6 +672,7 @@ export const portfolio = [
     accent: "amber" as const,
     featured: false,
     coverImage: "/projects/onala-farms/cover.jpg",
+    coverAlt: "Onala Farms brand identity shown on laptop, tablet and phone mockups",
     screenshots: [
       { src: "/projects/onala-farms/1.jpg", alt: "Onala Farms — branding design 1", caption: "Brand identity — farm branding concept" },
       { src: "/projects/onala-farms/2.jpg", alt: "Onala Farms — branding design 2", caption: "Visual identity — color palette and typography" },
@@ -809,6 +695,7 @@ export const portfolio = [
     accent: "violet" as const,
     featured: false,
     coverImage: "/projects/flyers-posters/cover.png",
+    coverAlt: "Lomacom Farmbox promotional flyer design for fresh vegetables and fish",
     screenshots: [
       { src: "/projects/flyers-posters/1.png", alt: "Flyers and Posters — design 1", caption: "Event flyer — promotional design" },
       { src: "/projects/flyers-posters/2.png", alt: "Flyers and Posters — design 2", caption: "Poster design — campaign artwork" },
@@ -831,8 +718,10 @@ export const portfolio = [
     accent: "violet" as const,
     featured: false,
     coverImage: "/projects/social-media-designs/cover.jpg",
+    coverAlt: "Lomacom Cleaning Services Children's Day social media design",
     screenshots: [
       { src: "/projects/social-media-designs/1.jpg", alt: "Social media flyer design 1", caption: "Campaign flyer — design 1" },
+      { src: "/projects/social-media-designs/1.png", alt: "Lomacom Cleaning Services 'Thank God It's Friday' social media post with a smiling woman and headphones", caption: "Social post — Lomacom Cleaning Services" },
       { src: "/projects/social-media-designs/2.png", alt: "Social media flyer design 2", caption: "Campaign flyer — design 2" },
       { src: "/projects/social-media-designs/3.png", alt: "Social media flyer design 3", caption: "Campaign flyer — design 3" },
       { src: "/projects/social-media-designs/4.png", alt: "Social media flyer design 4", caption: "Campaign flyer — design 4" },
@@ -853,12 +742,13 @@ export const portfolio = [
   {
     slug: "agro-fresh",
     name: "Agro-Fresh",
-    category: "Mobile Apps",
+    category: "Mobile Apps & Digital Products",
     industry: "Agriculture",
     status: "Concept" as const,
     accent: "amber" as const,
     featured: false,
     coverImage: "/projects/agro-fresh/cover.jpg",
+    coverAlt: "Agro-Fresh mobile app home screen with product categories and search",
     screenshots: [
       { src: "/projects/agro-fresh/1.jpg", alt: "Agro-Fresh — farm product bank", caption: "Farm product bank — agricultural marketplace" },
       { src: "/projects/agro-fresh/2.jpg", alt: "Agro-Fresh — onboarding screen", caption: "Onboarding — guided setup for new users" },
@@ -896,14 +786,12 @@ export const team = [
     role: "UI/UX Designer",
     focus: "Interface & Experience Design",
     specialty: "Research-led interfaces, prototypes & design systems",
-    photo: "/team/omoloja.jpg",
   },
   {
     name: "Ajewole Samson",
     role: "Software Developer / WordPress Developer",
     focus: "Engineering",
     specialty: "Web & application development, CMS builds",
-    photo: "/team/ajewole.jpg",
   },
 ];
 
@@ -1060,8 +948,8 @@ export const footer = {
     {
       title: "Explore",
       links: [
-        { label: "Products", href: "/products/" },
         { label: "Solutions", href: "/solutions/" },
+        { label: "Products", href: "/products/" },
         { label: "Portfolio", href: "/portfolio/" },
         { label: "Insights", href: "/insights/" },
       ],

@@ -82,7 +82,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               {project.coverImage && (
                 <Image
                   src={project.coverImage}
-                  alt={`${project.name} — ${project.industry}`}
+                  alt={project.coverAlt ?? `${project.name} project cover`}
                   width={1200}
                   height={675}
                   className="project-detail-hero__image"

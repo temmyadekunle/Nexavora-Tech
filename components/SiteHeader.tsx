@@ -21,8 +21,30 @@ function Chevron() {
   );
 }
 
+type MenuGroup = {
+  key: "solutions" | "products" | "company";
+  label: string;
+  href: string;
+  items: { label: string; hint: string; href: string }[];
+};
+
+const solutions: MenuGroup = { key: "solutions", ...nav.solutions };
+const products: MenuGroup = { key: "products", ...nav.products };
+const company: MenuGroup = { key: "company", ...nav.company };
+
+function normalizePath(path: string) {
+  return path !== "/" ? path.replace(/\/+$/, "") : "/";
+}
+
+function isCurrent(pathname: string, href: string) {
+  const base = normalizePath(href.split("#")[0].split("?")[0]);
+  const current = normalizePath(pathname);
+  return base === "/" ? current === "/" : current === base;
+}
+
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<MenuGroup["key"] | null>(null);
   const pathname = usePathname();
   const toggleRef = useRef<HTMLButtonElement>(null);
 
@@ -32,6 +54,7 @@ export default function SiteHeader() {
   if (lastPath !== pathname) {
     setLastPath(pathname);
     setOpen(false);
+    setOpenGroup(null);
   }
 
   // Lock background scroll while the mobile panel is open.
@@ -44,11 +67,16 @@ export default function SiteHeader() {
     };
   }, [open]);
 
+  const closeMenu = () => {
+    setOpen(false);
+    setOpenGroup(null);
+  };
+
   const onKeyDown = (event: React.KeyboardEvent) => {
     if (event.key !== "Escape") return;
 
     if (open) {
-      setOpen(false);
+      closeMenu();
       toggleRef.current?.focus();
       return;
     }
@@ -85,61 +113,82 @@ export default function SiteHeader() {
         </Link>
 
         <nav className="nav" aria-label="Primary">
-          <div className="nav__drop">
-            <Link className="nav__drop-label" href={nav.products.href}>
-              {nav.products.label}
-              <Chevron />
-            </Link>
-            <div className="nav__menu">
-              {nav.products.items.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  <strong>{item.label}</strong>
-                  <small>{item.hint}</small>
-                </Link>
-              ))}
-            </div>
-          </div>
+          <Link
+            className="nav__link"
+            href={nav.home.href}
+            aria-current={isCurrent(pathname, nav.home.href) ? "page" : undefined}
+          >
+            {nav.home.label}
+          </Link>
 
-          <div className="nav__drop">
-            <Link className="nav__drop-label" href={nav.solutions.href}>
-              {nav.solutions.label}
-              <Chevron />
-            </Link>
-            <div className="nav__menu">
-              {nav.solutions.items.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  <strong>{item.label}</strong>
-                  <small>{item.hint}</small>
-                </Link>
-              ))}
+          {[solutions, products].map((group) => (
+            <div className="nav__drop" key={group.key}>
+              <Link
+                className="nav__drop-label"
+                href={group.href}
+                aria-current={isCurrent(pathname, group.href) ? "page" : undefined}
+              >
+                {group.label}
+                <Chevron />
+              </Link>
+              <div className="nav__menu">
+                {group.items.map((item) => (
+                  <Link key={item.href} href={item.href}>
+                    <strong>{item.label}</strong>
+                    <small>{item.hint}</small>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-
-          <div className="nav__drop">
-            <Link className="nav__drop-label" href={nav.company.href}>
-              {nav.company.label}
-              <Chevron />
-            </Link>
-            <div className="nav__menu">
-              {nav.company.items.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  <strong>{item.label}</strong>
-                  <small>{item.hint}</small>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {nav.links.map((item) => (
-            <Link key={item.href} className="nav__link" href={item.href}>
-              {item.label}
-            </Link>
           ))}
+
+          <Link
+            className="nav__link"
+            href={nav.portfolio.href}
+            aria-current={isCurrent(pathname, nav.portfolio.href) ? "page" : undefined}
+          >
+            {nav.portfolio.label}
+          </Link>
+
+          <div className="nav__drop">
+            <Link
+              className="nav__drop-label"
+              href={company.href}
+              aria-current={isCurrent(pathname, company.href) ? "page" : undefined}
+            >
+              {company.label}
+              <Chevron />
+            </Link>
+            <div className="nav__menu">
+              {company.items.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  <strong>{item.label}</strong>
+                  <small>{item.hint}</small>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <Link
+            className="nav__link"
+            href={nav.insights.href}
+            aria-current={isCurrent(pathname, nav.insights.href) ? "page" : undefined}
+          >
+            {nav.insights.label}
+          </Link>
+
+          <Link
+            className="nav__link"
+            href={nav.contact.href}
+            aria-current={isCurrent(pathname, nav.contact.href) ? "page" : undefined}
+          >
+            {nav.contact.label}
+          </Link>
         </nav>
 
         <div className="site-header__actions">
-          <Link className="btn btn-primary btn-sm" href="/contact/">
-            Start a Project
+          <Link className="btn btn-primary btn-sm" href={nav.cta.href}>
+            {nav.cta.label}
           </Link>
           <button
             ref={toggleRef}
@@ -148,7 +197,7 @@ export default function SiteHeader() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen((value) => !value)}
+            onClick={() => (open ? closeMenu() : setOpen(true))}
           >
             <span />
           </button>
@@ -156,51 +205,125 @@ export default function SiteHeader() {
       </div>
 
       <div id="mobile-nav" className={open ? "mobile-nav is-open" : "mobile-nav"}>
-        <nav aria-label="Mobile">
+        <nav aria-label="Mobile primary">
           <div className="mobile-nav__group">
-            <Link href={nav.products.href}>{nav.products.label}</Link>
-            <div className="mobile-nav__sub">
-              {nav.products.items.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                  <small>{item.hint}</small>
-                </Link>
-              ))}
-            </div>
+            <Link
+              className="mobile-nav__link"
+              href={nav.home.href}
+              aria-current={isCurrent(pathname, nav.home.href) ? "page" : undefined}
+              onClick={closeMenu}
+            >
+              {nav.home.label}
+            </Link>
           </div>
 
-          <div className="mobile-nav__group">
-            <Link href={nav.solutions.href}>{nav.solutions.label}</Link>
-            <div className="mobile-nav__sub">
-              {nav.solutions.items.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                  <small>{item.hint}</small>
+          {[solutions, products].map((group) => (
+            <div className="mobile-nav__group" key={group.key}>
+              <div className="mobile-nav__row">
+                <Link
+                  className="mobile-nav__link"
+                  href={group.href}
+                  aria-current={isCurrent(pathname, group.href) ? "page" : undefined}
+                  onClick={closeMenu}
+                >
+                  {group.label}
                 </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="mobile-nav__group">
-            <Link href={nav.company.href}>{nav.company.label}</Link>
-            <div className="mobile-nav__sub">
-              {nav.company.items.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                  <small>{item.hint}</small>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {nav.links.map((item) => (
-            <div className="mobile-nav__group" key={item.href}>
-              <Link href={item.href}>{item.label}</Link>
+                <button
+                  type="button"
+                  className="mobile-nav__toggle"
+                  aria-expanded={openGroup === group.key}
+                  aria-controls={`mobile-sub-${group.key}`}
+                  aria-label={`${openGroup === group.key ? "Hide" : "Show"} ${group.label} links`}
+                  onClick={() =>
+                    setOpenGroup((value) => (value === group.key ? null : group.key))
+                  }
+                >
+                  <Chevron />
+                </button>
+              </div>
+              {openGroup === group.key && (
+                <div className="mobile-nav__sub" id={`mobile-sub-${group.key}`}>
+                  {group.items.map((item) => (
+                    <Link key={item.href} href={item.href} onClick={closeMenu}>
+                      {item.label}
+                      <small>{item.hint}</small>
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
 
-          <Link className="btn btn-primary" href="/contact/">
-            Start a Project
+          <div className="mobile-nav__group">
+            <Link
+              className="mobile-nav__link"
+              href={nav.portfolio.href}
+              aria-current={isCurrent(pathname, nav.portfolio.href) ? "page" : undefined}
+              onClick={closeMenu}
+            >
+              {nav.portfolio.label}
+            </Link>
+          </div>
+
+          <div className="mobile-nav__group">
+            <div className="mobile-nav__row">
+              <Link
+                className="mobile-nav__link"
+                href={company.href}
+                aria-current={isCurrent(pathname, company.href) ? "page" : undefined}
+                onClick={closeMenu}
+              >
+                {company.label}
+              </Link>
+              <button
+                type="button"
+                className="mobile-nav__toggle"
+                aria-expanded={openGroup === company.key}
+                aria-controls={`mobile-sub-${company.key}`}
+                aria-label={`${openGroup === company.key ? "Hide" : "Show"} ${company.label} links`}
+                onClick={() =>
+                  setOpenGroup((value) => (value === company.key ? null : company.key))
+                }
+              >
+                <Chevron />
+              </button>
+            </div>
+            {openGroup === company.key && (
+              <div className="mobile-nav__sub" id={`mobile-sub-${company.key}`}>
+                {company.items.map((item) => (
+                  <Link key={item.href} href={item.href} onClick={closeMenu}>
+                    {item.label}
+                    <small>{item.hint}</small>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="mobile-nav__group">
+            <Link
+              className="mobile-nav__link"
+              href={nav.insights.href}
+              aria-current={isCurrent(pathname, nav.insights.href) ? "page" : undefined}
+              onClick={closeMenu}
+            >
+              {nav.insights.label}
+            </Link>
+          </div>
+
+          <div className="mobile-nav__group">
+            <Link
+              className="mobile-nav__link"
+              href={nav.contact.href}
+              aria-current={isCurrent(pathname, nav.contact.href) ? "page" : undefined}
+              onClick={closeMenu}
+            >
+              {nav.contact.label}
+            </Link>
+          </div>
+
+          <Link className="btn btn-primary" href={nav.cta.href} onClick={closeMenu}>
+            {nav.cta.label}
           </Link>
         </nav>
       </div>

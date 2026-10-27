@@ -5,9 +5,8 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 /**
- * No production domain is confirmed yet, so this deliberately emits rules
- * only — no `Sitemap:` line and no canonical/OG URLs. Add `metadataBase`
- * in `app/layout.tsx` and a `app/sitemap.ts` once the domain is live.
+ * Emits rules only — no `Sitemap:` line until an `app/sitemap.ts` exists.
+ * The production origin is configured as `metadataBase` in `app/layout.tsx`.
  */
 export default function robots(): MetadataRoute.Robots {
   return {

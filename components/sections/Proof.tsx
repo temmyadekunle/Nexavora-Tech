@@ -1,74 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
 import ClientLogo from "@/components/ClientLogo";
-import { clientValue, clients, team, work, testimonials } from "@/lib/content";
+import PortfolioCard from "@/components/PortfolioCard";
+import { clientValue, clients, companyWorkPreview, portfolio, team, testimonials } from "@/lib/content";
 
-function getProjectLink(project: typeof work[0]): string | null {
-  if (project.details?.links?.prototype) return project.details.links.prototype;
-  if (project.details?.links?.website) return project.details.links.website;
-  if (project.details?.links?.apk) return project.details.links.apk;
-  if (project.details?.links?.landing) return project.details.links.landing;
-  return null;
-}
+export function SelectedWorkPreview() {
+  const projects = companyWorkPreview
+    .map((slug) => portfolio.find((project) => project.slug === slug))
+    .filter((project): project is (typeof portfolio)[number] => Boolean(project));
 
-export function SelectedWork() {
   return (
     <section className="section section--line" id="selected-work">
       <div className="container">
         <div className="section-head">
           <span className="eyebrow">Selected Work</span>
           <h2 className="section-title">
-            A look at the products, experiences and digital solutions{" "}
-            <span className="grad-text">we&apos;ve helped bring to life</span>
+            A short look at <span className="grad-text">what we&apos;ve built</span>
           </h2>
+          <p className="section-lead">
+            Three projects that show the range of the work. The complete collection of
+            products, websites, UI/UX and design projects lives on the Portfolio page.
+          </p>
         </div>
 
         <div className="grid-3">
-          {work.map((project) => {
-            const externalLink = getProjectLink(project);
-            return (
-              <article className="work-card" id={project.slug} key={project.slug}>
-                <div
-                  className={`work-card__band${
-                    project.accent === "violet"
-                      ? " work-card__band--violet"
-                      : project.accent === "orange"
-                      ? " work-card__band--orange"
-                      : ""
-                  }`}
-                >
-                  <span>{project.name}</span>
-                </div>
-
-                <span className="work-card__industry">{project.industry}</span>
-                <h3>{project.name}</h3>
-                <p className="work-card__outcome">{project.outcome}</p>
-
-                <ul className="work-card__services">
-                  {project.services.map((service) => (
-                    <li key={service}>{service}</li>
-                  ))}
-                </ul>
-
-                <div className="work-card__cta">
-                  {externalLink ? (
-                    <a
-                      className="link-arrow"
-                      href={externalLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View live project <span>→</span>
-                    </a>
-                  ) : (
-                    <a className="link-arrow" href={`/portfolio/${project.slug}/`}>
-                      View case study <span>→</span>
-                    </a>
-                  )}
-                </div>
-              </article>
-            );
-          })}
+          {projects.map((project) => (
+            <PortfolioCard key={project.slug} project={project} />
+          ))}
         </div>
 
         <div className="section-actions">
@@ -105,7 +63,7 @@ export function Team({ home }: { home?: boolean }) {
           </div>
         )}
 
-        <div className="team-grid">
+        <div className={home ? "team-grid team-grid--home" : "team-grid"}>
           {team.map((member) => (
             <article className="team-card" key={member.name}>
               <div className="team-card__avatar" aria-hidden={member.photo ? undefined : true}>
@@ -127,10 +85,12 @@ export function Team({ home }: { home?: boolean }) {
                     .join("")
                 )}
               </div>
-              <h3>{member.name}</h3>
-              <p className="team-card__role">{member.role}</p>
-              <p className="team-card__focus">{member.focus}</p>
-              {!home && <p className="team-card__specialty">{member.specialty}</p>}
+              <div className="team-card__body">
+                <h3>{member.name}</h3>
+                <p className="team-card__role">{member.role}</p>
+                <p className="team-card__focus">{member.focus}</p>
+                {!home && <p className="team-card__specialty">{member.specialty}</p>}
+              </div>
             </article>
           ))}
         </div>
@@ -182,10 +142,8 @@ export function Clients() {
         <div className="section-head">
           <span className="eyebrow">Our Clients &amp; Collaborations</span>
           <h2 className="section-title">Businesses We&apos;ve Worked With</h2>
-          <p className="section-lead">Real organisations. Meaningful collaborations.</p>
-          <p className="section-desc">
-            We work with businesses and organisations to deliver digital solutions, create better
-            customer experiences, and bring ideas to life.
+          <p className="section-lead">
+            Real organisations we have delivered digital work for.
           </p>
         </div>
 
@@ -222,9 +180,6 @@ export function Clients() {
             );
           })}
         </div>
-        <p className="muted" style={{ marginTop: 18, fontSize: 14 }}>
-          More logos are added as partners give permission to display them.
-        </p>
       </div>
     </section>
   );

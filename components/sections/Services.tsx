@@ -6,13 +6,13 @@ export function WhatWeDo() {
     <section className="section" id="what-we-do">
       <div className="container">
         <div className="section-head">
-          <span className="eyebrow">What We Do</span>
+          <span className="eyebrow">Solutions</span>
           <h2 className="section-title">
-            Four ways we turn ideas into <span className="grad-text">working products</span>
+            Build, Design, Grow and <span className="grad-text">Operate</span>
           </h2>
           <p className="section-lead">
-            Build, Design, Grow and Operate — one team across the whole life of a digital
-            product.
+            One team across the whole life of a digital product — from the first build to
+            day-to-day operations.
           </p>
         </div>
 
@@ -21,23 +21,18 @@ export function WhatWeDo() {
             <article className="card card--service" key={item.key}>
               <span className="card__index">{item.index}</span>
               <h3 className="card__title">{item.title}</h3>
-              <p className="card__headline">{item.headline}</p>
-              <p className="card__body">{item.summary}</p>
-              <ul className="card__chips">
-                {item.highlights.map((service) => (
-                  <li key={service}>{service}</li>
-                ))}
-              </ul>
-              <Link className="card__link" href={item.cta.href}>
-                {item.cta.label} <span aria-hidden="true">→</span>
+              <p className="card__headline">{item.subtitle}</p>
+              <p className="card__body">{item.body}</p>
+              <Link className="card__link" href={`/solutions/#${item.key}`}>
+                Explore {item.title} <span aria-hidden="true">→</span>
               </Link>
             </article>
           ))}
         </div>
 
-        <div className="process__cta">
-          <Link className="link-arrow" href="/solutions/">
-            Explore our solutions <span>→</span>
+        <div className="section-actions">
+          <Link className="btn btn--outline" href="/solutions/">
+            View All Solutions
           </Link>
         </div>
       </div>

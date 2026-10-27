@@ -1,51 +1,52 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { products, portfolio } from "@/lib/content";
-import { getAccentStyle, getStatusStyle, getStatusDotStyle, getExternalActions } from "@/lib/utils";
+import { homeFeaturedWork, portfolio } from "@/lib/content";
+import {
+  getAccentStyle,
+  getStatusStyle,
+  getStatusDotStyle,
+  getExternalActions,
+} from "@/lib/utils";
 
-// Verifiable ownership labels: products[] entries are Nexavora's own; entries
-// under businesses worked with are client work; Farm Pal is a design concept.
+// Ownership labels keep the showcase factual: products are Nexavora's own,
+// the rest are client projects.
 const showcaseKinds: Record<string, string> = {
+  carenbuddi: "Nexavora Product",
   livanta: "Nexavora Product",
-  electrotrans: "Client Project",
   euphoriabykylie: "Client Project",
-  "farm-pal": "Design Concept",
+  electrotrans: "Client Project",
 };
 
 export default function ProjectShowcase() {
-  // The strongest project is flagged in content; fall back to the first record.
-  const featured = products.find((p) => (p as { featured?: boolean }).featured) ?? products[0];
-  // More Projects: Livanta (product), Electrotrans + Euphoria + Farm-Pal
-  // (client and portfolio work — the full set shown by the old Selected Work).
-  const others = [
-    products.find((p) => p.slug === "livanta")!,
-    portfolio.find((p) => p.slug === "electrotrans")!,
-    portfolio.find((p) => p.slug === "euphoriabykylie")!,
-    portfolio.find((p) => p.slug === "farm-pal")!,
-  ];
+  const projects = homeFeaturedWork
+    .map((slug) => portfolio.find((project) => project.slug === slug))
+    .filter((project): project is (typeof portfolio)[number] => Boolean(project));
 
-  const featuredActions = getExternalActions(
-    featured ? (featured.links as Record<string, string | undefined>) : undefined,
-  );
+  const [featured, ...others] = projects;
+  const featuredActions = featured
+    ? getExternalActions(featured.links as Record<string, string | undefined>)
+    : [];
 
   return (
-    <section className="section section--line" id="showcase">
+    <section className="section section--line" id="featured-work">
       <div className="container">
         <div className="section-head section-head--center">
-          <span className="eyebrow">Our Work</span>
+          <span className="eyebrow">Featured Work</span>
           <h2 className="section-title">
-            Ideas into <span className="grad-text">Digital Experiences.</span>
+            Products, websites and experiences{" "}
+            <span className="grad-text">we&apos;ve built</span>
           </h2>
           <p className="section-lead">
-            Explore the digital products, websites and designs we&apos;ve created, along
-            with the products we&apos;re developing.
+            A short selection of genuine project work — with the screens we actually shipped
+            and links to explore each one.
           </p>
         </div>
 
         {featured && (
-          <article className="project-showcase-featured" style={getAccentStyle(featured.accent)}>
+          <article
+            className="project-showcase-featured"
+            style={getAccentStyle(featured.accent)}
+          >
             <div className="project-showcase-featured__visual">
               {featured.coverImage && (
                 <Link
@@ -55,7 +56,7 @@ export default function ProjectShowcase() {
                 >
                   <Image
                     src={featured.coverImage}
-                    alt={`${featured.name} — ${featured.industry}`}
+                    alt={featured.coverAlt ?? `${featured.name} project cover`}
                     width={1200}
                     height={675}
                     className="project-showcase-featured__image"
@@ -82,30 +83,37 @@ export default function ProjectShowcase() {
                     <h3 className="project-showcase-featured__name">
                       <Link href={`/portfolio/${featured.slug}/`}>{featured.name}</Link>
                     </h3>
-                    <span className="project-showcase-featured__status" style={getStatusStyle(featured.status)}>
+                    <span
+                      className="project-showcase-featured__status"
+                      style={getStatusStyle(featured.status)}
+                    >
                       <i style={getStatusDotStyle(featured.status)} /> {featured.status}
                     </span>
                   </div>
                 </div>
-                <span className="project-showcase-featured__badge">Featured</span>
+                <span className="project-showcase-featured__badge">
+                  {showcaseKinds[featured.slug] ?? "Featured"}
+                </span>
               </div>
-              <span className="project-showcase-featured__category">{featured.industry}</span>
+              <span className="project-showcase-featured__category">
+                {featured.category}
+              </span>
               <p className="project-showcase-featured__description">
-                {featured.longDescription || featured.description}
+                {featured.description}
               </p>
               <div className="project-showcase-featured__actions btn-row">
                 <Link className="btn btn-primary" href={`/portfolio/${featured.slug}/`}>
                   Explore Project
                 </Link>
-                {featuredActions.slice(0, 1).map((a) => (
+                {featuredActions.slice(0, 1).map((action) => (
                   <a
-                    key={a.key}
+                    key={action.key}
                     className="btn btn-ghost"
-                    href={a.url}
+                    href={action.url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {a.label}
+                    {action.label}
                   </a>
                 ))}
               </div>
@@ -115,10 +123,12 @@ export default function ProjectShowcase() {
 
         {others.length > 0 && (
           <div className="project-showcase-grid">
-            <h3 className="project-showcase-grid__title">More Projects</h3>
+            <h3 className="project-showcase-grid__title">More projects</h3>
             <div className="grid-3">
               {others.map((project) => {
-                const actions = getExternalActions(project.links as Record<string, string | undefined>);
+                const actions = getExternalActions(
+                  project.links as Record<string, string | undefined>,
+                );
                 return (
                   <article
                     key={project.slug}
@@ -133,7 +143,7 @@ export default function ProjectShowcase() {
                         >
                           <Image
                             src={project.coverImage}
-                            alt={`${project.name} — ${project.industry}`}
+                            alt={project.coverAlt ?? `${project.name} project cover`}
                             width={800}
                             height={450}
                             className="project-showcase-card__image"
@@ -142,8 +152,13 @@ export default function ProjectShowcase() {
                           />
                         </Link>
                       )}
-                      <span className="project-showcase-card__badge">{project.industry}</span>
-                      <span className="project-showcase-card__status" style={getStatusStyle(project.status)}>
+                      <span className="project-showcase-card__badge">
+                        {project.category}
+                      </span>
+                      <span
+                        className="project-showcase-card__status"
+                        style={getStatusStyle(project.status)}
+                      >
                         <i style={getStatusDotStyle(project.status)} />
                         {project.status}
                       </span>
@@ -169,24 +184,39 @@ export default function ProjectShowcase() {
                           {showcaseKinds[project.slug]}
                         </span>
                       )}
-                      <p className="project-showcase-card__description">{project.description}</p>
+                      <p className="project-showcase-card__description">
+                        {project.description}
+                      </p>
                       <div className="project-showcase-card__actions">
-                        <Link className="project-showcase-card__link" href={`/portfolio/${project.slug}/`}>
+                        <Link
+                          className="project-showcase-card__link"
+                          href={`/portfolio/${project.slug}/`}
+                        >
                           <span>Explore Project</span>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                          >
                             <line x1="5" y1="12" x2="19" y2="12" />
                             <polyline points="12 5 19 12 12 19" />
                           </svg>
                         </Link>
-                        {actions.slice(0, 1).map((a) => (
+                        {actions.slice(0, 1).map((action) => (
                           <a
-                            key={a.key}
+                            key={action.key}
                             className="project-showcase-card__link project-showcase-card__link--secondary"
-                            href={a.url}
+                            href={action.url}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <span>{a.label}</span>
+                            <span>{action.label}</span>
                           </a>
                         ))}
                       </div>
@@ -200,7 +230,7 @@ export default function ProjectShowcase() {
 
         <div className="project-showcase-cta">
           <Link className="btn btn-primary" href="/portfolio/">
-            Explore Our Portfolio
+            View Our Portfolio
           </Link>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { FinalCta } from "@/components/sections/Growth";
-import { SelectedWork, Team } from "@/components/sections/Proof";
-import { Process } from "@/components/sections/Services";
+import { SelectedWorkPreview, Team } from "@/components/sections/Proof";
+import { Process, WhyNexavora } from "@/components/sections/Services";
 import { site } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -38,21 +38,16 @@ export default function CompanyPage() {
             we build our own products alongside client work, because the standard we hold
             ourselves to should be the same one we&apos;d want as a client.
           </p>
-          <ul className="checklist">
-            <li>We start with the problem, not the technology.</li>
-            <li>We design around the people who will actually use the product.</li>
-            <li>Strategy, design, engineering and growth work under one roof.</li>
-            <li>We build solutions that can evolve as the business grows.</li>
-          </ul>
         </div>
       </section>
 
       <div id="approach">
+        <WhyNexavora />
         <Process />
       </div>
 
       <Team />
-      <SelectedWork />
+      <SelectedWorkPreview />
 
       <section className="section section--line" id="labs">
         <div className="container prose">

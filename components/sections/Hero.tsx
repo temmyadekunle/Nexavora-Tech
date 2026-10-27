@@ -9,7 +9,7 @@ export function Hero() {
         <div>
           <span className="eyebrow">{hero.eyebrow}</span>
           <h1 className="hero__title">
-            We Build <span className="grad-text">Technology</span> That Moves Ideas Forward.
+            We Build <span className="grad-text">Technology</span> That Moves Your Ideas Forward.
           </h1>
           <p className="hero__statement">{hero.statement}</p>
 
@@ -20,12 +20,6 @@ export function Hero() {
             <Link className="btn btn-ghost" href={hero.secondaryCta.href}>
               {hero.secondaryCta.label}
             </Link>
-          </div>
-
-          <div className="hero__meta">
-            <span>Product studio</span>
-            <span>Design &amp; engineering</span>
-            <span>Digital growth</span>
           </div>
         </div>
 

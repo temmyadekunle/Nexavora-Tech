@@ -67,7 +67,7 @@ export default function CompanyPage() {
           <p className="section-lead" style={{ marginTop: 22 }}>
             Nexavora Technology Solutions is organised into three parts:{" "}
             <strong>Products</strong> —
-            what we build and launch; <strong>Solutions</strong> — what we build for clients;
+            what we build in-house; <strong>Solutions</strong> — what we build for clients;
             and <strong>Labs</strong> — what we&apos;re experimenting with.
           </p>
         </div>

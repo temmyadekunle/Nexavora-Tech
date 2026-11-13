@@ -38,12 +38,12 @@ export const nav = {
     items: [
       {
         label: "CareNBuddi",
-        hint: "Healthcare technology platform",
+        hint: "In development · healthcare technology",
         href: "/products/#carenbuddi",
       },
       {
         label: "Livanta",
-        hint: "Life admin & productivity app",
+        hint: "In development · life admin & productivity",
         href: "/products/#livanta",
       },
     ],
@@ -256,178 +256,37 @@ export const whatWeDo = [
   },
 ];
 
+// Approved pre-launch summaries. Public product copy stays within these —
+// detailed functionality and technical detail are not exposed until launch.
+export const productSummaries = {
+  carenbuddi:
+    "CareNBuddi is an upcoming healthcare navigation platform designed to make accessing and managing healthcare information easier for individuals, families and healthcare providers. Built with accessibility and inclusive healthcare experiences in mind, CareNBuddi aims to simplify the healthcare journey through connected digital solutions.",
+  livanta:
+    "Livanta is an upcoming digital productivity platform designed to help individuals and business owners organise important information, manage everyday responsibilities and stay on top of their activities. It is being developed to bring essential productivity tools and personal organisation into one connected experience.",
+} as const;
+
 export const products = [
   {
     slug: "carenbuddi",
     name: "CareNBuddi",
     industry: "Healthcare Technology",
-    problem:
-      "Finding and booking the right healthcare service in Nigeria is fragmented — patients juggle phone numbers, paper notes, and memory. Language barriers, offline needs, and provider discovery make care hard to reach.",
-    description:
-      "CareNBuddi is a digital healthcare platform for Nigeria that brings finding care, booking appointments, keeping health information organised, and staying in touch with healthcare providers into one mobile app — available in English, Yoruba, Hausa and Igbo. It works offline after first load, installs as a PWA, and requires no payment to get started.",
-    longDescription:
-      "CareNBuddi was created from a simple belief: getting healthcare should not be harder than it needs to be, and in an emergency care shouldn't always have to wait until a patient reaches a hospital — a belief inspired by Bethany Hamilton's story in Soul Surfer. CareNBuddi uses technology to help people connect with healthcare, manage their care and find the right next step — whether at home, working remotely, travelling, or navigating the healthcare system.",
-    // The CareNBuddi web app is publicly usable, but the App Store / Play
-    // Store builds are still listed as "Coming soon" on its own site, so
-    // "Live" would overstate it. Beta is the accurate claim.
-    status: "Beta" as const,
+    status: "In Development" as const,
     accent: "cyan" as const,
-    // Flagship product — featured prominently in the homepage showcase.
-    featured: true,
     logo: "/logo/carenbuddi.jpg",
     logoWidth: 1024,
     logoHeight: 1024,
-    // Real captures of the live CareNBuddi web app (780x1688 @2x) plus the
-    // product's own landing hero as the cover (1440x900).
-    coverImage: "/projects/carenbuddi/cover.jpg",
-    screenshots: [
-      { src: "/projects/carenbuddi/home.jpg", alt: "CareNBuddi home dashboard showing health guide, next appointment and quick actions", caption: "Home — health guide, next appointment, reminders and quick actions" },
-      { src: "/projects/carenbuddi/find-care.jpg", alt: "CareNBuddi Find Care screen with search and filters for hospitals, clinics and pharmacies", caption: "Find Care — search hospitals, PHCs, labs and pharmacies by area" },
-      { src: "/projects/carenbuddi/health.jpg", alt: "CareNBuddi Health screen showing vitals check-ins and reminders", caption: "Health — vitals check-ins, records and reminders" },
-    ],
-    mockups: {
-      desktop: "",
-      mobile: "",
-    },
-    // Screen selected for the products-page showcase: the home dashboard,
-    // a meaningful view of the live app (not a splash screen).
-    showcaseScreenshot: "/projects/carenbuddi/home.jpg",
-    showcaseHighlights: [
-      "Find Healthcare — search hospitals, clinics, PHCs, labs and pharmacies by name or area",
-      "Book Appointments — schedule visits and track what's coming up",
-      "Health Records & Vitals — keep records, results and readings in one place",
-      "Works offline and installs as a PWA, with English, Yoruba, Hausa and Igbo built in",
-    ],
-    features: [
-      "Find Healthcare — hospitals, clinics, PHCs, laboratories, pharmacies by name or area",
-      "Book Appointments — schedule visits and track what's coming up",
-      "Health Records — store records, results and details in one place",
-      "Health Reminders — stay on top of medicines, appointments and activities",
-      "Healthcare Connections — reach providers directly, keep activities organised",
-      "Personal Health Dashboard — overview of healthcare activities and journey",
-      "Vitals Tracking — blood pressure, weight, blood sugar with trend views",
-      "Vaccine & Dose Tracking — record what was given and when next dose is due",
-      "Prescriptions — hold on to prescriptions and medicines",
-      "Health Tips — curated articles (hypertension, malaria, mental health, first aid, diabetes, asthma, TB, immunisation)",
-      "Emergency Access — Call 112, find nearby emergency care",
-      "Health Passport — emergency card and health summary",
-      "Care Circle — family health at a glance",
-      "Exercise & Wellness — steps, weight and sleep",
-      "Preventive Services — check health and book preventive services",
-    ],
-    techStack: [
-      "Next.js (App Router, static export)",
-      "PWA — installable, offline-capable after first load",
-      "4 languages: English, Yoruba, Hausa, Igbo",
-      "Care directory: Hospitals, clinics, PHCs, labs, pharmacies",
-      "Works on any modern phone, online or offline",
-      "Cloudflare Workers deployment",
-    ],
-    links: {
-      website: "https://carenbuddi.folababy02.workers.dev/",
-      app: "https://carenbuddi.folababy02.workers.dev/app",
-      download: "https://carenbuddi.folababy02.workers.dev/CareNBuddi-1.0.0.zip",
-    },
-    providerFeatures: [
-      "Build a digital presence patients can find",
-      "Get discovered by people searching for care",
-      "Manage appointment requests in one place",
-      "Improve communication with patients",
-      "Give patients a clearer, simpler experience",
-    ],
+    summary: productSummaries.carenbuddi,
   },
   {
     slug: "livanta",
     name: "Livanta",
     industry: "Life Admin & Productivity",
-    problem:
-      "Deadlines, renewals and recurring obligations are scattered across paper, memory and inboxes. A household's rent, bills, documents, vehicles and schedules live in too many places — and the week where they all land together becomes an emergency.",
-    description:
-      "Livanta is a local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. Built in Nigeria, it runs entirely offline, installs as a PWA, and ships as a signed Android APK.",
-    longDescription:
-      "Livanta — your life, organised. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. The app has 5 tabs (Home, Life, Alerts, Calendar, Profile) and 4 languages (English, Hausa, Yoruba, Igbo). A demo household comes seeded with 12 realistic Nigerian items and 9 derived alerts. It has 368 tests plus smoke, CSP and responsive QA, and no trackers — no cookies, no analytics, CSP-enforced.",
-    // The prototype page states "v0.1.0 · beta, invite-only".
-    status: "Beta" as const,
+    status: "In Development" as const,
     accent: "violet" as const,
-    featured: false,
     logo: "/logo/livanta.jpg",
     logoWidth: 1080,
     logoHeight: 1080,
-    // Real captures from the v0.1.0 build (780x1688 @2x) in "Livanta Screens/",
-    // plus the product's own landing hero as the cover (1440x900).
-    coverImage: "/projects/livanta/cover.jpg",
-    screenshots: [
-      { src: "/projects/livanta/home.jpg", alt: "Livanta home screen showing status overview, urgent items and coming soon", caption: "Home — status overview, needs attention, coming soon" },
-      { src: "/projects/livanta/life.jpg", alt: "Livanta Life hub listing life areas with counts and filters", caption: "Life — the hub with life areas, search and filters" },
-      { src: "/projects/livanta/calendar.jpg", alt: "Livanta calendar showing month grid with due-day markers", caption: "Calendar — month grid, day agenda and upcoming" },
-      { src: "/projects/livanta/quick-add.jpg", alt: "Livanta quick add sheet for capturing a new item", caption: "Quick add — name, category, amount, date, recurrence" },
-      { src: "/projects/livanta/detail.jpg", alt: "Livanta item detail showing amount, due date and notes", caption: "Thing detail — full record with mark handled and edit" },
-      { src: "/projects/livanta/profile.jpg", alt: "Livanta profile screen with language, notifications and export", caption: "Profile — language, reminders, export and delete all data" },
-      { src: "/projects/livanta/welcome.jpg", alt: "Livanta welcome screen with language picker and demo option", caption: "Onboarding — welcome, language picker and demo data" },
-    ],
-    mockups: {
-      desktop: "",
-      mobile: "",
-    },
-    // Screen selected for the products-page showcase: the home status view,
-    // which shows the core "what needs attention" idea of the app.
-    showcaseScreenshot: "/projects/livanta/home.jpg",
-    showcaseHighlights: [
-      "Alerts — warns you before a deadline becomes an emergency",
-      "Calendar — month grid with due-day marks, day agenda and upcoming",
-      "Quick Add — capture an item in seconds: name, category, amount, date",
-      "Local-first — every feature works offline, with no trackers, in 4 languages",
-    ],
-    features: [
-      "Home — status hero, urgent/important/on-track readings, needs attention, coming soon, quick add, life areas",
-      "Life — five life areas (Home, Transport, Money, Documents, Family, Tasks, Services) with live counts, search, category/status filters, trusted providers with call/WhatsApp",
-      "Alerts — filter chips, needs attention / coming up / completed, dismiss or review each alert",
-      "Calendar — month grid with due-day dots, day agenda, upcoming list",
-      "Profile — account, security, language, notifications, reminder schedule, export (JSON), delete all data, help, legal",
-      "Quick Add — capture in seconds: name, category, kind, amount, date, recurrence in one sheet",
-      "Thing Detail — full record: amount, due date, notes, details, with mark handled, edit, delete",
-      "Documents Module — drill into a single life area with its own header, list and actions",
-      "Onboarding — 5 steps: welcome (language picker), value props, choose what to manage, first thing example, notifications permission — all skippable, all translated",
-      "Demo Mode — one-tap 'Open with demo data' for a fully populated household",
-      "Providers — saved providers with ratings, call/WhatsApp from the card",
-      "Offline-first — IndexedDB (lifedesk), service worker caches shell, every feature works offline",
-      "Code-split — home/shell eager; other tabs fetch on navigation then cache",
-      "Signed Android APK (versionCode 3) on GitHub Releases",
-      "No tracking, CSP enforced, JSON export, delete-all",
-    ],
-    techStack: [
-      "Next.js (App Router, output: 'export')",
-      "IndexedDB (lifedesk) — things, alerts, members, settings",
-      "Service Worker — offline shell, PWA",
-      "4 languages: English, Hausa, Yoruba, Igbo",
-      "Cloudflare Workers deployment (wrangler deploy)",
-      "Android WebView wrapper → signed APK",
-      "368 tests + smoke, CSP check, 5-viewport responsive QA",
-    ],
-    links: {
-      prototype: "https://livanta.folababy02.workers.dev/prototype/",
-      landing: "https://livanta.folababy02.workers.dev/landing/",
-      apk: "https://github.com/temmyadekunle/Livanta/releases",
-    },
-    demoData: [
-      { name: "Rent", category: "home · rent", amount: "₦1,200,000", timing: "due in 18 days", story: "Pay before the 25th (Mr. Okonkwo)" },
-      { name: "Electricity", category: "money · utility", amount: "₦45,200", timing: "due in 1 day", story: "Ikeja Electric — the urgent alert" },
-      { name: "Internet subscription", category: "money · subscription", amount: "₦20,000", timing: "due in 3 days", story: "Spectranet 10GB + 4G router" },
-      { name: "Netflix", category: "money · subscription", amount: "₦8,500", timing: "due in 6 days", story: "Subscription creep" },
-      { name: "Vehicle insurance", category: "transport · insurance", amount: "₦85,000", timing: "due in 12 days", story: "Toyota Camry, ABC-123-Lagos" },
-      { name: "School fees", category: "family · school fee", amount: "₦150,000", timing: "due in 14 days", story: "Command Primary, assigned to Partner" },
-      { name: "Driver's licence", category: "documents · document", amount: "—", timing: "expires in 45 days", story: "FRSC renewal" },
-      { name: "Passport", category: "documents · document", amount: "—", timing: "expires in 240 days", story: "Long-horizon item" },
-      { name: "LG Refrigerator", category: "home · asset", amount: "₦465,000", timing: "warranty ends in 21 days", story: "12-month warranty lapsing" },
-      { name: "Generator service", category: "home · maintenance", amount: "₦45,000", timing: "every 90 days, last 120 days ago", story: "Interval-based, overdue" },
-      { name: "Toyota Camry oil change", category: "transport · maintenance", amount: "₦30,000", timing: "every 120 days, last 200 days ago", story: "Interval-based, overdue" },
-      { name: "John the electrician", category: "services · provider", amount: "—", timing: "called 45 days ago", story: "Saved provider with rating" },
-    ],
-    roadmap: {
-      mvp: "v0.1 shipped — local-first things, alerts, calendar, life hub, quick add, detail, edit, derived priorities, 5-tab shell, splash + 5-step onboarding, demo mode, 4 languages, providers with call/WhatsApp, JSON export, delete-all, PWA offline, signed APK, no tracking, CSP enforced",
-      next: "v0.2–0.3 — optional accounts & sync (Supabase, fail-open cache built), recurring 'mark handled → next occurrence' end-to-end, household members shared (data model ready), push/email reminder channels, Play Store & App Store listings, alert snooze and custom rules",
-      future: "v1.x — payment rails (Paystack ready, not enabled in beta), predictive anticipation of household costs, OS widgets for today's due items, document photos (dates only — never ID numbers), iOS build, richer provider ratings",
-    },
+    summary: productSummaries.livanta,
   },
 ];
 export const whyNexavora = [
@@ -458,86 +317,53 @@ export const process = [
   { step: "Improve", body: "Measured against reality, then iterated." },
 ];
 
-export const portfolio = [
+// Fields describing screens, features and links are optional: in-house
+// products in development publish only a summary and their identity mark.
+export type PortfolioProject = {
+  slug: string;
+  name: string;
+  category: string;
+  industry: string;
+  status: "Live" | "Beta" | "In Development" | "Prototype" | "Concept";
+  accent: string;
+  featured?: boolean;
+  inHouse?: boolean;
+  logo?: string;
+  coverImage?: string;
+  coverAlt?: string;
+  description: string;
+  longDescription?: string;
+  screenshots?: { src: string; alt: string; caption: string }[];
+  mockups?: { desktop: string; mobile: string };
+  features?: string[];
+  techStack?: string[];
+  links?: Record<string, string | undefined>;
+};
+
+export const portfolio: PortfolioProject[] = [
   {
     slug: "carenbuddi",
     name: "CareNBuddi",
     category: "Mobile Apps & Digital Products",
     industry: "Healthcare Technology",
-    status: "Beta" as const,
+    status: "In Development" as const,
     accent: "cyan" as const,
     featured: true,
+    inHouse: true,
     logo: "/logo/carenbuddi.jpg",
-    coverImage: "/projects/carenbuddi/cover.jpg",
-    coverAlt:
-      "CareNBuddi landing page with a preview of the mobile app home screen",
-    screenshots: [
-      { src: "/projects/carenbuddi/home.jpg", alt: "CareNBuddi home dashboard", caption: "Home — health guide, next appointment, reminders" },
-      { src: "/projects/carenbuddi/find-care.jpg", alt: "CareNBuddi Find Care screen", caption: "Find Care — search hospitals, PHCs, labs and pharmacies" },
-      { src: "/projects/carenbuddi/health.jpg", alt: "CareNBuddi Health screen", caption: "Health — vitals check-ins, records and reminders" },
-    ],
-    mockups: { desktop: "", mobile: "" },
-    features: [
-      "Find Healthcare — hospitals, clinics, PHCs, laboratories, pharmacies by name or area",
-      "Book Appointments — schedule visits and track what's coming up",
-      "Health Records — store records, results and details in one place",
-    ],
-    techStack: [
-      "Next.js (App Router, static export)",
-      "PWA — installable, offline-capable",
-      "Cloudflare Workers deployment",
-    ],
-    links: {
-      website: "https://carenbuddi.folababy02.workers.dev/",
-      app: "https://carenbuddi.folababy02.workers.dev/app",
-      download: "https://carenbuddi.folababy02.workers.dev/CareNBuddi-1.0.0.zip",
-    },
-    longDescription:
-      "CareNBuddi was created from a simple belief: getting healthcare should not be harder than it needs to be. CareNBuddi uses technology to help people connect with healthcare, manage their care and find the right next step — whether at home, working remotely, travelling, or navigating the healthcare system.",
-    description:
-      "A digital healthcare platform for Nigeria — find care, book appointments, track health records and connect with providers. Available in English, Yoruba, Hausa and Igbo. Offline-capable PWA.",
+    description: productSummaries.carenbuddi,
   },
   {
     slug: "livanta",
     name: "Livanta",
     category: "Mobile Apps & Digital Products",
     industry: "Life Admin & Productivity",
-    status: "Beta" as const,
+    status: "In Development" as const,
     accent: "violet" as const,
     featured: false,
+    inHouse: true,
     logo: "/logo/livanta.jpg",
-    coverImage: "/projects/livanta/cover.jpg",
-    coverAlt:
-      "Livanta landing page with the mobile app home screen alongside the product copy",
-    screenshots: [
-      { src: "/projects/livanta/home.jpg", alt: "Livanta home screen", caption: "Home — status overview, urgent items" },
-      { src: "/projects/livanta/life.jpg", alt: "Livanta Life hub", caption: "Life — life areas with counts and filters" },
-      { src: "/projects/livanta/calendar.jpg", alt: "Livanta calendar", caption: "Calendar — month grid with due-day markers" },
-      { src: "/projects/livanta/quick-add.jpg", alt: "Livanta quick add", caption: "Quick add — capture a new item" },
-      { src: "/projects/livanta/detail.jpg", alt: "Livanta item detail", caption: "Thing detail — full record" },
-      { src: "/projects/livanta/profile.jpg", alt: "Livanta profile", caption: "Profile — language, notifications, export" },
-      { src: "/projects/livanta/welcome.jpg", alt: "Livanta welcome", caption: "Onboarding — welcome and language picker" },
-    ],
-    mockups: { desktop: "", mobile: "" },
-    features: [
-      "Home — status hero, urgent/important/on-track readings",
-      "Life — five life areas with live counts, search, filters",
-      "Quick Add — capture in seconds: name, category, amount, date, recurrence",
-    ],
-    techStack: [
-      "Next.js (App Router, output: 'export')",
-      "IndexedDB (lifedesk)",
-      "Service Worker — offline shell, PWA",
-    ],
-    links: {
-      prototype: "https://livanta.folababy02.workers.dev/prototype/",
-      landing: "https://livanta.folababy02.workers.dev/landing/",
-      apk: "https://github.com/temmyadekunle/Livanta/releases",
-    },
-    longDescription:
-      "Livanta — your life, organised. A local-first app that keeps a household's rent, bills, documents, vehicles and schedules in one place — and warns you before each one becomes an emergency. Runs entirely offline, installs as a PWA.",
-    description:
-      "A local-first life admin app that keeps rent, bills, documents, vehicles and schedules in one place — and warns you before each becomes an emergency. Runs entirely offline, installs as a PWA.",
+    description: productSummaries.livanta,
   },
   {
     slug: "electrotrans",
@@ -805,8 +631,8 @@ export const clientValue = [
     body: "Strategy, design and engineering sit together, so nothing is lost in a hand-off.",
   },
   {
-    title: "We ship our own products too",
-    body: "CareNBuddi and Livanta are ours — we hold client work to the same standard we hold ourselves.",
+    title: "We build our own products too",
+    body: "CareNBuddi and Livanta are ours — both in development, held to the same standard as client work.",
   },
 ];
 

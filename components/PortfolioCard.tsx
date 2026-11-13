@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ProductMark from "@/components/ProductMark";
 import { portfolio } from "@/lib/content";
 import { CATEGORY_KEY_BY_LABEL } from "@/lib/portfolioCategories";
 import {
@@ -22,22 +23,32 @@ export default function PortfolioCard({ project }: { project: Project }) {
       data-category={CATEGORY_KEY_BY_LABEL[project.category]}
     >
       <div className="portfolio-card__visual">
-        {project.coverImage && (
+        {project.inHouse && project.logo ? (
           <Link
             className="portfolio-card__image-link"
             href={href}
-            aria-label={`Explore ${project.name}`}
+            aria-label={`Product overview for ${project.name}`}
           >
-            <Image
-              src={project.coverImage}
-              alt={project.coverAlt ?? `${project.name} project cover`}
-              width={800}
-              height={450}
-              className="portfolio-card__image"
-              loading="lazy"
-              unoptimized
-            />
+            <ProductMark name={project.name} logo={project.logo} accent={project.accent} />
           </Link>
+        ) : (
+          project.coverImage && (
+            <Link
+              className="portfolio-card__image-link"
+              href={href}
+              aria-label={`Explore ${project.name}`}
+            >
+              <Image
+                src={project.coverImage}
+                alt={project.coverAlt ?? `${project.name} project cover`}
+                width={800}
+                height={450}
+                className="portfolio-card__image"
+                loading="lazy"
+                unoptimized
+              />
+            </Link>
+          )
         )}
         <span className="portfolio-card__badge">{project.industry}</span>
         <span className="portfolio-card__status" style={getStatusStyle(project.status)}>
@@ -61,11 +72,14 @@ export default function PortfolioCard({ project }: { project: Project }) {
             <Link href={href}>{project.name}</Link>
           </h3>
         </div>
+        {project.inHouse && (
+          <span className="portfolio-card__kind">In-house product</span>
+        )}
         <p className="portfolio-card__description">{project.description}</p>
         <div className="portfolio-card__meta">{project.category}</div>
         <div className="portfolio-card__actions">
           <Link className="portfolio-card__link" href={href}>
-            <span>Explore Project</span>
+            <span>{project.inHouse ? "Product Overview" : "Explore Project"}</span>
             <svg
               width="16"
               height="16"

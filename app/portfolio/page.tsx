@@ -35,7 +35,7 @@ export default function PortfolioPage() {
             Our <span className="grad-text">Work</span>
           </>
         }
-        lead="Explore the digital products, websites, applications and designs we've created, along with projects still in development."
+        lead="Explore the websites, applications and designs we've delivered for clients — plus the two products we're building in-house."
         actions={
           <Link className="btn btn-primary" href="/contact/">
             Start a Project

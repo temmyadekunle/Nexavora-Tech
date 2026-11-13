@@ -6,7 +6,7 @@ import { Products } from "@/components/sections/Products";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "The digital products Nexavora designs, builds and ships for itself — CareNBuddi and Livanta.",
+    "CareNBuddi and Livanta — the digital products Nexavora is designing and building in-house, both currently in development.",
 };
 
 export default function ProductsPage() {
@@ -16,10 +16,10 @@ export default function ProductsPage() {
         eyebrow="Products"
         title={
           <>
-            Products we <span className="grad-text">build and run</span>
+            Products we&apos;re <span className="grad-text">building</span>
           </>
         }
-        lead="We don't just build for clients — we build our own products too. The same team, the same standards, our own skin in the game."
+        lead="We build our own products too. CareNBuddi and Livanta are in development today — designed and engineered in-house, and held to the same standard as our client work."
       />
       <Products />
       <FinalCta />

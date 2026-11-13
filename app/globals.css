@@ -978,158 +978,142 @@ ol {
    Products
    ========================================================================== */
 
-/* ==========================================================================
-   Product showcases
-   Screenshots are the primary visual; the logo stays a small identity mark.
-   ========================================================================== */
+/* Compact pre-launch product cards: identity mark, logo, name, approved
+   summary and an "In Development" badge. No screenshots or feature lists. */
 
-.product-showcase-list {
+.product-grid {
   margin-top: clamp(36px, 5vw, 56px);
 }
 
-.product-showcase {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: clamp(36px, 4.5vw, 56px);
-  align-items: center;
-  padding: clamp(28px, 4vw, 48px);
+.product-card {
+  display: flex;
+  flex-direction: column;
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
-  background: linear-gradient(140deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  overflow: hidden;
 }
 
-.product-showcase + .product-showcase {
-  margin-top: clamp(56px, 8vw, 96px);
+.product-card__visual {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
 }
 
-.product-showcase--reverse {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-}
-
-/* Source order is [visual, info]; the reverse layout moves info first so the
-   screenshot stays on the right. */
-.product-showcase--reverse .product-showcase__info {
-  order: -1;
-}
-
-.product-showcase__visual {
+.product-card__body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: clamp(22px, 3vw, 32px);
 }
 
-.product-showcase__frame {
-  margin: 0;
-  padding: 12px;
-  border-radius: 32px;
-  border: 1px solid var(--line-strong);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.42);
-}
-
-/* Portrait app screen (780x1688): width drives the size so the intrinsic
-   aspect ratio is preserved — never stretched or cropped. */
-.product-showcase__screenshot {
-  display: block;
-  width: clamp(260px, 30vw, 340px);
-  height: auto;
-  max-width: 100%;
-  object-fit: contain;
-  border-radius: 22px;
-}
-
-.product-showcase__logo {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  border: 1px solid var(--line-strong);
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.product-showcase__name {
-  margin-top: 18px;
-  font-size: clamp(26px, 3vw, 34px);
-  font-weight: 700;
-}
-
-.product-showcase__meta {
+.product-card__header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
-  margin-top: 12px;
+  margin-bottom: 18px;
 }
 
-.product-showcase__status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11.5px;
+.product-card__kind {
+  font-family: var(--font-display);
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--line-strong);
-  color: var(--muted);
+  color: var(--accent);
 }
 
-.product-showcase__status i {
+.product-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+
+.product-card__status i {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--grad);
+  flex-shrink: 0;
 }
 
-.product-showcase__category {
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted-2);
+.product-card__name {
+  font-size: clamp(24px, 2.6vw, 30px);
+  font-weight: 700;
 }
 
-.product-showcase__desc {
-  margin-top: 16px;
+.product-card__desc {
+  margin-top: 14px;
   color: var(--muted);
   font-size: 15px;
   line-height: 1.7;
 }
 
-.product-showcase__features {
-  margin-top: 20px;
+.product-card__category {
+  margin-top: 18px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+/* ==========================================================================
+   Product identity mark
+   Restrained visual for pre-launch products: the approved logo on a neutral
+   tile over an accent-tinted panel. Used wherever a screenshot would have
+   appeared, so no unfinished product screens are shown.
+   ========================================================================== */
+
+.product-mark {
+  position: absolute;
+  inset: 0;
   display: grid;
-  gap: 10px;
+  place-items: center;
+  padding: clamp(20px, 4vw, 36px);
+  background:
+    radial-gradient(90% 90% at 50% 0%, rgba(var(--accent-rgb), 0.24), transparent 62%),
+    radial-gradient(80% 80% at 100% 100%, rgba(var(--accent-rgb), 0.12), transparent 60%),
+    linear-gradient(160deg, #0c1226 0%, #070a15 72%);
 }
 
-.product-showcase__features li {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  color: var(--muted);
-  font-size: 14.5px;
-  line-height: 1.6;
+.product-mark__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 76%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 76%);
 }
 
-.product-showcase__features li::before {
-  content: "";
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  margin-top: 5px;
-  border-radius: 50%;
-  background: var(--grad);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E")
-    center / 11px no-repeat, linear-gradient(#000 0 0);
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E")
-    center / 11px no-repeat;
+.product-mark__tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(52%, 240px);
+  aspect-ratio: 1;
+  padding: clamp(12px, 2vw, 20px);
+  border-radius: 22px;
+  background: #f6f8ff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.4);
 }
 
-.product-showcase__actions {
-  margin-top: 24px;
-}
-
-.product-showcase__actions .btn {
-  min-height: 46px;
+.product-mark__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 14px;
 }
 
 /* ==========================================================================
@@ -2190,15 +2174,6 @@ ol {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .product-showcase,
-  .product-showcase--reverse {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .product-showcase--reverse .product-showcase__info {
-    order: 0;
-  }
-
   .tech {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -2363,6 +2338,8 @@ ol {
 }
 
 .project-showcase-featured__visual {
+  position: relative;
+  width: 100%;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
@@ -2830,6 +2807,17 @@ ol {
   color: var(--accent);
 }
 
+.portfolio-card__kind {
+  display: inline-block;
+  margin: -4px 0 12px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 .portfolio-card__description {
   color: var(--muted);
   font-size: 15px;
@@ -3148,10 +3136,16 @@ ol {
 }
 
 .project-detail-hero__visual {
+  width: 100%;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
+}
+
+.project-detail-hero__visual--mark {
+  position: relative;
+  aspect-ratio: 16 / 10;
 }
 
 .project-detail-hero__image {

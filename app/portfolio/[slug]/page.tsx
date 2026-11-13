@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import ProductMark from "@/components/ProductMark";
 import { portfolio } from "@/lib/content";
 import { getAccentStyle, getStatusStyle, getStatusDotStyle, getStatusNote, getExternalActions } from "@/lib/utils";
 import ProjectGallery from "@/components/ProjectGallery";
@@ -50,7 +51,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           </nav>
           <div className="project-detail-hero__grid">
             <div className="project-detail-hero__content">
-              <span className="eyebrow">{project.industry}</span>
+              <span className="eyebrow">{project.inHouse ? "Nexavora Product" : project.industry}</span>
               <h1 className="project-detail-hero__title">{project.name}</h1>
               <div className="project-detail-hero__meta">
                 <span className="project-detail-hero__status" style={getStatusStyle(project.status)}>
@@ -78,17 +79,29 @@ export default async function ProjectDetailPage({ params }: Props) {
                 </Link>
               </div>
             </div>
-            <div className="project-detail-hero__visual">
-              {project.coverImage && (
-                <Image
-                  src={project.coverImage}
-                  alt={project.coverAlt ?? `${project.name} project cover`}
-                  width={1200}
-                  height={675}
-                  className="project-detail-hero__image"
-                  priority
-                  unoptimized
+            <div
+              className={`project-detail-hero__visual${
+                project.inHouse ? " project-detail-hero__visual--mark" : ""
+              }`}
+            >
+              {project.inHouse && project.logo ? (
+                <ProductMark
+                  name={project.name}
+                  logo={project.logo}
+                  accent={project.accent}
                 />
+              ) : (
+                project.coverImage && (
+                  <Image
+                    src={project.coverImage}
+                    alt={project.coverAlt ?? `${project.name} project cover`}
+                    width={1200}
+                    height={675}
+                    className="project-detail-hero__image"
+                    priority
+                    unoptimized
+                  />
+                )
               )}
             </div>
           </div>

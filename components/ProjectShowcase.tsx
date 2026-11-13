@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import ProductMark from "@/components/ProductMark";
 import { homeFeaturedWork, portfolio } from "@/lib/content";
 import {
   getAccentStyle,
@@ -34,11 +35,11 @@ export default function ProjectShowcase() {
           <span className="eyebrow">Featured Work</span>
           <h2 className="section-title">
             Products, websites and experiences{" "}
-            <span className="grad-text">we&apos;ve built</span>
+            <span className="grad-text">we&apos;re building</span>
           </h2>
           <p className="section-lead">
-            A short selection of genuine project work — with the screens we actually shipped
-            and links to explore each one.
+            A short selection of genuine project work — client builds, plus the products
+            we&apos;re developing in-house.
           </p>
         </div>
 
@@ -48,22 +49,36 @@ export default function ProjectShowcase() {
             style={getAccentStyle(featured.accent)}
           >
             <div className="project-showcase-featured__visual">
-              {featured.coverImage && (
+              {featured.inHouse && featured.logo ? (
                 <Link
                   className="project-showcase-featured__image-link"
                   href={`/portfolio/${featured.slug}/`}
-                  aria-label={`Explore ${featured.name}`}
+                  aria-label={`Product overview for ${featured.name}`}
                 >
-                  <Image
-                    src={featured.coverImage}
-                    alt={featured.coverAlt ?? `${featured.name} project cover`}
-                    width={1200}
-                    height={675}
-                    className="project-showcase-featured__image"
-                    priority
-                    unoptimized
+                  <ProductMark
+                    name={featured.name}
+                    logo={featured.logo}
+                    accent={featured.accent}
                   />
                 </Link>
+              ) : (
+                featured.coverImage && (
+                  <Link
+                    className="project-showcase-featured__image-link"
+                    href={`/portfolio/${featured.slug}/`}
+                    aria-label={`Explore ${featured.name}`}
+                  >
+                    <Image
+                      src={featured.coverImage}
+                      alt={featured.coverAlt ?? `${featured.name} project cover`}
+                      width={1200}
+                      height={675}
+                      className="project-showcase-featured__image"
+                      priority
+                      unoptimized
+                    />
+                  </Link>
+                )
               )}
             </div>
             <div className="project-showcase-featured__content">
@@ -103,7 +118,7 @@ export default function ProjectShowcase() {
               </p>
               <div className="project-showcase-featured__actions btn-row">
                 <Link className="btn btn-primary" href={`/portfolio/${featured.slug}/`}>
-                  Explore Project
+                  {featured.inHouse ? "Product Overview" : "Explore Project"}
                 </Link>
                 {featuredActions.slice(0, 1).map((action) => (
                   <a
@@ -136,21 +151,34 @@ export default function ProjectShowcase() {
                     style={getAccentStyle(project.accent)}
                   >
                     <div className="project-showcase-card__visual">
-                      {project.coverImage && (
+                      {project.inHouse && project.logo ? (
                         <Link
                           href={`/portfolio/${project.slug}/`}
-                          aria-label={`Explore ${project.name}`}
+                          aria-label={`Product overview for ${project.name}`}
                         >
-                          <Image
-                            src={project.coverImage}
-                            alt={project.coverAlt ?? `${project.name} project cover`}
-                            width={800}
-                            height={450}
-                            className="project-showcase-card__image"
-                            loading="lazy"
-                            unoptimized
+                          <ProductMark
+                            name={project.name}
+                            logo={project.logo}
+                            accent={project.accent}
                           />
                         </Link>
+                      ) : (
+                        project.coverImage && (
+                          <Link
+                            href={`/portfolio/${project.slug}/`}
+                            aria-label={`Explore ${project.name}`}
+                          >
+                            <Image
+                              src={project.coverImage}
+                              alt={project.coverAlt ?? `${project.name} project cover`}
+                              width={800}
+                              height={450}
+                              className="project-showcase-card__image"
+                              loading="lazy"
+                              unoptimized
+                            />
+                          </Link>
+                        )
                       )}
                       <span className="project-showcase-card__badge">
                         {project.category}
@@ -192,7 +220,7 @@ export default function ProjectShowcase() {
                           className="project-showcase-card__link"
                           href={`/portfolio/${project.slug}/`}
                         >
-                          <span>Explore Project</span>
+                          <span>{project.inHouse ? "Product Overview" : "Explore Project"}</span>
                           <svg
                             width="16"
                             height="16"
